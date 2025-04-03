@@ -37,8 +37,9 @@ def df_health( dataframe : pd.DataFrame, verbose : bool = False, graph : bool = 
 
 def clean_missing(df_original : pd.DataFrame,
                   cols_to_drop : list[str] = None,
+                  method: str = "delete",
                   missing_threshold : float = 0.1,
-                  dropRows : bool = True ) -> pd.DataFrame:
+                  ) -> pd.DataFrame:
 
     df = df_original.copy()
 
@@ -51,7 +52,7 @@ def clean_missing(df_original : pd.DataFrame,
         if df[column].isna().sum() / n_rows > missing_threshold:
             df.drop(column, axis=1, inplace=True)
 
-    if dropRows:
+    if method == "delete":
         df.dropna(inplace=True)
 
     if df.isna().sum().sum()!=0:
@@ -85,14 +86,16 @@ def remove_outliers(df_original:pd.DataFrame,
     return df
 
 
-def normalize_df(df_original : pd.DataFrame, 
-                 filter_col : str = "target", 
-                 filter_value : any = None) -> pd.DataFrame:
+def standarize_data ( df_original : pd.DataFrame, 
+                      filter_col : str = "target", 
+                      filter_value : any = None,
+                      cols_to_standarize: list[str] = None,
+                      ) -> pd.DataFrame:
 
-    logging.info(f"Normalizing data, filter_col={filter_col}, filter_value={filter_value}")
+    logging.info(f"Stadarize data, filter_col={filter_col}, filter_value={filter_value}")
 
     df = df_original.copy()
-    for column in df.columns:
+    for column in cols_to_standarize:
         if df[column].dtype == 'float64':
             if filter_value is not None:
                 mean = df.loc[df[filter_col] == filter_value,column].mean()
@@ -103,6 +106,19 @@ def normalize_df(df_original : pd.DataFrame,
 
             df[column] = (df[column]-mean)/std
     return df
+
+def normalize_data( df_original: pd.DataFrame,
+                    upper_limit: float = 1,
+                    lower_limit: float = None,
+                    cols_to_normalize: list[str] = None,
+                    ) -> pd.DataFrame:
+    
+    df = df_original.copy()
+    for column in cols_to_normalize:
+        max_value = df[column].max()
+        df[column] = df[column] / max_value * upper_limit
+    return df
+
 
 
 def one_hot(df_original: pd.DataFrame):
@@ -129,7 +145,7 @@ def create_cuadratic_features(df_original:pd.DataFrame, normalize:bool=True) -> 
             df[f"{i}_{j}"] = df[columns[i]] * df[columns[j]]
 
     if normalize:
-        df = normalize_df(df_original=df)
+        df = standarize_data(df_original=df)
 
     return df.copy()
 
@@ -170,7 +186,7 @@ def x_y_split(dataframe: pd.DataFrame,
 
 def prepare_df(df_original : pd.DataFrame,
                train_mask : np.ndarray,
-               normalize : int = 0,
+               standarize : int = 0,
                cuad_features : bool = False,
                rate_features : bool = False,
                 ) -> tuple[pd.DataFrame]:
@@ -184,9 +200,9 @@ def prepare_df(df_original : pd.DataFrame,
     df = rename_target(df_original=df, target_name='wbit_error')
 
     df = clean_missing(df_original=df,
+                       method= "delete",
                        missing_threshold = 0.10,
-                       cols_to_drop=['Unnamed: 0','key'],
-                       dropRows=True)
+                       cols_to_drop=['Unnamed: 0','key']) 
 
 
     df = one_hot(df_original=df)
@@ -197,10 +213,10 @@ def prepare_df(df_original : pd.DataFrame,
     if rate_features:
         df = create_rate_features(df_original=df, time_feature='hrs_between_cbcs', cols_to_ignore=['sex_M'])
 
-    if normalize==1:
-        df = normalize_df(df_original=df) 
-    if normalize==2:
-        df = normalize_df(df_original=df, filter_col='target',filter_value=0)
+    if standarize == 1:
+        df = standarize(df_original=df) 
+    if standarize == 2:
+        df = standarize(df_original=df, filter_col='target',filter_value=0)
     
     logging.info(f"Shape after processing: {df.shape} ")
 
