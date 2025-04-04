@@ -107,6 +107,7 @@ def standarize_data ( df_original : pd.DataFrame,
             df[column] = (df[column]-mean)/std
     return df
 
+
 def normalize_data( df_original: pd.DataFrame,
                     upper_limit: float = 1,
                     lower_limit: float = None,
@@ -116,9 +117,9 @@ def normalize_data( df_original: pd.DataFrame,
     df = df_original.copy()
     for column in cols_to_normalize:
         max_value = df[column].max()
-        df[column] = df[column] / max_value * upper_limit
+        min_value = df[column].min()
+        df[column] = (df[column]-min_value) / (max_value-min_value) * upper_limit + lower_limit
     return df
-
 
 
 def one_hot(df_original: pd.DataFrame):
@@ -185,6 +186,7 @@ def x_y_split(dataframe: pd.DataFrame,
 
 
 def prepare_df(df_original : pd.DataFrame,
+               target_name : str,
                train_mask : np.ndarray,
                standarize : int = 0,
                cuad_features : bool = False,
@@ -197,13 +199,12 @@ def prepare_df(df_original : pd.DataFrame,
     df = df_original.copy()
     logging.info(f"Shape before processing: {df.shape} ")
 
-    df = rename_target(df_original=df, target_name='wbit_error')
+    df = rename_target(df_original=df, target_name=target_name)
 
     df = clean_missing(df_original=df,
                        method= "delete",
                        missing_threshold = 0.10,
                        cols_to_drop=['Unnamed: 0','key']) 
-
 
     df = one_hot(df_original=df)
 
@@ -213,11 +214,14 @@ def prepare_df(df_original : pd.DataFrame,
     if rate_features:
         df = create_rate_features(df_original=df, time_feature='hrs_between_cbcs', cols_to_ignore=['sex_M'])
 
+    cols_to_standarize:list[str] = df.select_dtypes(include=["float64"]).columns.tolist()
     if standarize == 1:
-        df = standarize(df_original=df) 
+        df = standarize_data(df_original=df, cols_to_standarize=cols_to_standarize) 
     if standarize == 2:
-        df = standarize(df_original=df, filter_col='target',filter_value=0)
+        df = standarize_data(df_original=df, filter_col='target',filter_value=0, cols_to_standarize=cols_to_standarize)
+
     
+
     logging.info(f"Shape after processing: {df.shape} ")
 
     dummy_col :str = df_original.columns[0]

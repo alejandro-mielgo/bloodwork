@@ -54,8 +54,9 @@ def execute_svc(optimize_model : bool,
     train_mask : np.ndarray = np.random.rand(len(diff)) < train_test_split
 
     train_x, train_y, test_x, test_y = df_utils.prepare_df( df_original = diff,
+                                                            target_name = "wbit_error",
                                                             train_mask = train_mask,
-                                                            normalize = 1,
+                                                            standarize = 2,
                                                             cuad_features = False,
                                                             rate_features = False )
     
@@ -94,9 +95,6 @@ def execute_svc(optimize_model : bool,
     utils.get_metrics(y_true = train_y, y_pred = svc_val_predictions, model_name="svc validation")
     utils.get_metrics(y_true = test_y,  y_pred = svc_test_predictions, model_name="svc test")
 
-
-def compare_svc_features() -> None:
-    pass
 
 if __name__ == '__main__':
 

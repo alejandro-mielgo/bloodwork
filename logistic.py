@@ -10,10 +10,10 @@ import utils
 
 #__ Config ___________________________________________________________________________________
 OPTIMIZE_MODEL : bool = False
-TRAIN_MODEL : bool = False
-SAVE_MODEL : bool = False
-COMPUTE_PREDICTIONS : bool = False
-SAVE_PREDICTIONS : bool = False
+TRAIN_MODEL : bool = True
+SAVE_MODEL : bool = True
+COMPUTE_PREDICTIONS : bool = True
+SAVE_PREDICTIONS : bool = True
 
 TRAIN_TEST_SPLIT : float = 0.85
 SEED_NUMBER : int = 0
@@ -72,9 +72,10 @@ def execute_lr(optimize_model : bool,
     train_mask : np.ndarray = np.random.rand(len(diff)) < train_test_split
 
     train_x, train_y, test_x, test_y = df_utils.prepare_df( df_original = diff,
+                                                            target_name = "wbit_error",
                                                             train_mask = train_mask,
-                                                            normalize = 1,
-                                                            cuad_features = True,
+                                                            standarize = 1,
+                                                            cuad_features = True,   
                                                             rate_features = False )
     
     #__ Find best parameters ______________________________________________________________________
@@ -86,7 +87,7 @@ def execute_lr(optimize_model : bool,
                             n_points = 1000,
                             n_iterations = 2)
     else:
-        best_c = 10
+        best_c = 1
 
     #__ Train model _______________________________________________________________________________
     if train_model:

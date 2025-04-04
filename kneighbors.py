@@ -9,10 +9,10 @@ import df_utils
 
 #__ Config ___________________________________________________________________________________
 OPTIMIZE_MODEL : bool = False
-TRAIN_MODEL : bool = False
-SAVE_MODEL : bool = False
-COMPUTE_PREDICTIONS : bool = False
-SAVE_PREDICTIONS : bool = False
+TRAIN_MODEL : bool = True
+SAVE_MODEL : bool = True
+COMPUTE_PREDICTIONS : bool = True
+SAVE_PREDICTIONS : bool = True
 
 TRAIN_TEST_SPLIT : float = 0.85
 SEED_NUMBER : int = 0
@@ -58,8 +58,9 @@ def execute_kn(optimize_model : bool,
     train_mask : np.ndarray = np.random.rand(len(diff)) < train_test_split
 
     train_x, train_y, test_x, test_y = df_utils.prepare_df( df_original = diff,
+                                                            target_name= "wbit_error",
                                                             train_mask = train_mask,
-                                                            normalize = 1,
+                                                            standarize = 1,
                                                             cuad_features = False,
                                                             rate_features = False )
     #__ Find best parameters ______________________________________________________________________

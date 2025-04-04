@@ -1,723 +1,95 @@
-2025-03-25 20:48:04.208 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-25 20:48:04.208 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-25 20:48:06.467 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-25 20:48:07.750 INFO df_utils - prepare_df: Shape after processing: (95631, 741) 
-2025-03-25 20:48:09.153 INFO df_utils - prepare_df: Shape of train data: (81293, 741) 
-2025-03-25 20:48:09.154 INFO df_utils - prepare_df: Shape of test data: (14338, 741) 
-2025-03-25 20:48:09.473 INFO logistic - optimize_c: C Parameters iteration 0: [0.1, 1, 5, 20]
-2025-03-25 20:48:13.322 INFO logistic - optimize_c: C Parameters iteration 1: [0.05, 0.08333333333333333, 0.16666666666666666, 0.2]
-2025-03-25 20:48:14.565 INFO logistic - optimize_c: C Parameters iteration 2: [0.041666666666666664, 0.06944444444444443, 0.13888888888888887, 0.16666666666666666]
-2025-03-25 20:48:14.565 INFO logistic - optimize_c: Best C : 0.1000
-2025-03-25 20:48:14.565 INFO logistic - optimize_c: Best score : 0.9373883623883625 
-2025-03-25 20:48:14.565 INFO utils - load_file: loading ./models/lr_classifier.pkl
-2025-03-25 20:49:26.846 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-25 20:49:26.846 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-25 20:49:29.237 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-25 20:49:30.709 INFO df_utils - prepare_df: Shape after processing: (95631, 741) 
-2025-03-25 20:49:32.158 INFO df_utils - prepare_df: Shape of train data: (81293, 741) 
-2025-03-25 20:49:32.159 INFO df_utils - prepare_df: Shape of test data: (14338, 741) 
-2025-03-25 20:49:32.436 INFO utils - load_file: loading ./models/lr_classifier.pkl
-2025-03-25 20:49:32.437 INFO utils - load_file: loading /predictions/lr_val_predictions.pkl
-2025-03-25 20:50:52.607 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-25 20:50:52.607 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-25 20:50:55.034 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-25 20:50:56.330 INFO df_utils - prepare_df: Shape after processing: (95631, 741) 
-2025-03-25 20:50:57.699 INFO df_utils - prepare_df: Shape of train data: (81293, 741) 
-2025-03-25 20:50:57.699 INFO df_utils - prepare_df: Shape of test data: (14338, 741) 
-2025-03-25 20:50:57.975 INFO utils - load_file: loading ./models/lr_classifier.pkl
-2025-03-25 20:50:57.975 INFO utils - load_file: loading ./predictions/lr_val_predictions.pkl
-2025-03-25 20:50:57.976 INFO utils - load_file: loading ./predictions/lr_test_predictions.pkl
-2025-03-25 20:50:57.976 INFO logistic - manage_predictions: No probability files to load for lr
-2025-03-25 20:50:57.976 INFO utils - load_file: loading ./predictions/lr_val_probabilities.pkl
-2025-03-25 20:50:57.977 INFO utils - load_file: loading ./predictions/lr_test_probabilities.pkl
-2025-03-25 20:50:58.000 INFO utils - get_metrics: Accuracy: 0.9404
-2025-03-25 20:50:58.001 INFO utils - get_metrics: F1: 0.9381
-2025-03-25 20:50:58.001 INFO utils - get_metrics: Recall: 0.9145
-2025-03-25 20:50:58.001 INFO utils - get_metrics: Precision: 0.963
-2025-03-25 20:51:05.040 INFO utils - get_metrics: Accuracy: 0.9442
-2025-03-25 20:51:05.040 INFO utils - get_metrics: F1: 0.943
-2025-03-25 20:51:05.040 INFO utils - get_metrics: Recall: 0.9219
-2025-03-25 20:51:05.040 INFO utils - get_metrics: Precision: 0.965
-2025-03-25 21:01:30.152 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-25 21:01:30.152 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-25 21:01:32.476 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-25 21:01:34.110 INFO df_utils - prepare_df: Shape after processing: (95631, 741) 
-2025-03-25 21:01:35.801 INFO df_utils - prepare_df: Shape of train data: (81293, 741) 
-2025-03-25 21:01:35.801 INFO df_utils - prepare_df: Shape of test data: (14338, 741) 
-2025-03-25 21:01:36.114 INFO utils - load_file: loading ./models/lr_classifier.pkl
-2025-03-25 21:01:36.114 INFO utils - load_file: loading ./predictions/lr_val_predictions.pkl
-2025-03-25 21:01:36.115 INFO utils - load_file: loading ./predictions/lr_test_predictions.pkl
-2025-03-25 21:01:36.115 INFO utils - manage_predictions: No probability files to load for lr
-2025-03-25 21:01:36.116 INFO utils - load_file: loading ./predictions/lr_val_probabilities.pkl
-2025-03-25 21:01:36.116 INFO utils - load_file: loading ./predictions/lr_test_probabilities.pkl
-2025-03-25 21:01:36.143 INFO utils - get_metrics: model accuracy: 0.9404
-2025-03-25 21:01:36.143 INFO utils - get_metrics: model f1 score: 0.9381
-2025-03-25 21:01:36.143 INFO utils - get_metrics: model recall: 0.9145
-2025-03-25 21:01:36.143 INFO utils - get_metrics: model precision: 0.963
-2025-03-25 21:01:53.653 INFO utils - get_metrics: model accuracy: 0.9442
-2025-03-25 21:01:53.653 INFO utils - get_metrics: model f1 score: 0.943
-2025-03-25 21:01:53.654 INFO utils - get_metrics: model recall: 0.9219
-2025-03-25 21:01:53.654 INFO utils - get_metrics: model precision: 0.965
-2025-03-25 21:03:29.675 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-25 21:03:29.675 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-25 21:03:31.943 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-25 21:03:33.460 INFO df_utils - prepare_df: Shape after processing: (95631, 741) 
-2025-03-25 21:03:34.975 INFO df_utils - prepare_df: Shape of train data: (81293, 741) 
-2025-03-25 21:03:34.975 INFO df_utils - prepare_df: Shape of test data: (14338, 741) 
-2025-03-25 21:03:35.286 INFO utils - load_file: loading ./models/lr_classifier.pkl
-2025-03-25 21:03:35.287 INFO utils - load_file: loading ./predictions/lr_val_predictions.pkl
-2025-03-25 21:03:35.288 INFO utils - load_file: loading ./predictions/lr_test_predictions.pkl
-2025-03-25 21:03:35.288 INFO utils - manage_predictions: No probability files to load for lr
-2025-03-25 21:03:35.288 INFO utils - load_file: loading ./predictions/lr_val_probabilities.pkl
-2025-03-25 21:03:35.289 INFO utils - load_file: loading ./predictions/lr_test_probabilities.pkl
-2025-03-25 21:03:35.318 INFO utils - get_metrics: model accuracy: 0.9404
-2025-03-25 21:03:35.318 INFO utils - get_metrics: model f1 score: 0.9381
-2025-03-25 21:03:35.318 INFO utils - get_metrics: model recall: 0.9145
-2025-03-25 21:03:35.318 INFO utils - get_metrics: model precision: 0.963
-2025-03-25 21:03:35.584 INFO utils - get_metrics: model accuracy: 0.9442
-2025-03-25 21:03:35.584 INFO utils - get_metrics: model f1 score: 0.943
-2025-03-25 21:03:35.584 INFO utils - get_metrics: model recall: 0.9219
-2025-03-25 21:03:35.584 INFO utils - get_metrics: model precision: 0.965
-2025-03-25 21:04:11.216 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-25 21:04:11.216 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-25 21:04:13.614 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-25 21:04:15.359 INFO df_utils - prepare_df: Shape after processing: (95631, 741) 
-2025-03-25 21:04:17.014 INFO df_utils - prepare_df: Shape of train data: (81293, 741) 
-2025-03-25 21:04:17.014 INFO df_utils - prepare_df: Shape of test data: (14338, 741) 
-2025-03-25 21:04:17.365 INFO utils - load_file: loading ./models/lr_classifier.pkl
-2025-03-25 21:04:17.366 INFO utils - load_file: loading ./predictions/lr_val_predictions.pkl
-2025-03-25 21:04:17.366 INFO utils - load_file: loading ./predictions/lr_test_predictions.pkl
-2025-03-25 21:04:17.367 INFO utils - manage_predictions: No probability files to load for lr
-2025-03-25 21:04:17.367 INFO utils - load_file: loading ./predictions/lr_val_probabilities.pkl
-2025-03-25 21:04:17.368 INFO utils - load_file: loading ./predictions/lr_test_probabilities.pkl
-2025-03-25 21:04:17.399 INFO utils - get_metrics: model accuracy: 0.9404
-2025-03-25 21:04:17.400 INFO utils - get_metrics: model f1 score: 0.9381
-2025-03-25 21:04:17.400 INFO utils - get_metrics: model recall: 0.9145
-2025-03-25 21:04:17.400 INFO utils - get_metrics: model precision: 0.963
-2025-03-25 21:04:17.692 INFO utils - get_metrics: model accuracy: 0.9442
-2025-03-25 21:04:17.692 INFO utils - get_metrics: model f1 score: 0.943
-2025-03-25 21:04:17.692 INFO utils - get_metrics: model recall: 0.9219
-2025-03-25 21:04:17.692 INFO utils - get_metrics: model precision: 0.965
-2025-03-25 21:05:07.193 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-25 21:05:07.194 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-25 21:05:09.355 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-25 21:05:10.767 INFO df_utils - prepare_df: Shape after processing: (95631, 741) 
-2025-03-25 21:05:12.184 INFO df_utils - prepare_df: Shape of train data: (81293, 741) 
-2025-03-25 21:05:12.184 INFO df_utils - prepare_df: Shape of test data: (14338, 741) 
-2025-03-25 21:05:12.476 INFO utils - load_file: loading ./models/lr_classifier.pkl
-2025-03-25 21:05:12.477 INFO utils - load_file: loading ./predictions/lr_val_predictions.pkl
-2025-03-25 21:05:12.478 INFO utils - load_file: loading ./predictions/lr_test_predictions.pkl
-2025-03-25 21:05:12.478 INFO utils - manage_predictions: No probability files to load for lr
-2025-03-25 21:05:12.478 INFO utils - load_file: loading ./predictions/lr_val_probabilities.pkl
-2025-03-25 21:05:12.479 INFO utils - load_file: loading ./predictions/lr_test_probabilities.pkl
-2025-03-25 21:05:12.503 INFO utils - get_metrics: model accuracy: 0.9404
-2025-03-25 21:05:12.503 INFO utils - get_metrics: model f1 score: 0.9381
-2025-03-25 21:05:12.503 INFO utils - get_metrics: model recall: 0.9145
-2025-03-25 21:05:12.503 INFO utils - get_metrics: model precision: 0.963
-2025-03-25 21:05:12.506 INFO utils - get_metrics: model confusion matrix 
- [[39687  1413]
- [ 3436 36757]]
-2025-03-25 21:05:12.699 INFO utils - get_metrics: model accuracy: 0.9442
-2025-03-25 21:05:12.699 INFO utils - get_metrics: model f1 score: 0.943
-2025-03-25 21:05:12.699 INFO utils - get_metrics: model recall: 0.9219
-2025-03-25 21:05:12.699 INFO utils - get_metrics: model precision: 0.965
-2025-03-25 21:05:12.700 INFO utils - get_metrics: model confusion matrix 
- [[6926  240]
- [ 560 6612]]
-2025-03-25 21:09:07.603 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-25 21:09:07.603 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-25 21:09:09.836 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-25 21:09:11.197 INFO df_utils - prepare_df: Shape after processing: (95631, 741) 
-2025-03-25 21:09:12.613 INFO df_utils - prepare_df: Shape of train data: (81293, 741) 
-2025-03-25 21:09:12.613 INFO df_utils - prepare_df: Shape of test data: (14338, 741) 
-2025-03-25 21:09:12.913 INFO utils - load_file: loading ./models/lr_classifier.pkl
-2025-03-25 21:09:12.914 INFO utils - load_file: loading ./predictions/lr_val_predictions.pkl
-2025-03-25 21:09:12.914 INFO utils - load_file: loading ./predictions/lr_test_predictions.pkl
-2025-03-25 21:09:12.914 INFO utils - manage_predictions: No probability files to load for lr
-2025-03-25 21:09:12.915 INFO utils - load_file: loading ./predictions/lr_val_probabilities.pkl
-2025-03-25 21:09:12.915 INFO utils - load_file: loading ./predictions/lr_test_probabilities.pkl
-2025-03-25 21:09:12.940 INFO utils - get_metrics: model accuracy: 0.9404
-2025-03-25 21:09:12.940 INFO utils - get_metrics: model f1 score: 0.9381
-2025-03-25 21:09:12.940 INFO utils - get_metrics: model recall: 0.9145
-2025-03-25 21:09:12.940 INFO utils - get_metrics: model precision: 0.963
-2025-03-25 21:09:12.942 INFO utils - get_metrics: model confusion matrix 
- [[39687  1413]
- [ 3436 36757]]
-2025-03-25 21:09:13.191 INFO utils - get_metrics: model accuracy: 0.9442
-2025-03-25 21:09:13.191 INFO utils - get_metrics: model f1 score: 0.943
-2025-03-25 21:09:13.191 INFO utils - get_metrics: model recall: 0.9219
-2025-03-25 21:09:13.191 INFO utils - get_metrics: model precision: 0.965
-2025-03-25 21:09:13.193 INFO utils - get_metrics: model confusion matrix 
- [[6926  240]
- [ 560 6612]]
-2025-03-25 21:11:32.592 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-25 21:11:32.592 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-25 21:11:34.912 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-25 21:11:36.194 INFO df_utils - prepare_df: Shape after processing: (95631, 741) 
-2025-03-25 21:11:37.685 INFO df_utils - prepare_df: Shape of train data: (81293, 741) 
-2025-03-25 21:11:37.685 INFO df_utils - prepare_df: Shape of test data: (14338, 741) 
-2025-03-25 21:11:38.019 INFO utils - load_file: loading ./models/lr_classifier.pkl
-2025-03-25 21:11:38.020 INFO utils - load_file: loading ./predictions/lr_val_predictions.pkl
-2025-03-25 21:11:38.021 INFO utils - load_file: loading ./predictions/lr_test_predictions.pkl
-2025-03-25 21:11:38.021 INFO utils - manage_predictions: No probability files to load for lr
-2025-03-25 21:11:38.021 INFO utils - load_file: loading ./predictions/lr_val_probabilities.pkl
-2025-03-25 21:11:38.022 INFO utils - load_file: loading ./predictions/lr_test_probabilities.pkl
-2025-03-25 21:11:38.050 INFO utils - get_metrics: model accuracy: 0.9404
-2025-03-25 21:11:38.050 INFO utils - get_metrics: model f1 score: 0.9381
-2025-03-25 21:11:38.051 INFO utils - get_metrics: model recall: 0.9145
-2025-03-25 21:11:38.051 INFO utils - get_metrics: model precision: 0.963
-2025-03-25 21:11:38.054 INFO utils - get_metrics: model confusion matrix 
- [[39687  1413]
- [ 3436 36757]]
-2025-03-25 21:12:04.491 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-25 21:12:04.492 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-25 21:12:06.685 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-25 21:12:07.973 INFO df_utils - prepare_df: Shape after processing: (95631, 741) 
-2025-03-25 21:12:09.403 INFO df_utils - prepare_df: Shape of train data: (81293, 741) 
-2025-03-25 21:12:09.403 INFO df_utils - prepare_df: Shape of test data: (14338, 741) 
-2025-03-25 21:12:09.703 INFO utils - load_file: loading ./models/lr_classifier.pkl
-2025-03-25 21:12:09.703 INFO utils - load_file: loading ./predictions/lr_val_predictions.pkl
-2025-03-25 21:12:09.704 INFO utils - load_file: loading ./predictions/lr_test_predictions.pkl
-2025-03-25 21:12:09.704 INFO utils - manage_predictions: No probability files to load for lr
-2025-03-25 21:12:09.704 INFO utils - load_file: loading ./predictions/lr_val_probabilities.pkl
-2025-03-25 21:12:09.705 INFO utils - load_file: loading ./predictions/lr_test_probabilities.pkl
-2025-03-25 21:12:09.729 INFO utils - get_metrics: model accuracy: 0.9404
-2025-03-25 21:12:09.729 INFO utils - get_metrics: model f1 score: 0.9381
-2025-03-25 21:12:09.729 INFO utils - get_metrics: model recall: 0.9145
-2025-03-25 21:12:09.729 INFO utils - get_metrics: model precision: 0.963
-2025-03-25 21:12:09.733 INFO utils - get_metrics: model confusion matrix 
- [[39687  1413]
- [ 3436 36757]]
-2025-03-25 21:12:16.134 INFO utils - get_metrics: model accuracy: 0.9442
-2025-03-25 21:12:16.134 INFO utils - get_metrics: model f1 score: 0.943
-2025-03-25 21:12:16.134 INFO utils - get_metrics: model recall: 0.9219
-2025-03-25 21:12:16.135 INFO utils - get_metrics: model precision: 0.965
-2025-03-25 21:12:16.137 INFO utils - get_metrics: model confusion matrix 
- [[6926  240]
- [ 560 6612]]
-2025-03-25 21:15:26.644 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-25 21:15:26.644 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-25 21:15:28.817 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-25 21:15:30.120 INFO df_utils - prepare_df: Shape after processing: (95631, 741) 
-2025-03-25 21:15:31.659 INFO df_utils - prepare_df: Shape of train data: (81293, 741) 
-2025-03-25 21:15:31.660 INFO df_utils - prepare_df: Shape of test data: (14338, 741) 
-2025-03-25 21:15:31.988 INFO utils - load_file: loading ./models/lr_classifier.pkl
-2025-03-25 21:15:31.990 INFO utils - load_file: loading ./predictions/lr_val_predictions.pkl
-2025-03-25 21:15:31.991 INFO utils - load_file: loading ./predictions/lr_test_predictions.pkl
-2025-03-25 21:15:31.992 INFO utils - manage_predictions: No probability files to load for lr
-2025-03-25 21:15:31.992 INFO utils - load_file: loading ./predictions/lr_val_probabilities.pkl
-2025-03-25 21:15:31.993 INFO utils - load_file: loading ./predictions/lr_test_probabilities.pkl
-2025-03-25 21:15:32.023 INFO utils - get_metrics: model accuracy: 0.9404
-2025-03-25 21:15:32.023 INFO utils - get_metrics: model f1 score: 0.9381
-2025-03-25 21:15:32.023 INFO utils - get_metrics: model recall: 0.9145
-2025-03-25 21:15:32.023 INFO utils - get_metrics: model precision: 0.963
-2025-03-25 21:15:32.029 INFO utils - get_metrics: model confusion matrix 
- [[39687  1413]
- [ 3436 36757]]
-2025-03-25 21:15:32.334 INFO utils - get_metrics: model accuracy: 0.9442
-2025-03-25 21:15:32.335 INFO utils - get_metrics: model f1 score: 0.943
-2025-03-25 21:15:32.335 INFO utils - get_metrics: model recall: 0.9219
-2025-03-25 21:15:32.335 INFO utils - get_metrics: model precision: 0.965
-2025-03-25 21:15:32.336 INFO utils - get_metrics: model confusion matrix 
- [[6926  240]
- [ 560 6612]]
-2025-03-25 21:20:08.874 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-25 21:20:08.874 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-25 21:20:11.239 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-25 21:20:12.626 INFO df_utils - prepare_df: Shape after processing: (95631, 741) 
-2025-03-25 21:20:14.218 INFO df_utils - prepare_df: Shape of train data: (81293, 741) 
-2025-03-25 21:20:14.218 INFO df_utils - prepare_df: Shape of test data: (14338, 741) 
-2025-03-25 21:20:14.529 INFO utils - load_file: loading ./models/lr_classifier.pkl
-2025-03-25 21:20:14.530 INFO utils - load_file: loading ./predictions/lr_val_predictions.pkl
-2025-03-25 21:20:14.530 INFO utils - load_file: loading ./predictions/lr_test_predictions.pkl
-2025-03-25 21:20:14.531 INFO utils - manage_predictions: No probability files to load for lr
-2025-03-25 21:20:14.531 INFO utils - load_file: loading ./predictions/lr_val_probabilities.pkl
-2025-03-25 21:20:14.532 INFO utils - load_file: loading ./predictions/lr_test_probabilities.pkl
-2025-03-25 21:20:14.556 INFO utils - get_metrics: lr_validation accuracy: 0.9404
-2025-03-25 21:20:14.556 INFO utils - get_metrics: lr_validation f1 score: 0.9381
-2025-03-25 21:20:14.556 INFO utils - get_metrics: lr_validation recall: 0.9145
-2025-03-25 21:20:14.556 INFO utils - get_metrics: lr_validation precision: 0.963
-2025-03-25 21:20:14.559 INFO utils - get_metrics: lr_validation confusion matrix 
- [[39687  1413]
- [ 3436 36757]]
-2025-03-25 21:20:14.860 INFO utils - get_metrics: lr_test accuracy: 0.9442
-2025-03-25 21:20:14.860 INFO utils - get_metrics: lr_test f1 score: 0.943
-2025-03-25 21:20:14.860 INFO utils - get_metrics: lr_test recall: 0.9219
-2025-03-25 21:20:14.860 INFO utils - get_metrics: lr_test precision: 0.965
-2025-03-25 21:20:14.861 INFO utils - get_metrics: lr_test confusion matrix 
- [[6926  240]
- [ 560 6612]]
-2025-03-25 21:22:40.925 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-25 21:22:40.926 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-25 21:22:43.231 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-25 21:22:44.737 INFO df_utils - prepare_df: Shape after processing: (95631, 741) 
-2025-03-25 21:22:46.528 INFO df_utils - prepare_df: Shape of train data: (81293, 741) 
-2025-03-25 21:22:46.528 INFO df_utils - prepare_df: Shape of test data: (14338, 741) 
-2025-03-25 21:22:46.872 INFO utils - load_file: loading ./models/lr_classifier.pkl
-2025-03-25 21:22:46.873 INFO utils - load_file: loading ./predictions/lr_val_predictions.pkl
-2025-03-25 21:22:46.875 INFO utils - load_file: loading ./predictions/lr_test_predictions.pkl
-2025-03-25 21:22:46.876 INFO utils - manage_predictions: No probability files to load for lr
-2025-03-25 21:22:46.876 INFO utils - load_file: loading ./predictions/lr_val_probabilities.pkl
-2025-03-25 21:22:46.878 INFO utils - load_file: loading ./predictions/lr_test_probabilities.pkl
-2025-03-25 21:22:46.918 INFO utils - get_metrics: logistic regression validation accuracy: 0.9404
-2025-03-25 21:22:46.919 INFO utils - get_metrics: logistic regression validation f1 score: 0.9381
-2025-03-25 21:22:46.919 INFO utils - get_metrics: logistic regression validation recall: 0.9145
-2025-03-25 21:22:46.919 INFO utils - get_metrics: logistic regression validation precision: 0.963
-2025-03-25 21:22:46.925 INFO utils - get_metrics: logistic regression validation confusion matrix 
- [[39687  1413]
- [ 3436 36757]]
-2025-03-25 21:22:47.232 INFO utils - get_metrics: logistic regression test accuracy: 0.9442
-2025-03-25 21:22:47.232 INFO utils - get_metrics: logistic regression test f1 score: 0.943
-2025-03-25 21:22:47.232 INFO utils - get_metrics: logistic regression test recall: 0.9219
-2025-03-25 21:22:47.232 INFO utils - get_metrics: logistic regression test precision: 0.965
-2025-03-25 21:22:47.234 INFO utils - get_metrics: logistic regression test confusion matrix 
- [[6926  240]
- [ 560 6612]]
-2025-03-25 21:25:05.209 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-25 21:25:05.210 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-25 21:25:07.548 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-25 21:25:08.973 INFO df_utils - prepare_df: Shape after processing: (95631, 741) 
-2025-03-25 21:25:10.762 INFO df_utils - prepare_df: Shape of train data: (81293, 741) 
-2025-03-25 21:25:10.762 INFO df_utils - prepare_df: Shape of test data: (14338, 741) 
-2025-03-25 21:25:11.104 INFO utils - load_file: loading ./models/lr_classifier.pkl
-2025-03-25 21:25:11.106 INFO utils - load_file: loading ./predictions/lr_val_predictions.pkl
-2025-03-25 21:25:11.107 INFO utils - load_file: loading ./predictions/lr_test_predictions.pkl
-2025-03-25 21:25:11.108 INFO utils - manage_predictions: No probability files to load for lr
-2025-03-25 21:25:11.108 INFO utils - load_file: loading ./predictions/lr_val_probabilities.pkl
-2025-03-25 21:25:11.109 INFO utils - load_file: loading ./predictions/lr_test_probabilities.pkl
-2025-03-25 21:25:11.134 INFO utils - get_metrics: logistic regression validation accuracy: 0.9404
-2025-03-25 21:25:11.135 INFO utils - get_metrics: logistic regression validation f1 score: 0.9381
-2025-03-25 21:25:11.135 INFO utils - get_metrics: logistic regression validation recall: 0.9145
-2025-03-25 21:25:11.135 INFO utils - get_metrics: logistic regression validation precision: 0.963
-2025-03-25 21:25:11.137 INFO utils - get_metrics: logistic regression validation confusion matrix 
- [[39687  1413]
- [ 3436 36757]]
-2025-03-25 21:25:11.414 INFO utils - get_metrics: logistic regression test accuracy: 0.9442
-2025-03-25 21:25:11.414 INFO utils - get_metrics: logistic regression test f1 score: 0.943
-2025-03-25 21:25:11.414 INFO utils - get_metrics: logistic regression test recall: 0.9219
-2025-03-25 21:25:11.414 INFO utils - get_metrics: logistic regression test precision: 0.965
-2025-03-25 21:25:11.415 INFO utils - get_metrics: logistic regression test confusion matrix 
- [[6926  240]
- [ 560 6612]]
-2025-03-25 21:27:07.478 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-25 21:27:07.479 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-25 21:27:09.775 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-25 21:27:11.265 INFO df_utils - prepare_df: Shape after processing: (95631, 741) 
-2025-03-25 21:27:12.904 INFO df_utils - prepare_df: Shape of train data: (81293, 741) 
-2025-03-25 21:27:12.904 INFO df_utils - prepare_df: Shape of test data: (14338, 741) 
-2025-03-25 21:27:13.245 INFO utils - load_file: loading ./models/lr_classifier.pkl
-2025-03-25 21:27:13.246 INFO utils - load_file: loading ./predictions/lr_val_predictions.pkl
-2025-03-25 21:27:13.247 INFO utils - load_file: loading ./predictions/lr_test_predictions.pkl
-2025-03-25 21:27:13.247 INFO utils - manage_predictions: No probability files to load for lr
-2025-03-25 21:27:13.247 INFO utils - load_file: loading ./predictions/lr_val_probabilities.pkl
-2025-03-25 21:27:13.248 INFO utils - load_file: loading ./predictions/lr_test_probabilities.pkl
-2025-03-25 21:27:13.274 INFO utils - get_metrics: logistic regression validation accuracy: 0.9404
-2025-03-25 21:27:13.274 INFO utils - get_metrics: logistic regression validation f1 score: 0.9381
-2025-03-25 21:27:13.274 INFO utils - get_metrics: logistic regression validation recall: 0.9145
-2025-03-25 21:27:13.274 INFO utils - get_metrics: logistic regression validation precision: 0.963
-2025-03-25 21:27:13.277 INFO utils - get_metrics: logistic regression validation confusion matrix 
- [[39687  1413]
- [ 3436 36757]]
-2025-03-25 21:27:13.625 INFO utils - get_metrics: logistic regression test accuracy: 0.9442
-2025-03-25 21:27:13.625 INFO utils - get_metrics: logistic regression test f1 score: 0.943
-2025-03-25 21:27:13.625 INFO utils - get_metrics: logistic regression test recall: 0.9219
-2025-03-25 21:27:13.625 INFO utils - get_metrics: logistic regression test precision: 0.965
-2025-03-25 21:27:13.627 INFO utils - get_metrics: logistic regression test confusion matrix 
- [[6926  240]
- [ 560 6612]]
-2025-03-25 21:30:31.992 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-25 21:30:31.992 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-25 21:30:34.208 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-25 21:30:35.787 INFO df_utils - prepare_df: Shape after processing: (95631, 741) 
-2025-03-25 21:30:37.275 INFO df_utils - prepare_df: Shape of train data: (81293, 741) 
-2025-03-25 21:30:37.275 INFO df_utils - prepare_df: Shape of test data: (14338, 741) 
-2025-03-25 21:30:37.578 INFO utils - load_file: loading ./models/lr_classifier.pkl
-2025-03-25 21:30:37.580 INFO utils - load_file: loading ./predictions/lr_val_predictions.pkl
-2025-03-25 21:30:37.581 INFO utils - load_file: loading ./predictions/lr_test_predictions.pkl
-2025-03-25 21:30:37.581 INFO utils - manage_predictions: No probability files to load for lr
-2025-03-25 21:30:37.581 INFO utils - load_file: loading ./predictions/lr_val_probabilities.pkl
-2025-03-25 21:30:37.583 INFO utils - load_file: loading ./predictions/lr_test_probabilities.pkl
-2025-03-25 21:30:37.627 INFO utils - get_metrics: logistic regression validation accuracy: 0.9404
-2025-03-25 21:30:37.628 INFO utils - get_metrics: logistic regression validation f1 score: 0.9381
-2025-03-25 21:30:37.628 INFO utils - get_metrics: logistic regression validation recall: 0.9145
-2025-03-25 21:30:37.628 INFO utils - get_metrics: logistic regression validation precision: 0.963
-2025-03-25 21:30:37.632 INFO utils - get_metrics: logistic regression validation confusion matrix 
- [[39687  1413]
- [ 3436 36757]]
-2025-03-25 21:30:37.934 INFO utils - get_metrics: logistic regression test accuracy: 0.9442
-2025-03-25 21:30:37.934 INFO utils - get_metrics: logistic regression test f1 score: 0.943
-2025-03-25 21:30:37.934 INFO utils - get_metrics: logistic regression test recall: 0.9219
-2025-03-25 21:30:37.934 INFO utils - get_metrics: logistic regression test precision: 0.965
-2025-03-25 21:30:37.935 INFO utils - get_metrics: logistic regression test confusion matrix 
- [[6926  240]
- [ 560 6612]]
-2025-03-25 21:34:42.459 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-25 21:34:42.459 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-25 21:34:45.117 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-25 21:34:47.226 INFO df_utils - prepare_df: Shape after processing: (95631, 741) 
-2025-03-25 21:34:49.247 INFO df_utils - prepare_df: Shape of train data: (81293, 741) 
-2025-03-25 21:34:49.247 INFO df_utils - prepare_df: Shape of test data: (14338, 741) 
-2025-03-25 21:34:49.657 INFO utils - load_file: loading ./models/lr_classifier.pkl
-2025-03-25 21:34:49.658 INFO utils - load_file: loading ./predictions/lr_val_predictions.pkl
-2025-03-25 21:34:49.660 INFO utils - load_file: loading ./predictions/lr_test_predictions.pkl
-2025-03-25 21:34:49.660 INFO utils - manage_predictions: No probability files to load for lr
-2025-03-25 21:34:49.660 INFO utils - load_file: loading ./predictions/lr_val_probabilities.pkl
-2025-03-25 21:34:49.661 INFO utils - load_file: loading ./predictions/lr_test_probabilities.pkl
-2025-03-25 21:34:49.691 INFO utils - get_metrics: logistic regression validation accuracy: 0.9404
-2025-03-25 21:34:49.691 INFO utils - get_metrics: logistic regression validation f1 score: 0.9381
-2025-03-25 21:34:49.691 INFO utils - get_metrics: logistic regression validation recall: 0.9145
-2025-03-25 21:34:49.691 INFO utils - get_metrics: logistic regression validation precision: 0.963
-2025-03-25 21:34:49.694 INFO utils - get_metrics: logistic regression validation confusion matrix 
- [[39687  1413]
- [ 3436 36757]]
-2025-03-25 21:36:05.357 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-25 21:36:05.357 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-25 21:36:07.625 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-25 21:36:09.052 INFO df_utils - prepare_df: Shape after processing: (95631, 741) 
-2025-03-25 21:36:10.547 INFO df_utils - prepare_df: Shape of train data: (81293, 741) 
-2025-03-25 21:36:10.547 INFO df_utils - prepare_df: Shape of test data: (14338, 741) 
-2025-03-25 21:36:10.852 INFO utils - load_file: loading ./models/lr_classifier.pkl
-2025-03-25 21:36:10.852 INFO utils - load_file: loading ./predictions/lr_val_predictions.pkl
-2025-03-25 21:36:10.853 INFO utils - load_file: loading ./predictions/lr_test_predictions.pkl
-2025-03-25 21:36:10.853 INFO utils - manage_predictions: No probability files to load for lr
-2025-03-25 21:36:10.853 INFO utils - load_file: loading ./predictions/lr_val_probabilities.pkl
-2025-03-25 21:36:10.854 INFO utils - load_file: loading ./predictions/lr_test_probabilities.pkl
-2025-03-25 21:36:10.879 INFO utils - get_metrics: logistic regression validation accuracy: 0.9404
-2025-03-25 21:36:10.879 INFO utils - get_metrics: logistic regression validation f1 score: 0.9381
-2025-03-25 21:36:10.879 INFO utils - get_metrics: logistic regression validation recall: 0.9145
-2025-03-25 21:36:10.879 INFO utils - get_metrics: logistic regression validation precision: 0.963
-2025-03-25 21:36:10.881 INFO utils - get_metrics: logistic regression validation confusion matrix 
- [[39687  1413]
- [ 3436 36757]]
-2025-03-25 21:37:59.632 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-25 21:37:59.632 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-25 21:38:02.089 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-25 21:38:03.507 INFO df_utils - prepare_df: Shape after processing: (95631, 741) 
-2025-03-25 21:38:05.077 INFO df_utils - prepare_df: Shape of train data: (81293, 741) 
-2025-03-25 21:38:05.078 INFO df_utils - prepare_df: Shape of test data: (14338, 741) 
-2025-03-25 21:38:05.417 INFO utils - load_file: loading ./models/lr_classifier.pkl
-2025-03-25 21:38:05.418 INFO utils - load_file: loading ./predictions/lr_val_predictions.pkl
-2025-03-25 21:38:05.419 INFO utils - load_file: loading ./predictions/lr_test_predictions.pkl
-2025-03-25 21:38:05.419 INFO utils - manage_predictions: No probability files to load for lr
-2025-03-25 21:38:05.419 INFO utils - load_file: loading ./predictions/lr_val_probabilities.pkl
-2025-03-25 21:38:05.420 INFO utils - load_file: loading ./predictions/lr_test_probabilities.pkl
-2025-03-25 21:38:05.447 INFO utils - get_metrics: logistic regression validation accuracy: 0.9404
-2025-03-25 21:38:05.447 INFO utils - get_metrics: logistic regression validation f1 score: 0.9381
-2025-03-25 21:38:05.447 INFO utils - get_metrics: logistic regression validation recall: 0.9145
-2025-03-25 21:38:05.447 INFO utils - get_metrics: logistic regression validation precision: 0.963
-2025-03-25 21:38:05.450 INFO utils - get_metrics: logistic regression validation confusion matrix 
- [[39687  1413]
- [ 3436 36757]]
-2025-03-25 21:38:05.738 INFO utils - get_metrics: logistic regression test accuracy: 0.9442
-2025-03-25 21:38:05.738 INFO utils - get_metrics: logistic regression test f1 score: 0.943
-2025-03-25 21:38:05.738 INFO utils - get_metrics: logistic regression test recall: 0.9219
-2025-03-25 21:38:05.738 INFO utils - get_metrics: logistic regression test precision: 0.965
-2025-03-25 21:38:05.739 INFO utils - get_metrics: logistic regression test confusion matrix 
- [[6926  240]
- [ 560 6612]]
-2025-03-25 21:39:04.118 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-25 21:39:04.119 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-25 21:39:07.246 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-25 21:39:09.112 INFO df_utils - prepare_df: Shape after processing: (95631, 741) 
-2025-03-25 21:39:10.748 INFO df_utils - prepare_df: Shape of train data: (81293, 741) 
-2025-03-25 21:39:10.749 INFO df_utils - prepare_df: Shape of test data: (14338, 741) 
-2025-03-25 21:39:11.067 INFO utils - load_file: loading ./models/lr_classifier.pkl
-2025-03-25 21:39:11.068 INFO utils - load_file: loading ./predictions/lr_val_predictions.pkl
-2025-03-25 21:39:11.069 INFO utils - load_file: loading ./predictions/lr_test_predictions.pkl
-2025-03-25 21:39:11.069 INFO utils - manage_predictions: No probability files to load for lr
-2025-03-25 21:39:11.069 INFO utils - load_file: loading ./predictions/lr_val_probabilities.pkl
-2025-03-25 21:39:11.070 INFO utils - load_file: loading ./predictions/lr_test_probabilities.pkl
-2025-03-25 21:39:11.096 INFO utils - get_metrics: logistic regression validation accuracy: 0.9404
-2025-03-25 21:39:11.096 INFO utils - get_metrics: logistic regression validation f1 score: 0.9381
-2025-03-25 21:39:11.096 INFO utils - get_metrics: logistic regression validation recall: 0.9145
-2025-03-25 21:39:11.096 INFO utils - get_metrics: logistic regression validation precision: 0.963
-2025-03-25 21:39:11.098 INFO utils - get_metrics: logistic regression validation confusion matrix 
- [[39687  1413]
- [ 3436 36757]]
-2025-03-25 21:39:11.387 INFO utils - get_metrics: logistic regression test accuracy: 0.9442
-2025-03-25 21:39:11.387 INFO utils - get_metrics: logistic regression test f1 score: 0.943
-2025-03-25 21:39:11.388 INFO utils - get_metrics: logistic regression test recall: 0.9219
-2025-03-25 21:39:11.388 INFO utils - get_metrics: logistic regression test precision: 0.965
-2025-03-25 21:39:11.389 INFO utils - get_metrics: logistic regression test confusion matrix 
- [[6926  240]
- [ 560 6612]]
-2025-03-25 21:41:40.156 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-25 21:41:40.156 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-25 21:41:42.447 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-25 21:41:43.724 INFO df_utils - prepare_df: Shape after processing: (95631, 741) 
-2025-03-25 21:41:45.180 INFO df_utils - prepare_df: Shape of train data: (81293, 741) 
-2025-03-25 21:41:45.181 INFO df_utils - prepare_df: Shape of test data: (14338, 741) 
-2025-03-25 21:41:45.476 INFO utils - load_file: loading ./models/lr_classifier.pkl
-2025-03-25 21:41:45.477 INFO utils - load_file: loading ./predictions/lr_val_predictions.pkl
-2025-03-25 21:41:45.477 INFO utils - load_file: loading ./predictions/lr_test_predictions.pkl
-2025-03-25 21:41:45.477 INFO utils - manage_predictions: No probability files to load for lr
-2025-03-25 21:41:45.478 INFO utils - load_file: loading ./predictions/lr_val_probabilities.pkl
-2025-03-25 21:41:45.478 INFO utils - load_file: loading ./predictions/lr_test_probabilities.pkl
-2025-03-25 21:41:45.500 INFO utils - get_metrics: logistic regression validation accuracy: 0.9404
-2025-03-25 21:41:45.501 INFO utils - get_metrics: logistic regression validation f1 score: 0.9381
-2025-03-25 21:41:45.501 INFO utils - get_metrics: logistic regression validation recall: 0.9145
-2025-03-25 21:41:45.501 INFO utils - get_metrics: logistic regression validation precision: 0.963
-2025-03-25 21:41:45.503 INFO utils - get_metrics: logistic regression validation confusion matrix 
- [[39687  1413]
- [ 3436 36757]]
-2025-03-25 21:41:45.795 INFO utils - get_metrics: logistic regression test accuracy: 0.9442
-2025-03-25 21:41:45.795 INFO utils - get_metrics: logistic regression test f1 score: 0.943
-2025-03-25 21:41:45.795 INFO utils - get_metrics: logistic regression test recall: 0.9219
-2025-03-25 21:41:45.795 INFO utils - get_metrics: logistic regression test precision: 0.965
-2025-03-25 21:41:45.796 INFO utils - get_metrics: logistic regression test confusion matrix 
- [[6926  240]
- [ 560 6612]]
-2025-03-25 21:42:45.345 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-25 21:42:45.345 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-25 21:42:47.734 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-25 21:42:49.067 INFO df_utils - prepare_df: Shape after processing: (95631, 741) 
-2025-03-25 21:42:50.579 INFO df_utils - prepare_df: Shape of train data: (81293, 741) 
-2025-03-25 21:42:50.579 INFO df_utils - prepare_df: Shape of test data: (14338, 741) 
-2025-03-25 21:42:50.936 INFO utils - load_file: loading ./models/lr_classifier.pkl
-2025-03-25 21:42:50.937 INFO utils - load_file: loading ./predictions/lr_val_predictions.pkl
-2025-03-25 21:42:50.939 INFO utils - load_file: loading ./predictions/lr_test_predictions.pkl
-2025-03-25 21:42:50.939 INFO utils - manage_predictions: No probability files to load for lr
-2025-03-25 21:42:50.939 INFO utils - load_file: loading ./predictions/lr_val_probabilities.pkl
-2025-03-25 21:42:50.940 INFO utils - load_file: loading ./predictions/lr_test_probabilities.pkl
-2025-03-25 21:42:50.969 INFO utils - get_metrics: logistic regression validation accuracy: 0.9404
-2025-03-25 21:42:50.969 INFO utils - get_metrics: logistic regression validation f1 score: 0.9381
-2025-03-25 21:42:50.969 INFO utils - get_metrics: logistic regression validation recall: 0.9145
-2025-03-25 21:42:50.969 INFO utils - get_metrics: logistic regression validation precision: 0.963
-2025-03-25 21:42:50.972 INFO utils - get_metrics: logistic regression validation confusion matrix 
- [[39687  1413]
- [ 3436 36757]]
-2025-03-25 21:42:51.257 INFO utils - get_metrics: logistic regression test accuracy: 0.9442
-2025-03-25 21:42:51.257 INFO utils - get_metrics: logistic regression test f1 score: 0.943
-2025-03-25 21:42:51.257 INFO utils - get_metrics: logistic regression test recall: 0.9219
-2025-03-25 21:42:51.257 INFO utils - get_metrics: logistic regression test precision: 0.965
-2025-03-25 21:42:51.258 INFO utils - get_metrics: logistic regression test confusion matrix 
- [[6926  240]
- [ 560 6612]]
-2025-03-25 21:48:21.798 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-25 21:48:21.798 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-25 21:48:24.291 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-25 21:48:25.737 INFO df_utils - prepare_df: Shape after processing: (95631, 741) 
-2025-03-25 21:48:27.343 INFO df_utils - prepare_df: Shape of train data: (81293, 741) 
-2025-03-25 21:48:27.343 INFO df_utils - prepare_df: Shape of test data: (14338, 741) 
-2025-03-25 21:48:27.642 INFO utils - load_file: loading ./models/lr_classifier.pkl
-2025-03-25 21:48:27.643 INFO utils - load_file: loading ./predictions/lr_val_predictions.pkl
-2025-03-25 21:48:27.643 INFO utils - load_file: loading ./predictions/lr_test_predictions.pkl
-2025-03-25 21:48:27.644 INFO utils - manage_predictions: No probability files to load for lr
-2025-03-25 21:48:27.644 INFO utils - load_file: loading ./predictions/lr_val_probabilities.pkl
-2025-03-25 21:48:27.645 INFO utils - load_file: loading ./predictions/lr_test_probabilities.pkl
-2025-03-25 21:48:27.669 INFO utils - get_metrics: logistic regression validation accuracy: 0.9404
-2025-03-25 21:48:27.669 INFO utils - get_metrics: logistic regression validation f1 score: 0.9381
-2025-03-25 21:48:27.669 INFO utils - get_metrics: logistic regression validation recall: 0.9145
-2025-03-25 21:48:27.669 INFO utils - get_metrics: logistic regression validation precision: 0.963
-2025-03-25 21:48:27.671 INFO utils - get_metrics: logistic regression validation confusion matrix 
- [[39687  1413]
- [ 3436 36757]]
-2025-03-25 21:48:28.063 INFO utils - get_metrics: logistic regression test accuracy: 0.9442
-2025-03-25 21:48:28.063 INFO utils - get_metrics: logistic regression test f1 score: 0.943
-2025-03-25 21:48:28.063 INFO utils - get_metrics: logistic regression test recall: 0.9219
-2025-03-25 21:48:28.063 INFO utils - get_metrics: logistic regression test precision: 0.965
-2025-03-25 21:48:28.065 INFO utils - get_metrics: logistic regression test confusion matrix 
- [[6926  240]
- [ 560 6612]]
-2025-03-26 11:53:13.675 INFO kneighbors - <module>: K Neighbors classifier
-2025-03-26 11:53:15.100 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-26 11:53:15.100 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-26 11:53:16.189 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-26 11:53:16.291 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
-2025-03-26 11:53:16.395 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
-2025-03-26 11:53:16.396 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
-2025-03-26 11:53:17.525 INFO kneighbors - optimize_kn: Best score : 0.992
-2025-03-26 11:53:17.525 INFO kneighbors - optimize_kn: Best parameters:
-2025-03-26 11:53:17.525 INFO kneighbors - optimize_kn: {'n_neighbors': 2, 'p': 2, 'weights': 'uniform'}
-2025-03-26 11:53:17.525 INFO kneighbors - execute_kn: start k neighbors classifier training
-2025-03-26 11:53:17.563 INFO utils - save_model: saving model to ./models/kn_classifier.pkl
-2025-03-26 11:54:04.238 INFO kneighbors - <module>: K Neighbors classifier
-2025-03-26 11:54:05.055 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-26 11:54:05.055 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-26 11:54:06.001 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-26 11:54:06.070 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
-2025-03-26 11:54:06.147 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
-2025-03-26 11:54:06.148 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
-2025-03-26 11:54:10.832 INFO kneighbors - optimize_kn: Best score : 0.986
-2025-03-26 11:54:10.832 INFO kneighbors - optimize_kn: Best parameters:
-2025-03-26 11:54:10.832 INFO kneighbors - optimize_kn: {'n_neighbors': 2, 'p': 1, 'weights': 'uniform'}
-2025-03-26 11:54:10.832 INFO kneighbors - execute_kn: start k neighbors classifier training
-2025-03-26 11:54:10.856 INFO utils - save_model: saving model to ./models/kn_classifier.pkl
-2025-03-26 11:55:23.390 INFO kneighbors - <module>: K Neighbors classifier
-2025-03-26 11:55:24.403 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-26 11:55:24.403 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-26 11:55:25.337 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-26 11:55:25.402 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
-2025-03-26 11:55:25.478 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
-2025-03-26 11:55:25.478 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
-2025-03-26 11:57:57.314 INFO kneighbors - optimize_kn: Best score : 0.986
-2025-03-26 11:57:57.314 INFO kneighbors - optimize_kn: Best parameters:
-2025-03-26 11:57:57.314 INFO kneighbors - optimize_kn: {'n_neighbors': 4, 'p': 1, 'weights': 'uniform'}
-2025-03-26 11:57:57.315 INFO kneighbors - execute_kn: start k neighbors classifier training
-2025-03-26 11:57:57.342 INFO utils - save_model: saving model to ./models/kn_classifier.pkl
-2025-03-26 12:00:51.608 INFO kneighbors - <module>: K Neighbors classifier
-2025-03-26 12:00:52.507 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-26 12:00:52.507 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-26 12:00:53.479 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-26 12:00:53.545 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
-2025-03-26 12:00:53.624 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
-2025-03-26 12:00:53.624 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
-2025-03-26 12:02:07.282 INFO kneighbors - <module>: K Neighbors classifier
-2025-03-26 12:02:08.137 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-26 12:02:08.137 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-26 12:02:09.195 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-26 12:02:09.291 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
-2025-03-26 12:02:09.389 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
-2025-03-26 12:02:09.389 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
-2025-03-26 12:02:19.500 INFO kneighbors - optimize_kn: Best score : 0.864
-2025-03-26 12:02:19.500 INFO kneighbors - optimize_kn: Best parameters:
-2025-03-26 12:02:19.500 INFO kneighbors - optimize_kn: {'n_neighbors': 2, 'p': 2, 'weights': 'distance'}
-2025-03-26 12:02:19.500 INFO kneighbors - execute_kn: start k neighbors classifier training
-2025-03-26 12:02:19.524 INFO utils - save_model: saving model to ./models/kn_classifier.pkl
-2025-03-26 12:02:19.550 INFO utils - get_cross_val_predictions: Getting cross validation predictions for KNeighborsClassifier(n_neighbors=2, weights='distance')
-2025-03-26 12:02:26.044 INFO utils - get_cross_val_predictions: Trying to get cross validation probabilities for KNeighborsClassifier(n_neighbors=2, weights='distance')
-2025-03-26 12:02:32.798 INFO utils - get_predictions: Getting test predictions for KNeighborsClassifier(n_neighbors=2, weights='distance')
-2025-03-26 12:02:34.432 INFO utils - get_predictions: Trying to get test predictions for KNeighborsClassifier(n_neighbors=2, weights='distance')
-2025-03-26 12:02:36.194 INFO utils - save_prediction: saving model to ./predictions/kn_val_predictions.pkl
-2025-03-26 12:02:36.197 INFO utils - save_prediction: saving model to ./predictions/kn_test_predictions.pkl
-2025-03-26 12:02:36.198 INFO utils - save_prediction: saving model to ./predictions/kn_val_probabilities.pkl
-2025-03-26 12:02:36.200 INFO utils - save_prediction: saving model to ./predictions/kn_test_probabilities.pkl
-2025-03-26 12:02:36.222 INFO utils - get_metrics: k-neighbors validation accuracy: 0.896
-2025-03-26 12:02:36.222 INFO utils - get_metrics: k-neighbors validation f1 score: 0.8875
-2025-03-26 12:02:36.222 INFO utils - get_metrics: k-neighbors validation recall: 0.83
-2025-03-26 12:02:36.222 INFO utils - get_metrics: k-neighbors validation precision: 0.9536
-2025-03-26 12:02:36.224 INFO utils - get_metrics: k-neighbors validation confusion matrix 
- [[39476  1624]
- [ 6833 33360]]
-2025-03-26 12:02:37.398 INFO utils - get_metrics: k-neighbors test accuracy: 0.9059
-2025-03-26 12:02:37.399 INFO utils - get_metrics: k-neighbors test f1 score: 0.9003
-2025-03-26 12:02:37.399 INFO utils - get_metrics: k-neighbors test recall: 0.8494
-2025-03-26 12:02:37.399 INFO utils - get_metrics: k-neighbors test precision: 0.9577
-2025-03-26 12:02:37.400 INFO utils - get_metrics: k-neighbors test confusion matrix 
- [[6897  269]
- [1080 6092]]
-2025-03-26 12:04:06.593 INFO kneighbors - <module>: K Neighbors classifier
-2025-03-26 12:04:07.374 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-26 12:04:07.374 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-26 12:04:08.406 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-26 12:04:08.484 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
-2025-03-26 12:04:08.569 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
-2025-03-26 12:04:08.569 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
-2025-03-26 12:04:44.196 INFO kneighbors - optimize_kn: Best score : 0.874
-2025-03-26 12:04:44.196 INFO kneighbors - optimize_kn: Best parameters:
-2025-03-26 12:04:44.196 INFO kneighbors - optimize_kn: {'n_neighbors': 4, 'p': 1, 'weights': 'distance'}
-2025-03-26 12:04:44.197 INFO kneighbors - execute_kn: start k neighbors classifier training
-2025-03-26 12:04:44.230 INFO utils - save_model: saving model to ./models/kn_classifier.pkl
-2025-03-26 12:04:44.257 INFO utils - get_cross_val_predictions: Getting cross validation predictions for KNeighborsClassifier(n_neighbors=4, p=1, weights='distance')
-2025-03-26 12:05:20.503 INFO utils - get_cross_val_predictions: Trying to get cross validation probabilities for KNeighborsClassifier(n_neighbors=4, p=1, weights='distance')
-2025-03-26 12:05:55.015 INFO utils - get_predictions: Getting test predictions for KNeighborsClassifier(n_neighbors=4, p=1, weights='distance')
-2025-03-26 12:06:02.783 INFO utils - get_predictions: Trying to get test predictions for KNeighborsClassifier(n_neighbors=4, p=1, weights='distance')
-2025-03-26 12:06:10.404 INFO utils - save_prediction: saving model to ./predictions/kn_val_predictions.pkl
-2025-03-26 12:06:10.405 INFO utils - save_prediction: saving model to ./predictions/kn_test_predictions.pkl
-2025-03-26 12:06:10.406 INFO utils - save_prediction: saving model to ./predictions/kn_val_probabilities.pkl
-2025-03-26 12:06:10.407 INFO utils - save_prediction: saving model to ./predictions/kn_test_probabilities.pkl
-2025-03-26 12:06:10.425 INFO utils - get_metrics: k-neighbors validation accuracy: 0.9078
-2025-03-26 12:06:10.426 INFO utils - get_metrics: k-neighbors validation f1 score: 0.8993
-2025-03-26 12:06:10.426 INFO utils - get_metrics: k-neighbors validation recall: 0.8334
-2025-03-26 12:06:10.426 INFO utils - get_metrics: k-neighbors validation precision: 0.9766
-2025-03-26 12:06:10.428 INFO utils - get_metrics: k-neighbors validation confusion matrix 
+2025-04-03 19:19:12.476 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
+2025-04-03 19:19:12.476 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
+2025-04-03 19:19:16.132 INFO df_utils - standarize_data: Stadarize data, filter_col=target, filter_value=None
+2025-04-03 19:19:18.234 INFO df_utils - prepare_df: Shape after processing: (95631, 741) 
+2025-04-03 19:19:20.022 INFO df_utils - prepare_df: Shape of train data: (81293, 741) 
+2025-04-03 19:19:20.022 INFO df_utils - prepare_df: Shape of test data: (14338, 741) 
+2025-04-03 19:19:20.354 INFO logistic - execute_lr: start logistic regression training
+2025-04-03 19:20:03.936 INFO utils - save_model: saving model to ./models/lr_classifier.pkl
+2025-04-03 19:20:03.940 INFO utils - get_cross_val_predictions: Getting cross validation predictions for LogisticRegression(C=1, max_iter=1000)
+2025-04-03 19:22:49.381 INFO utils - get_cross_val_predictions: Trying to get cross validation probabilities for LogisticRegression(C=1, max_iter=1000)
+2025-04-03 19:25:33.519 INFO utils - get_predictions: Getting test predictions for LogisticRegression(C=1, max_iter=1000)
+2025-04-03 19:25:33.588 INFO utils - get_predictions: Trying to get test predictions for LogisticRegression(C=1, max_iter=1000)
+2025-04-03 19:25:33.688 INFO utils - save_prediction: saving model to ./predictions/lr_val_predictions.pkl
+2025-04-03 19:25:33.690 INFO utils - save_prediction: saving model to ./predictions/lr_test_predictions.pkl
+2025-04-03 19:25:33.692 INFO utils - save_prediction: saving model to ./predictions/lr_val_probabilities.pkl
+2025-04-03 19:25:33.697 INFO utils - save_prediction: saving model to ./predictions/lr_test_probabilities.pkl
+2025-04-03 19:25:33.733 INFO utils - get_metrics: logistic regression validation accuracy: 0.9378
+2025-04-03 19:25:33.734 INFO utils - get_metrics: logistic regression validation f1 score: 0.9353
+2025-04-03 19:25:33.734 INFO utils - get_metrics: logistic regression validation recall: 0.9097
+2025-04-03 19:25:33.734 INFO utils - get_metrics: logistic regression validation precision: 0.9624
+2025-04-03 19:25:33.738 INFO utils - get_metrics: logistic regression validation confusion matrix 
+ [[39671  1429]
+ [ 3629 36564]]
+2025-04-03 19:25:34.155 INFO utils - get_metrics: logistic regression test accuracy: 0.9426
+2025-04-03 19:25:34.155 INFO utils - get_metrics: logistic regression test f1 score: 0.9411
+2025-04-03 19:25:34.155 INFO utils - get_metrics: logistic regression test recall: 0.9173
+2025-04-03 19:25:34.155 INFO utils - get_metrics: logistic regression test precision: 0.9662
+2025-04-03 19:25:34.157 INFO utils - get_metrics: logistic regression test confusion matrix 
+ [[6936  230]
+ [ 593 6579]]
+2025-04-03 19:27:36.306 INFO kneighbors - <module>: K Neighbors classifier
+2025-04-03 19:28:01.786 INFO kneighbors - <module>: K Neighbors classifier
+2025-04-03 19:28:38.948 INFO kneighbors - <module>: K Neighbors classifier
+2025-04-03 19:28:39.894 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
+2025-04-03 19:28:39.894 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
+2025-04-03 19:28:40.982 INFO df_utils - standarize_data: Stadarize data, filter_col=target, filter_value=None
+2025-04-03 19:28:41.068 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
+2025-04-03 19:28:41.163 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
+2025-04-03 19:28:41.163 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
+2025-04-03 19:28:41.182 INFO kneighbors - execute_kn: start k neighbors classifier training
+2025-04-03 19:28:41.211 INFO utils - save_model: saving model to ./models/kn_classifier.pkl
+2025-04-03 19:28:41.251 INFO utils - get_cross_val_predictions: Getting cross validation predictions for KNeighborsClassifier(n_neighbors=4, p=1, weights='distance')
+2025-04-03 19:29:20.561 INFO utils - get_cross_val_predictions: Trying to get cross validation probabilities for KNeighborsClassifier(n_neighbors=4, p=1, weights='distance')
+2025-04-03 19:30:00.523 INFO utils - get_predictions: Getting test predictions for KNeighborsClassifier(n_neighbors=4, p=1, weights='distance')
+2025-04-03 19:30:09.995 INFO utils - get_predictions: Trying to get test predictions for KNeighborsClassifier(n_neighbors=4, p=1, weights='distance')
+2025-04-03 19:30:18.801 INFO utils - save_prediction: saving model to ./predictions/kn_val_predictions.pkl
+2025-04-03 19:30:18.804 INFO utils - save_prediction: saving model to ./predictions/kn_test_predictions.pkl
+2025-04-03 19:30:18.805 INFO utils - save_prediction: saving model to ./predictions/kn_val_probabilities.pkl
+2025-04-03 19:30:18.808 INFO utils - save_prediction: saving model to ./predictions/kn_test_probabilities.pkl
+2025-04-03 19:30:18.834 INFO utils - get_metrics: k-neighbors validation accuracy: 0.9078
+2025-04-03 19:30:18.834 INFO utils - get_metrics: k-neighbors validation f1 score: 0.8993
+2025-04-03 19:30:18.835 INFO utils - get_metrics: k-neighbors validation recall: 0.8334
+2025-04-03 19:30:18.835 INFO utils - get_metrics: k-neighbors validation precision: 0.9766
+2025-04-03 19:30:18.837 INFO utils - get_metrics: k-neighbors validation confusion matrix 
  [[40296   804]
  [ 6695 33498]]
-2025-03-26 12:06:10.731 INFO utils - get_metrics: k-neighbors test accuracy: 0.9164
-2025-03-26 12:06:10.732 INFO utils - get_metrics: k-neighbors test f1 score: 0.9106
-2025-03-26 12:06:10.732 INFO utils - get_metrics: k-neighbors test recall: 0.8514
-2025-03-26 12:06:10.732 INFO utils - get_metrics: k-neighbors test precision: 0.9787
-2025-03-26 12:06:10.733 INFO utils - get_metrics: k-neighbors test confusion matrix 
+2025-04-03 19:30:19.234 INFO utils - get_metrics: k-neighbors test accuracy: 0.9164
+2025-04-03 19:30:19.234 INFO utils - get_metrics: k-neighbors test f1 score: 0.9106
+2025-04-03 19:30:19.234 INFO utils - get_metrics: k-neighbors test recall: 0.8514
+2025-04-03 19:30:19.234 INFO utils - get_metrics: k-neighbors test precision: 0.9787
+2025-04-03 19:30:19.235 INFO utils - get_metrics: k-neighbors test confusion matrix 
  [[7033  133]
  [1066 6106]]
-2025-03-26 12:07:43.762 INFO kneighbors - <module>: K Neighbors classifier
-2025-03-26 12:07:44.529 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-26 12:07:44.529 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-26 12:07:45.494 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-26 12:07:45.559 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
-2025-03-26 12:07:45.637 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
-2025-03-26 12:07:45.637 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
-2025-03-26 12:12:24.721 INFO kneighbors - optimize_kn: Best score : 0.899
-2025-03-26 12:12:24.721 INFO kneighbors - optimize_kn: Best parameters:
-2025-03-26 12:12:24.721 INFO kneighbors - optimize_kn: {'n_neighbors': 4, 'p': 1, 'weights': 'distance'}
-2025-03-26 12:12:24.723 INFO kneighbors - execute_kn: start k neighbors classifier training
-2025-03-26 12:12:24.749 INFO utils - save_model: saving model to ./models/kn_classifier.pkl
-2025-03-26 12:12:24.776 INFO utils - get_cross_val_predictions: Getting cross validation predictions for KNeighborsClassifier(n_neighbors=4, p=1, weights='distance')
-2025-03-26 12:12:58.764 INFO utils - get_cross_val_predictions: Trying to get cross validation probabilities for KNeighborsClassifier(n_neighbors=4, p=1, weights='distance')
-2025-03-26 12:13:34.921 INFO utils - get_predictions: Getting test predictions for KNeighborsClassifier(n_neighbors=4, p=1, weights='distance')
-2025-03-26 12:13:42.963 INFO utils - get_predictions: Trying to get test predictions for KNeighborsClassifier(n_neighbors=4, p=1, weights='distance')
-2025-03-26 12:13:50.954 INFO utils - save_prediction: saving model to ./predictions/kn_val_predictions.pkl
-2025-03-26 12:13:50.954 INFO utils - save_prediction: saving model to ./predictions/kn_test_predictions.pkl
-2025-03-26 12:13:50.956 INFO utils - save_prediction: saving model to ./predictions/kn_val_probabilities.pkl
-2025-03-26 12:13:50.958 INFO utils - save_prediction: saving model to ./predictions/kn_test_probabilities.pkl
-2025-03-26 12:13:50.980 INFO utils - get_metrics: k-neighbors validation accuracy: 0.9078
-2025-03-26 12:13:50.980 INFO utils - get_metrics: k-neighbors validation f1 score: 0.8993
-2025-03-26 12:13:50.980 INFO utils - get_metrics: k-neighbors validation recall: 0.8334
-2025-03-26 12:13:50.980 INFO utils - get_metrics: k-neighbors validation precision: 0.9766
-2025-03-26 12:13:50.982 INFO utils - get_metrics: k-neighbors validation confusion matrix 
- [[40296   804]
- [ 6695 33498]]
-2025-03-26 12:13:51.266 INFO utils - get_metrics: k-neighbors test accuracy: 0.9164
-2025-03-26 12:13:51.266 INFO utils - get_metrics: k-neighbors test f1 score: 0.9106
-2025-03-26 12:13:51.266 INFO utils - get_metrics: k-neighbors test recall: 0.8514
-2025-03-26 12:13:51.266 INFO utils - get_metrics: k-neighbors test precision: 0.9787
-2025-03-26 12:13:51.267 INFO utils - get_metrics: k-neighbors test confusion matrix 
- [[7033  133]
- [1066 6106]]
-2025-03-26 12:30:20.064 INFO svc - <module>: SVC classifier
-2025-03-26 12:30:21.035 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-26 12:30:21.036 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-26 12:30:22.108 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-26 12:30:22.197 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
-2025-03-26 12:30:22.282 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
-2025-03-26 12:30:22.282 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
-2025-03-26 12:34:35.542 INFO svc - <module>: SVC classifier
-2025-03-26 12:34:36.319 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-26 12:34:36.319 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-26 12:34:37.269 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-26 12:34:37.344 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
-2025-03-26 12:34:37.424 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
-2025-03-26 12:34:37.425 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
-2025-03-26 12:35:28.100 INFO svc - <module>: SVC classifier
-2025-03-26 12:35:28.913 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-26 12:35:28.914 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-26 12:35:29.976 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-26 12:35:30.056 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
-2025-03-26 12:35:30.138 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
-2025-03-26 12:35:30.138 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
-2025-03-26 12:35:30.630 INFO svc - optimize_svc: Best f1 : 0.904
-2025-03-26 12:35:30.630 INFO svc - optimize_svc: Best parameters:
-2025-03-26 12:35:30.630 INFO svc - optimize_svc: {'C': 1}
-2025-03-26 12:35:30.630 INFO svc - execute_svc: start k neighbors classifier training
-2025-03-26 12:37:55.102 INFO utils - save_model: saving model to ./models/svc_classifier.pkl
-2025-03-26 12:40:13.962 INFO svc - <module>: SVC classifier
-2025-03-26 12:40:14.799 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
-2025-03-26 12:40:14.800 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
-2025-03-26 12:40:15.875 INFO df_utils - normalize_df: Normalizing data, filter_col=target, filter_value=None
-2025-03-26 12:40:15.961 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
-2025-03-26 12:40:16.053 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
-2025-03-26 12:40:16.053 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
-2025-03-26 12:40:16.071 INFO svc - execute_svc: start svc classifier training
-2025-03-26 12:42:41.758 INFO utils - save_model: saving model to ./models/svc_classifier.pkl
-2025-03-26 12:42:41.763 INFO utils - get_cross_val_predictions: Getting cross validation predictions for SVC(C=1)
-2025-03-26 12:51:07.552 INFO utils - get_cross_val_predictions: Trying to get cross validation probabilities for SVC(C=1)
-2025-03-26 12:52:34.135 INFO utils - get_cross_val_predictions: No probabilities available for SVC(C=1)
-2025-03-26 12:52:34.138 INFO utils - get_predictions: Getting test predictions for SVC(C=1)
-2025-03-26 12:52:50.755 INFO utils - get_predictions: Trying to get test predictions for SVC(C=1)
-2025-03-26 12:52:50.755 INFO utils - get_predictions: no probabilities available for SVC(C=1)
-2025-03-26 12:52:50.756 INFO utils - save_prediction: saving model to ./predictions/svc_val_predictions.pkl
-2025-03-26 12:52:50.758 INFO utils - save_prediction: saving model to ./predictions/svc_test_predictions.pkl
-2025-03-26 12:52:50.778 INFO utils - get_metrics: svc validation accuracy: 0.9451
-2025-03-26 12:52:50.778 INFO utils - get_metrics: svc validation f1 score: 0.9436
-2025-03-26 12:52:50.778 INFO utils - get_metrics: svc validation recall: 0.9298
-2025-03-26 12:52:50.778 INFO utils - get_metrics: svc validation precision: 0.9579
-2025-03-26 12:52:50.780 INFO utils - get_metrics: svc validation confusion matrix 
- [[39456  1644]
- [ 2821 37372]]
-2025-03-26 12:52:51.066 INFO utils - get_metrics: svc test accuracy: 0.9497
-2025-03-26 12:52:51.066 INFO utils - get_metrics: svc test f1 score: 0.9491
-2025-03-26 12:52:51.066 INFO utils - get_metrics: svc test recall: 0.9378
-2025-03-26 12:52:51.066 INFO utils - get_metrics: svc test precision: 0.9607
-2025-03-26 12:52:51.067 INFO utils - get_metrics: svc test confusion matrix 
- [[6891  275]
- [ 446 6726]]
+2025-04-03 20:01:34.149 INFO svc - <module>: SVC classifier
+2025-04-03 20:02:42.419 INFO svc - <module>: SVC classifier
+2025-04-03 20:02:43.384 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
+2025-04-03 20:02:43.384 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
+2025-04-03 20:02:44.529 INFO df_utils - standarize_data: Stadarize data, filter_col=target, filter_value=0
+2025-04-03 20:02:44.692 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
+2025-04-03 20:02:44.810 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
+2025-04-03 20:02:44.811 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
+2025-04-03 20:02:44.831 INFO svc - execute_svc: start svc classifier training
+2025-04-03 20:05:14.515 INFO utils - save_model: saving model to ./models/svc_classifier.pkl
+2025-04-03 20:05:14.521 INFO utils - get_cross_val_predictions: Getting cross validation predictions for SVC(C=1)
+2025-04-03 20:15:34.270 INFO utils - get_cross_val_predictions: Trying to get cross validation probabilities for SVC(C=1)
+2025-04-03 20:17:12.381 INFO utils - get_cross_val_predictions: No probabilities available for SVC(C=1)
+2025-04-03 20:17:12.384 INFO utils - get_predictions: Getting test predictions for SVC(C=1)
+2025-04-03 20:17:39.936 INFO utils - get_predictions: Trying to get test predictions for SVC(C=1)
+2025-04-03 20:17:39.936 INFO utils - get_predictions: no probabilities available for SVC(C=1)
+2025-04-03 20:17:39.937 INFO utils - save_prediction: saving model to ./predictions/svc_val_predictions.pkl
+2025-04-03 20:17:39.941 INFO utils - save_prediction: saving model to ./predictions/svc_test_predictions.pkl
+2025-04-03 20:17:39.969 INFO utils - get_metrics: svc validation accuracy: 0.9384
+2025-04-03 20:17:39.969 INFO utils - get_metrics: svc validation f1 score: 0.9362
+2025-04-03 20:17:39.969 INFO utils - get_metrics: svc validation recall: 0.9145
+2025-04-03 20:17:39.969 INFO utils - get_metrics: svc validation precision: 0.9589
+2025-04-03 20:17:39.973 INFO utils - get_metrics: svc validation confusion matrix 
+ [[39526  1574]
+ [ 3437 36756]]
+2025-04-03 20:17:40.370 INFO utils - get_metrics: svc test accuracy: 0.9436
+2025-04-03 20:17:40.370 INFO utils - get_metrics: svc test f1 score: 0.9424
+2025-04-03 20:17:40.370 INFO utils - get_metrics: svc test recall: 0.9223
+2025-04-03 20:17:40.370 INFO utils - get_metrics: svc test precision: 0.9633
+2025-04-03 20:17:40.372 INFO utils - get_metrics: svc test confusion matrix 
+ [[6914  252]
+ [ 557 6615]]
