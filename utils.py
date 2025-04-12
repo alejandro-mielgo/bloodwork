@@ -26,9 +26,9 @@ def load_file(file_path:str) -> any:
 
 
 def save_prediction( prediction : np.ndarray, prediction_name : str) -> bool:
-        with open(f'./predictions/{prediction_name}.pkl', 'wb') as fid:
-            logging.info(f"saving model to ./predictions/{prediction_name}.pkl")
-            pickle.dump(prediction, fid)
+    with open(f'./predictions/{prediction_name}.pkl', 'wb') as fid:
+        logging.info(f"saving model to ./predictions/{prediction_name}.pkl")
+        pickle.dump(prediction, fid)
 
 
 def get_predictions( model : any,

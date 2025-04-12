@@ -93,3 +93,60 @@
 2025-04-03 20:17:40.372 INFO utils - get_metrics: svc test confusion matrix 
  [[6914  252]
  [ 557 6615]]
+2025-04-04 10:21:14.495 INFO gradient_boosting - <module>: SVC classifier
+2025-04-04 10:21:15.788 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
+2025-04-04 10:21:15.788 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
+2025-04-04 10:21:17.038 INFO df_utils - standarize_data: Stadarize data, filter_col=target, filter_value=0
+2025-04-04 10:21:17.201 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
+2025-04-04 10:21:17.325 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
+2025-04-04 10:21:17.325 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
+2025-04-04 10:21:17.350 INFO gradient_boosting - execute_gradient_boost: start gradient_boosting classifier training
+2025-04-04 10:22:31.418 INFO utils - get_cross_val_predictions: Getting cross validation predictions for GradientBoostingClassifier(random_state=0)
+2025-04-04 10:27:35.233 INFO utils - get_cross_val_predictions: Trying to get cross validation probabilities for GradientBoostingClassifier(random_state=0)
+2025-04-04 10:32:35.268 INFO utils - get_predictions: Getting test predictions for GradientBoostingClassifier(random_state=0)
+2025-04-04 10:32:35.295 INFO utils - get_predictions: Trying to get test predictions for GradientBoostingClassifier(random_state=0)
+2025-04-04 10:32:35.340 INFO utils - get_metrics: gradient-boosting validation accuracy: 0.9517
+2025-04-04 10:32:35.340 INFO utils - get_metrics: gradient-boosting validation f1 score: 0.951
+2025-04-04 10:32:35.340 INFO utils - get_metrics: gradient-boosting validation recall: 0.9484
+2025-04-04 10:32:35.340 INFO utils - get_metrics: gradient-boosting validation precision: 0.9536
+2025-04-04 10:32:35.342 INFO utils - get_metrics: gradient-boosting validation confusion matrix 
+ [[39245  1855]
+ [ 2073 38120]]
+2025-04-04 10:32:36.461 INFO utils - get_metrics: gradient-boosting test accuracy: 0.9549
+2025-04-04 10:32:36.461 INFO utils - get_metrics: gradient-boosting test f1 score: 0.9549
+2025-04-04 10:32:36.461 INFO utils - get_metrics: gradient-boosting test recall: 0.954
+2025-04-04 10:32:36.461 INFO utils - get_metrics: gradient-boosting test precision: 0.9557
+2025-04-04 10:32:36.462 INFO utils - get_metrics: gradient-boosting test confusion matrix 
+ [[6849  317]
+ [ 330 6842]]
+2025-04-04 16:10:33.286 INFO gradient_boosting - <module>: gradient-boosting classifier
+2025-04-04 16:10:34.242 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
+2025-04-04 16:10:34.243 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
+2025-04-04 16:10:35.336 INFO df_utils - standarize_data: Stadarize data, filter_col=target, filter_value=None
+2025-04-04 16:10:35.436 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
+2025-04-04 16:10:35.538 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
+2025-04-04 16:10:35.539 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
+2025-04-04 16:10:35.558 INFO gradient_boosting - execute_gradient_boost: start gradient_boosting classifier training
+2025-04-04 16:11:40.796 INFO utils - save_model: saving model to ./models/gradient_boosting_classifier.pkl
+2025-04-04 16:11:40.804 INFO utils - get_cross_val_predictions: Getting cross validation predictions for GradientBoostingClassifier(random_state=0)
+2025-04-04 16:15:58.588 INFO utils - get_cross_val_predictions: Trying to get cross validation probabilities for GradientBoostingClassifier(random_state=0)
+2025-04-04 16:20:09.029 INFO utils - get_predictions: Getting test predictions for GradientBoostingClassifier(random_state=0)
+2025-04-04 16:20:09.057 INFO utils - get_predictions: Trying to get test predictions for GradientBoostingClassifier(random_state=0)
+2025-04-04 16:20:09.088 INFO utils - save_prediction: saving model to ./predictions/gradient_boosting_val_predictions.pkl
+2025-04-04 16:20:09.089 INFO utils - save_prediction: saving model to ./predictions/gradient_boosting_test_predictions.pkl
+2025-04-04 16:20:09.090 INFO utils - save_prediction: saving model to ./predictions/gradient_boosting_val_probabilities.pkl
+2025-04-04 16:20:09.092 INFO utils - save_prediction: saving model to ./predictions/gradient_boosting_test_probabilities.pkl
+2025-04-04 16:20:09.112 INFO utils - get_metrics: gradient-boosting validation accuracy: 0.9517
+2025-04-04 16:20:09.113 INFO utils - get_metrics: gradient-boosting validation f1 score: 0.951
+2025-04-04 16:20:09.113 INFO utils - get_metrics: gradient-boosting validation recall: 0.9484
+2025-04-04 16:20:09.113 INFO utils - get_metrics: gradient-boosting validation precision: 0.9536
+2025-04-04 16:20:09.115 INFO utils - get_metrics: gradient-boosting validation confusion matrix 
+ [[39245  1855]
+ [ 2073 38120]]
+2025-04-04 16:20:10.300 INFO utils - get_metrics: gradient-boosting test accuracy: 0.9549
+2025-04-04 16:20:10.300 INFO utils - get_metrics: gradient-boosting test f1 score: 0.9549
+2025-04-04 16:20:10.300 INFO utils - get_metrics: gradient-boosting test recall: 0.954
+2025-04-04 16:20:10.300 INFO utils - get_metrics: gradient-boosting test precision: 0.9557
+2025-04-04 16:20:10.301 INFO utils - get_metrics: gradient-boosting test confusion matrix 
+ [[6849  317]
+ [ 330 6842]]
