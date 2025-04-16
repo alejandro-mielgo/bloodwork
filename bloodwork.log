@@ -150,3 +150,802 @@
 2025-04-04 16:20:10.301 INFO utils - get_metrics: gradient-boosting test confusion matrix 
  [[6849  317]
  [ 330 6842]]
+2025-04-15 19:52:22.049 INFO ada_boost - <module>: ada-boost classifier
+2025-04-15 19:52:22.854 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
+2025-04-15 19:52:22.854 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
+2025-04-15 19:52:23.933 INFO df_utils - standarize_data: Stadarize data, filter_col=target, filter_value=None
+2025-04-15 19:52:24.011 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
+2025-04-15 19:52:24.099 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
+2025-04-15 19:52:24.100 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
+2025-04-15 19:52:24.119 INFO ada_boost - execute_ada_boost: start ada_boost classifier training
+2025-04-15 19:52:45.517 INFO utils - save_model: saving model to ./models/ada_boost_classifier.pkl
+2025-04-15 19:52:45.523 INFO utils - get_cross_val_predictions: Getting cross validation predictions for AdaBoostClassifier(learning_rate=1, n_estimators=100, random_state=0)
+2025-04-15 19:54:15.439 INFO utils - get_cross_val_predictions: Trying to get cross validation probabilities for AdaBoostClassifier(learning_rate=1, n_estimators=100, random_state=0)
+2025-04-15 19:55:47.518 INFO utils - get_predictions: Getting test predictions for AdaBoostClassifier(learning_rate=1, n_estimators=100, random_state=0)
+2025-04-15 19:55:47.788 INFO utils - get_predictions: Trying to get test predictions for AdaBoostClassifier(learning_rate=1, n_estimators=100, random_state=0)
+2025-04-15 19:55:48.022 INFO utils - save_prediction: saving model to ./predictions/ada_boost_val_predictions.pkl
+2025-04-15 19:55:48.025 INFO utils - save_prediction: saving model to ./predictions/ada_boost_test_predictions.pkl
+2025-04-15 19:55:48.026 INFO utils - save_prediction: saving model to ./predictions/ada_boost_val_probabilities.pkl
+2025-04-15 19:55:48.028 INFO utils - save_prediction: saving model to ./predictions/ada_boost_test_probabilities.pkl
+2025-04-15 19:55:48.047 INFO utils - get_metrics: ada-boost validation accuracy: 0.9391
+2025-04-15 19:55:48.047 INFO utils - get_metrics: ada-boost validation f1 score: 0.9376
+2025-04-15 19:55:48.048 INFO utils - get_metrics: ada-boost validation recall: 0.9253
+2025-04-15 19:55:48.048 INFO utils - get_metrics: ada-boost validation precision: 0.9502
+2025-04-15 19:55:48.050 INFO utils - get_metrics: ada-boost validation confusion matrix 
+ [[39150  1950]
+ [ 3004 37189]]
+2025-04-15 19:55:49.628 INFO utils - get_metrics: ada-boost test accuracy: 0.9416
+2025-04-15 19:55:49.628 INFO utils - get_metrics: ada-boost test f1 score: 0.9408
+2025-04-15 19:55:49.628 INFO utils - get_metrics: ada-boost test recall: 0.9278
+2025-04-15 19:55:49.628 INFO utils - get_metrics: ada-boost test precision: 0.9541
+2025-04-15 19:55:49.630 INFO utils - get_metrics: ada-boost test confusion matrix 
+ [[6846  320]
+ [ 518 6654]]
+2025-04-15 20:12:22.281 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 20:12:22.281 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 20:12:22.281 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 20:12:22.281 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 20:13:12.713 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 20:13:12.713 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 20:13:12.713 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 20:13:12.714 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 20:21:15.085 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 20:21:15.085 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 20:21:15.086 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 20:21:15.086 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 20:21:53.967 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 20:21:53.967 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 20:21:53.967 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 20:21:53.967 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 20:22:17.081 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 20:22:17.081 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 20:22:17.082 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 20:22:17.082 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 20:25:20.870 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 20:25:20.870 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 20:25:20.870 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 20:25:20.870 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 20:26:09.821 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 20:26:09.821 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 20:26:09.822 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 20:26:09.822 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 20:26:30.015 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 20:26:30.016 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 20:26:30.016 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 20:26:30.016 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 20:26:31.460 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
+2025-04-15 20:26:31.460 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
+2025-04-15 20:26:32.883 INFO df_utils - standarize_data: Stadarize data, filter_col=target, filter_value=None
+2025-04-15 20:26:33.016 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
+2025-04-15 20:26:33.149 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
+2025-04-15 20:26:33.150 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
+2025-04-15 20:27:34.088 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 20:27:34.088 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 20:27:34.088 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 20:27:34.088 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 20:27:34.884 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
+2025-04-15 20:27:34.884 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
+2025-04-15 20:27:35.828 INFO df_utils - standarize_data: Stadarize data, filter_col=target, filter_value=None
+2025-04-15 20:27:35.912 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
+2025-04-15 20:27:35.989 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
+2025-04-15 20:27:35.989 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
+2025-04-15 20:29:38.033 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 20:29:38.033 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 20:29:38.033 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 20:29:38.033 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 20:29:38.852 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
+2025-04-15 20:29:38.852 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
+2025-04-15 20:29:39.933 INFO df_utils - standarize_data: Stadarize data, filter_col=target, filter_value=None
+2025-04-15 20:29:40.026 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
+2025-04-15 20:29:40.109 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
+2025-04-15 20:29:40.109 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
+2025-04-15 20:29:40.125 INFO ensemble - load_true_labels: saving model to ./predictions/val_labels.pkl
+2025-04-15 20:29:40.130 INFO ensemble - load_true_labels: saving model to ./predictions/test_labels.pkl
+2025-04-15 20:29:57.230 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 20:29:57.230 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 20:29:57.230 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 20:29:57.230 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 20:32:53.362 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 20:32:53.362 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 20:32:53.362 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 20:32:53.362 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 20:38:32.755 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 20:38:32.755 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 20:38:32.755 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 20:38:32.755 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 20:39:04.461 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 20:39:04.461 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 20:39:04.461 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 20:39:04.461 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 20:41:00.782 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 20:41:00.782 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 20:41:00.783 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 20:41:00.783 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 20:41:39.872 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 20:41:39.872 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 20:41:39.872 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 20:41:39.872 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 20:42:00.349 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 20:42:00.349 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 20:42:00.349 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 20:42:00.349 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 20:42:01.133 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
+2025-04-15 20:42:01.133 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
+2025-04-15 20:42:02.050 INFO df_utils - standarize_data: Stadarize data, filter_col=target, filter_value=None
+2025-04-15 20:42:02.134 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
+2025-04-15 20:42:02.211 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
+2025-04-15 20:42:02.211 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
+2025-04-15 20:42:02.228 INFO ensemble - create_true_labels_file: saving model to ./predictions/val_labels.pkl
+2025-04-15 20:42:02.232 INFO ensemble - create_true_labels_file: saving model to ./predictions/test_labels.pkl
+2025-04-15 20:44:44.119 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 20:44:44.120 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 20:44:44.120 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 20:44:44.120 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 20:44:44.984 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
+2025-04-15 20:44:44.984 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
+2025-04-15 20:44:46.236 INFO df_utils - standarize_data: Stadarize data, filter_col=target, filter_value=None
+2025-04-15 20:44:46.340 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
+2025-04-15 20:44:46.434 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
+2025-04-15 20:44:46.434 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
+2025-04-15 20:44:46.455 INFO ensemble - create_true_labels_file: saving model to ./predictions/val_labels.pkl
+2025-04-15 20:44:46.458 INFO ensemble - create_true_labels_file: saving model to ./predictions/test_labels.pkl
+2025-04-15 20:50:02.045 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 20:50:02.045 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 20:50:02.045 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 20:50:02.045 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 20:51:17.382 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 20:51:17.382 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 20:51:17.382 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 20:51:17.382 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 20:51:47.783 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 20:51:47.783 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 20:51:47.783 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 20:51:47.784 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 20:51:58.304 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 20:51:58.304 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 20:51:58.304 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 20:51:58.304 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 20:52:51.954 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 20:52:51.954 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 20:52:51.955 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 20:52:51.955 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 20:53:49.978 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 20:53:49.979 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 20:53:49.979 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 20:53:49.979 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 20:56:58.533 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 20:56:58.533 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 20:56:58.534 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 20:56:58.534 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 20:56:58.588 INFO utils - get_metrics: assemble accuracy: 0.9458
+2025-04-15 20:56:58.588 INFO utils - get_metrics: assemble f1 score: 0.9439
+2025-04-15 20:56:58.588 INFO utils - get_metrics: assemble recall: 0.9211
+2025-04-15 20:56:58.588 INFO utils - get_metrics: assemble precision: 0.9678
+2025-04-15 20:56:58.591 INFO utils - get_metrics: assemble confusion matrix 
+ [[39868  1232]
+ [ 3171 37022]]
+2025-04-15 21:00:37.416 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 21:00:37.416 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 21:00:37.416 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 21:00:37.416 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 21:00:37.464 INFO utils - get_metrics: assemble accuracy: 0.9458
+2025-04-15 21:00:37.465 INFO utils - get_metrics: assemble f1 score: 0.9439
+2025-04-15 21:00:37.465 INFO utils - get_metrics: assemble recall: 0.9211
+2025-04-15 21:00:37.465 INFO utils - get_metrics: assemble precision: 0.9678
+2025-04-15 21:00:37.467 INFO utils - get_metrics: assemble confusion matrix 
+ [[39868  1232]
+ [ 3171 37022]]
+2025-04-15 21:01:14.762 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 21:01:14.762 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 21:01:14.762 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 21:01:14.762 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 21:01:14.820 INFO utils - get_metrics: assemble test accuracy: 0.9458
+2025-04-15 21:01:14.820 INFO utils - get_metrics: assemble test f1 score: 0.9439
+2025-04-15 21:01:14.821 INFO utils - get_metrics: assemble test recall: 0.9211
+2025-04-15 21:01:14.821 INFO utils - get_metrics: assemble test precision: 0.9678
+2025-04-15 21:01:14.824 INFO utils - get_metrics: assemble test confusion matrix 
+ [[39868  1232]
+ [ 3171 37022]]
+2025-04-15 21:05:22.391 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 21:05:22.392 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 21:05:22.392 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 21:05:22.392 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 21:05:22.501 INFO utils - get_metrics: assemble test accuracy: 0.9458
+2025-04-15 21:05:22.501 INFO utils - get_metrics: assemble test f1 score: 0.9439
+2025-04-15 21:05:22.501 INFO utils - get_metrics: assemble test recall: 0.9211
+2025-04-15 21:05:22.502 INFO utils - get_metrics: assemble test precision: 0.9678
+2025-04-15 21:05:22.504 INFO utils - get_metrics: assemble test confusion matrix 
+ [[39868  1232]
+ [ 3171 37022]]
+2025-04-15 21:05:43.867 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 21:05:43.867 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 21:05:43.867 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 21:05:43.867 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 21:05:43.926 INFO utils - get_metrics: assemble validation accuracy: 0.9458
+2025-04-15 21:05:43.926 INFO utils - get_metrics: assemble validation f1 score: 0.9439
+2025-04-15 21:05:43.926 INFO utils - get_metrics: assemble validation recall: 0.9211
+2025-04-15 21:05:43.926 INFO utils - get_metrics: assemble validation precision: 0.9678
+2025-04-15 21:05:43.929 INFO utils - get_metrics: assemble validation confusion matrix 
+ [[39868  1232]
+ [ 3171 37022]]
+2025-04-15 21:05:44.249 INFO utils - get_metrics: assemble test accuracy: 0.9488
+2025-04-15 21:05:44.249 INFO utils - get_metrics: assemble test f1 score: 0.9477
+2025-04-15 21:05:44.249 INFO utils - get_metrics: assemble test recall: 0.9279
+2025-04-15 21:05:44.249 INFO utils - get_metrics: assemble test precision: 0.9684
+2025-04-15 21:05:44.250 INFO utils - get_metrics: assemble test confusion matrix 
+ [[6949  217]
+ [ 517 6655]]
+2025-04-15 21:16:18.823 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 21:16:18.823 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 21:16:18.823 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 21:16:18.823 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 21:16:18.874 INFO utils - get_metrics: assemble validation accuracy: 0.9458
+2025-04-15 21:16:18.874 INFO utils - get_metrics: assemble validation f1 score: 0.9439
+2025-04-15 21:16:18.875 INFO utils - get_metrics: assemble validation recall: 0.9211
+2025-04-15 21:16:18.875 INFO utils - get_metrics: assemble validation precision: 0.9678
+2025-04-15 21:16:18.877 INFO utils - get_metrics: assemble validation confusion matrix 
+ [[39868  1232]
+ [ 3171 37022]]
+2025-04-15 21:16:19.279 INFO utils - get_metrics: assemble test accuracy: 0.9488
+2025-04-15 21:16:19.279 INFO utils - get_metrics: assemble test f1 score: 0.9477
+2025-04-15 21:16:19.279 INFO utils - get_metrics: assemble test recall: 0.9279
+2025-04-15 21:16:19.279 INFO utils - get_metrics: assemble test precision: 0.9684
+2025-04-15 21:16:19.281 INFO utils - get_metrics: assemble test confusion matrix 
+ [[6949  217]
+ [ 517 6655]]
+2025-04-15 21:16:50.565 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 21:16:50.565 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 21:16:50.566 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 21:16:50.566 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 21:16:50.604 INFO utils - get_metrics: assemble validation accuracy: 0.9458
+2025-04-15 21:16:50.604 INFO utils - get_metrics: assemble validation f1 score: 0.9439
+2025-04-15 21:16:50.605 INFO utils - get_metrics: assemble validation recall: 0.9211
+2025-04-15 21:16:50.605 INFO utils - get_metrics: assemble validation precision: 0.9678
+2025-04-15 21:16:50.607 INFO utils - get_metrics: assemble validation confusion matrix 
+ [[39868  1232]
+ [ 3171 37022]]
+2025-04-15 21:16:50.938 INFO utils - get_metrics: assemble test accuracy: 0.9488
+2025-04-15 21:16:50.938 INFO utils - get_metrics: assemble test f1 score: 0.9477
+2025-04-15 21:16:50.939 INFO utils - get_metrics: assemble test recall: 0.9279
+2025-04-15 21:16:50.939 INFO utils - get_metrics: assemble test precision: 0.9684
+2025-04-15 21:16:50.940 INFO utils - get_metrics: assemble test confusion matrix 
+ [[6949  217]
+ [ 517 6655]]
+2025-04-15 21:17:36.391 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 21:17:36.391 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 21:17:36.392 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 21:17:36.392 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 21:17:36.429 INFO utils - get_metrics: assemble validation accuracy: 0.9458
+2025-04-15 21:17:36.430 INFO utils - get_metrics: assemble validation f1 score: 0.9439
+2025-04-15 21:17:36.430 INFO utils - get_metrics: assemble validation recall: 0.9211
+2025-04-15 21:17:36.430 INFO utils - get_metrics: assemble validation precision: 0.9678
+2025-04-15 21:17:36.432 INFO utils - get_metrics: assemble validation confusion matrix 
+ [[39868  1232]
+ [ 3171 37022]]
+2025-04-15 21:17:36.754 INFO utils - get_metrics: assemble test accuracy: 0.9488
+2025-04-15 21:17:36.754 INFO utils - get_metrics: assemble test f1 score: 0.9477
+2025-04-15 21:17:36.754 INFO utils - get_metrics: assemble test recall: 0.9279
+2025-04-15 21:17:36.754 INFO utils - get_metrics: assemble test precision: 0.9684
+2025-04-15 21:17:36.755 INFO utils - get_metrics: assemble test confusion matrix 
+ [[6949  217]
+ [ 517 6655]]
+2025-04-15 21:17:49.202 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 21:17:49.202 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 21:17:49.202 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 21:17:49.202 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 21:17:49.241 INFO utils - get_metrics: assemble validation accuracy: 0.9458
+2025-04-15 21:17:49.241 INFO utils - get_metrics: assemble validation f1 score: 0.9439
+2025-04-15 21:17:49.241 INFO utils - get_metrics: assemble validation recall: 0.9211
+2025-04-15 21:17:49.241 INFO utils - get_metrics: assemble validation precision: 0.9678
+2025-04-15 21:17:49.243 INFO utils - get_metrics: assemble validation confusion matrix 
+ [[39868  1232]
+ [ 3171 37022]]
+2025-04-15 21:17:49.580 INFO utils - get_metrics: assemble test accuracy: 0.9488
+2025-04-15 21:17:49.580 INFO utils - get_metrics: assemble test f1 score: 0.9477
+2025-04-15 21:17:49.580 INFO utils - get_metrics: assemble test recall: 0.9279
+2025-04-15 21:17:49.580 INFO utils - get_metrics: assemble test precision: 0.9684
+2025-04-15 21:17:49.581 INFO utils - get_metrics: assemble test confusion matrix 
+ [[6949  217]
+ [ 517 6655]]
+2025-04-15 21:19:14.035 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-15 21:19:14.036 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-15 21:19:14.036 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-15 21:19:14.036 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-15 21:19:14.073 INFO utils - get_metrics: assemble validation accuracy: 0.9458
+2025-04-15 21:19:14.073 INFO utils - get_metrics: assemble validation f1 score: 0.9439
+2025-04-15 21:19:14.073 INFO utils - get_metrics: assemble validation recall: 0.9211
+2025-04-15 21:19:14.073 INFO utils - get_metrics: assemble validation precision: 0.9678
+2025-04-15 21:19:14.075 INFO utils - get_metrics: assemble validation confusion matrix 
+ [[39868  1232]
+ [ 3171 37022]]
+2025-04-15 21:19:14.412 INFO utils - get_metrics: assemble test accuracy: 0.9488
+2025-04-15 21:19:14.412 INFO utils - get_metrics: assemble test f1 score: 0.9477
+2025-04-15 21:19:14.412 INFO utils - get_metrics: assemble test recall: 0.9279
+2025-04-15 21:19:14.412 INFO utils - get_metrics: assemble test precision: 0.9684
+2025-04-15 21:19:14.413 INFO utils - get_metrics: assemble test confusion matrix 
+ [[6949  217]
+ [ 517 6655]]
+2025-04-15 21:21:14.888 INFO ada_boost - <module>: ada-boost classifier
+2025-04-15 21:21:15.765 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
+2025-04-15 21:21:15.765 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
+2025-04-15 21:21:17.014 INFO df_utils - standarize_data: Stadarize data, filter_col=target, filter_value=None
+2025-04-15 21:21:17.118 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
+2025-04-15 21:21:17.275 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
+2025-04-15 21:21:17.275 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
+2025-04-15 21:21:17.298 INFO ada_boost - execute_ada_boost: start ada_boost classifier training
+2025-04-15 21:22:00.123 INFO utils - save_model: saving model to ./models/ada_boost_classifier.pkl
+2025-04-15 21:22:00.130 INFO utils - get_cross_val_predictions: Getting cross validation predictions for AdaBoostClassifier(learning_rate=1, n_estimators=200, random_state=0)
+2025-04-15 21:24:40.366 INFO utils - get_cross_val_predictions: Trying to get cross validation probabilities for AdaBoostClassifier(learning_rate=1, n_estimators=200, random_state=0)
+2025-04-15 21:27:21.833 INFO utils - get_predictions: Getting test predictions for AdaBoostClassifier(learning_rate=1, n_estimators=200, random_state=0)
+2025-04-15 21:27:22.228 INFO utils - get_predictions: Trying to get test predictions for AdaBoostClassifier(learning_rate=1, n_estimators=200, random_state=0)
+2025-04-15 21:27:22.617 INFO utils - save_prediction: saving model to ./predictions/ada_boost_val_predictions.pkl
+2025-04-15 21:27:22.619 INFO utils - save_prediction: saving model to ./predictions/ada_boost_test_predictions.pkl
+2025-04-15 21:27:22.620 INFO utils - save_prediction: saving model to ./predictions/ada_boost_val_probabilities.pkl
+2025-04-15 21:27:22.621 INFO utils - save_prediction: saving model to ./predictions/ada_boost_test_probabilities.pkl
+2025-04-15 21:27:22.641 INFO utils - get_metrics: ada-boost validation accuracy: 0.9427
+2025-04-15 21:27:22.641 INFO utils - get_metrics: ada-boost validation f1 score: 0.9416
+2025-04-15 21:27:22.641 INFO utils - get_metrics: ada-boost validation recall: 0.9337
+2025-04-15 21:27:22.641 INFO utils - get_metrics: ada-boost validation precision: 0.9495
+2025-04-15 21:27:22.643 INFO utils - get_metrics: ada-boost validation confusion matrix 
+ [[39106  1994]
+ [ 2664 37529]]
+2025-04-15 21:27:22.928 INFO utils - get_metrics: ada-boost test accuracy: 0.9461
+2025-04-15 21:27:22.928 INFO utils - get_metrics: ada-boost test f1 score: 0.9457
+2025-04-15 21:27:22.928 INFO utils - get_metrics: ada-boost test recall: 0.9384
+2025-04-15 21:27:22.928 INFO utils - get_metrics: ada-boost test precision: 0.9531
+2025-04-15 21:27:22.929 INFO utils - get_metrics: ada-boost test confusion matrix 
+ [[6835  331]
+ [ 442 6730]]
+2025-04-16 12:11:13.920 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-16 12:11:13.921 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-16 12:11:13.921 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-16 12:11:13.921 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-16 12:11:14.107 INFO utils - get_metrics: assemble validation accuracy: 0.9463
+2025-04-16 12:11:14.107 INFO utils - get_metrics: assemble validation f1 score: 0.9444
+2025-04-16 12:11:14.107 INFO utils - get_metrics: assemble validation recall: 0.9223
+2025-04-16 12:11:14.107 INFO utils - get_metrics: assemble validation precision: 0.9676
+2025-04-16 12:11:14.109 INFO utils - get_metrics: assemble validation confusion matrix 
+ [[39859  1241]
+ [ 3121 37072]]
+2025-04-16 12:11:15.292 INFO utils - get_metrics: assemble test accuracy: 0.9496
+2025-04-16 12:11:15.292 INFO utils - get_metrics: assemble test f1 score: 0.9487
+2025-04-16 12:11:15.292 INFO utils - get_metrics: assemble test recall: 0.93
+2025-04-16 12:11:15.292 INFO utils - get_metrics: assemble test precision: 0.9681
+2025-04-16 12:11:15.293 INFO utils - get_metrics: assemble test confusion matrix 
+ [[6946  220]
+ [ 502 6670]]
+2025-04-16 12:11:54.125 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-16 12:11:54.125 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-16 12:11:54.125 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-16 12:11:54.125 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-16 12:11:54.164 INFO utils - get_metrics: assemble validation accuracy: 0.9463
+2025-04-16 12:11:54.164 INFO utils - get_metrics: assemble validation f1 score: 0.9444
+2025-04-16 12:11:54.164 INFO utils - get_metrics: assemble validation recall: 0.9223
+2025-04-16 12:11:54.164 INFO utils - get_metrics: assemble validation precision: 0.9676
+2025-04-16 12:11:54.166 INFO utils - get_metrics: assemble validation confusion matrix 
+ [[39859  1241]
+ [ 3121 37072]]
+2025-04-16 12:11:54.543 INFO utils - get_metrics: assemble test accuracy: 0.9496
+2025-04-16 12:11:54.543 INFO utils - get_metrics: assemble test f1 score: 0.9487
+2025-04-16 12:11:54.543 INFO utils - get_metrics: assemble test recall: 0.93
+2025-04-16 12:11:54.543 INFO utils - get_metrics: assemble test precision: 0.9681
+2025-04-16 12:11:54.544 INFO utils - get_metrics: assemble test confusion matrix 
+ [[6946  220]
+ [ 502 6670]]
+2025-04-16 12:16:21.639 INFO ada_boost - <module>: ada-boost classifier
+2025-04-16 12:16:22.560 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
+2025-04-16 12:16:22.561 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
+2025-04-16 12:16:23.697 INFO df_utils - standarize_data: Stadarize data, filter_col=target, filter_value=None
+2025-04-16 12:16:23.783 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
+2025-04-16 12:16:23.877 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
+2025-04-16 12:16:23.877 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
+2025-04-16 12:17:11.560 INFO ada_boost - optimize_ada_boost: Best precision : 0.952
+2025-04-16 12:17:11.560 INFO ada_boost - optimize_ada_boost: Best parameters:
+2025-04-16 12:17:11.560 INFO ada_boost - optimize_ada_boost: {'learning_rate': 0.5, 'n_estimators': 100}
+2025-04-16 12:17:11.561 INFO ada_boost - execute_ada_boost: start ada_boost classifier training
+2025-04-16 12:17:31.172 INFO utils - save_model: saving model to ./models/ada_boost_classifier.pkl
+2025-04-16 12:17:31.178 INFO utils - get_cross_val_predictions: Getting cross validation predictions for AdaBoostClassifier(learning_rate=0.5, n_estimators=100, random_state=0)
+2025-04-16 12:18:59.157 INFO utils - get_cross_val_predictions: Trying to get cross validation probabilities for AdaBoostClassifier(learning_rate=0.5, n_estimators=100, random_state=0)
+2025-04-16 12:20:24.050 INFO utils - get_predictions: Getting test predictions for AdaBoostClassifier(learning_rate=0.5, n_estimators=100, random_state=0)
+2025-04-16 12:20:24.261 INFO utils - get_predictions: Trying to get test predictions for AdaBoostClassifier(learning_rate=0.5, n_estimators=100, random_state=0)
+2025-04-16 12:20:24.479 INFO utils - save_prediction: saving model to ./predictions/ada_boost_val_predictions.pkl
+2025-04-16 12:20:24.480 INFO utils - save_prediction: saving model to ./predictions/ada_boost_test_predictions.pkl
+2025-04-16 12:20:24.481 INFO utils - save_prediction: saving model to ./predictions/ada_boost_val_probabilities.pkl
+2025-04-16 12:20:24.483 INFO utils - save_prediction: saving model to ./predictions/ada_boost_test_probabilities.pkl
+2025-04-16 12:20:24.503 INFO utils - get_metrics: ada-boost validation accuracy: 0.9331
+2025-04-16 12:20:24.503 INFO utils - get_metrics: ada-boost validation f1 score: 0.9306
+2025-04-16 12:20:24.503 INFO utils - get_metrics: ada-boost validation recall: 0.9078
+2025-04-16 12:20:24.503 INFO utils - get_metrics: ada-boost validation precision: 0.9546
+2025-04-16 12:20:24.505 INFO utils - get_metrics: ada-boost validation confusion matrix 
+ [[39364  1736]
+ [ 3705 36488]]
+2025-04-16 12:20:24.809 INFO utils - get_metrics: ada-boost test accuracy: 0.9346
+2025-04-16 12:20:24.809 INFO utils - get_metrics: ada-boost test f1 score: 0.9332
+2025-04-16 12:20:24.809 INFO utils - get_metrics: ada-boost test recall: 0.9129
+2025-04-16 12:20:24.809 INFO utils - get_metrics: ada-boost test precision: 0.9545
+2025-04-16 12:20:24.810 INFO utils - get_metrics: ada-boost test confusion matrix 
+ [[6854  312]
+ [ 625 6547]]
+2025-04-16 12:21:29.960 INFO ada_boost - <module>: ada-boost classifier
+2025-04-16 12:21:30.747 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
+2025-04-16 12:21:30.747 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
+2025-04-16 12:21:31.688 INFO df_utils - standarize_data: Stadarize data, filter_col=target, filter_value=None
+2025-04-16 12:21:31.753 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
+2025-04-16 12:21:31.833 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
+2025-04-16 12:21:31.833 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
+2025-04-16 12:27:23.618 INFO ada_boost - optimize_ada_boost: Best precision : 0.966
+2025-04-16 12:27:23.619 INFO ada_boost - optimize_ada_boost: Best parameters:
+2025-04-16 12:27:23.619 INFO ada_boost - optimize_ada_boost: {'learning_rate': 0.25, 'n_estimators': 25}
+2025-04-16 12:27:23.619 INFO ada_boost - execute_ada_boost: start ada_boost classifier training
+2025-04-16 12:27:28.740 INFO utils - save_model: saving model to ./models/ada_boost_classifier.pkl
+2025-04-16 12:27:28.741 INFO utils - load_file: loading ./predictions/ada_boost_val_predictions.pkl
+2025-04-16 12:27:28.750 INFO utils - load_file: loading ./predictions/ada_boost_test_predictions.pkl
+2025-04-16 12:27:28.758 INFO utils - manage_predictions: No probability files to load for ada_boost
+2025-04-16 12:27:28.758 INFO utils - load_file: loading ./predictions/ada_boost_val_probabilities.pkl
+2025-04-16 12:27:28.767 INFO utils - load_file: loading ./predictions/ada_boost_test_probabilities.pkl
+2025-04-16 12:27:28.796 INFO utils - get_metrics: ada-boost validation accuracy: 0.9331
+2025-04-16 12:27:28.797 INFO utils - get_metrics: ada-boost validation f1 score: 0.9306
+2025-04-16 12:27:28.797 INFO utils - get_metrics: ada-boost validation recall: 0.9078
+2025-04-16 12:27:28.797 INFO utils - get_metrics: ada-boost validation precision: 0.9546
+2025-04-16 12:27:28.799 INFO utils - get_metrics: ada-boost validation confusion matrix 
+ [[39364  1736]
+ [ 3705 36488]]
+2025-04-16 12:27:29.086 INFO utils - get_metrics: ada-boost test accuracy: 0.9346
+2025-04-16 12:27:29.087 INFO utils - get_metrics: ada-boost test f1 score: 0.9332
+2025-04-16 12:27:29.087 INFO utils - get_metrics: ada-boost test recall: 0.9129
+2025-04-16 12:27:29.087 INFO utils - get_metrics: ada-boost test precision: 0.9545
+2025-04-16 12:27:29.088 INFO utils - get_metrics: ada-boost test confusion matrix 
+ [[6854  312]
+ [ 625 6547]]
+2025-04-16 12:29:09.017 INFO ada_boost - <module>: ada-boost classifier
+2025-04-16 12:29:09.818 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
+2025-04-16 12:29:09.818 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
+2025-04-16 12:29:10.796 INFO df_utils - standarize_data: Stadarize data, filter_col=target, filter_value=None
+2025-04-16 12:29:10.880 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
+2025-04-16 12:29:10.968 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
+2025-04-16 12:29:10.968 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
+2025-04-16 12:29:10.986 INFO ada_boost - execute_ada_boost: start ada_boost classifier training
+2025-04-16 12:29:23.585 INFO utils - save_model: saving model to ./models/ada_boost_classifier.pkl
+2025-04-16 12:29:23.588 INFO utils - get_cross_val_predictions: Getting cross validation predictions for AdaBoostClassifier(learning_rate=0.25, n_estimators=25, random_state=0)
+2025-04-16 12:30:12.023 INFO utils - get_cross_val_predictions: Trying to get cross validation probabilities for AdaBoostClassifier(learning_rate=0.25, n_estimators=25, random_state=0)
+2025-04-16 12:30:54.860 INFO utils - get_predictions: Getting test predictions for AdaBoostClassifier(learning_rate=0.25, n_estimators=25, random_state=0)
+2025-04-16 12:30:54.978 INFO utils - get_predictions: Trying to get test predictions for AdaBoostClassifier(learning_rate=0.25, n_estimators=25, random_state=0)
+2025-04-16 12:30:55.087 INFO utils - save_prediction: saving model to ./predictions/ada_boost_val_predictions.pkl
+2025-04-16 12:30:55.090 INFO utils - save_prediction: saving model to ./predictions/ada_boost_test_predictions.pkl
+2025-04-16 12:30:55.092 INFO utils - save_prediction: saving model to ./predictions/ada_boost_val_probabilities.pkl
+2025-04-16 12:30:55.095 INFO utils - save_prediction: saving model to ./predictions/ada_boost_test_probabilities.pkl
+2025-04-16 12:30:55.136 INFO utils - get_metrics: ada-boost validation accuracy: 0.7927
+2025-04-16 12:30:55.136 INFO utils - get_metrics: ada-boost validation f1 score: 0.7425
+2025-04-16 12:30:55.136 INFO utils - get_metrics: ada-boost validation recall: 0.6045
+2025-04-16 12:30:55.136 INFO utils - get_metrics: ada-boost validation precision: 0.9623
+2025-04-16 12:30:55.142 INFO utils - get_metrics: ada-boost validation confusion matrix 
+ [[40147   953]
+ [15897 24296]]
+2025-04-16 12:30:55.730 INFO utils - get_metrics: ada-boost test accuracy: 0.8128
+2025-04-16 12:30:55.730 INFO utils - get_metrics: ada-boost test f1 score: 0.7787
+2025-04-16 12:30:55.730 INFO utils - get_metrics: ada-boost test recall: 0.6585
+2025-04-16 12:30:55.730 INFO utils - get_metrics: ada-boost test precision: 0.9526
+2025-04-16 12:30:55.732 INFO utils - get_metrics: ada-boost test confusion matrix 
+ [[6931  235]
+ [2449 4723]]
+2025-04-16 12:32:32.946 INFO ada_boost - <module>: ada-boost classifier
+2025-04-16 12:32:33.824 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
+2025-04-16 12:32:33.824 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
+2025-04-16 12:32:34.982 INFO df_utils - standarize_data: Stadarize data, filter_col=target, filter_value=None
+2025-04-16 12:32:35.106 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
+2025-04-16 12:32:35.218 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
+2025-04-16 12:32:35.218 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
+2025-04-16 12:32:35.241 INFO ada_boost - execute_ada_boost: start ada_boost classifier training
+2025-04-16 12:33:04.459 INFO ada_boost - <module>: ada-boost classifier
+2025-04-16 12:33:05.255 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
+2025-04-16 12:33:05.255 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
+2025-04-16 12:33:06.196 INFO df_utils - standarize_data: Stadarize data, filter_col=target, filter_value=None
+2025-04-16 12:33:06.266 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
+2025-04-16 12:33:06.343 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
+2025-04-16 12:33:06.344 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
+2025-04-16 12:33:06.361 INFO ada_boost - optimize_ada_boost: Optimizing AdaBoostClassifier(random_state=0), with grid search {'n_estimators': [25, 50, 100, 150], 'learning_rate': [0.25, 0.5, 0.75, 1]}
+2025-04-16 12:41:05.296 INFO ada_boost - optimize_ada_boost: Best precision : 0.966
+2025-04-16 12:41:05.296 INFO ada_boost - optimize_ada_boost: Best parameters:
+2025-04-16 12:41:05.296 INFO ada_boost - optimize_ada_boost: {'learning_rate': 0.25, 'n_estimators': 25}
+2025-04-16 12:41:05.297 INFO utils - load_file: loading ./models/ada_boost_classifier.pkl
+2025-04-16 12:41:05.309 INFO utils - load_file: loading ./predictions/ada_boost_val_predictions.pkl
+2025-04-16 12:41:05.319 INFO utils - load_file: loading ./predictions/ada_boost_test_predictions.pkl
+2025-04-16 12:41:05.327 INFO utils - manage_predictions: No probability files to load for ada_boost
+2025-04-16 12:41:05.327 INFO utils - load_file: loading ./predictions/ada_boost_val_probabilities.pkl
+2025-04-16 12:41:05.337 INFO utils - load_file: loading ./predictions/ada_boost_test_probabilities.pkl
+2025-04-16 12:41:05.370 INFO utils - get_metrics: ada-boost validation accuracy: 0.7927
+2025-04-16 12:41:05.370 INFO utils - get_metrics: ada-boost validation f1 score: 0.7425
+2025-04-16 12:41:05.371 INFO utils - get_metrics: ada-boost validation recall: 0.6045
+2025-04-16 12:41:05.371 INFO utils - get_metrics: ada-boost validation precision: 0.9623
+2025-04-16 12:41:05.373 INFO utils - get_metrics: ada-boost validation confusion matrix 
+ [[40147   953]
+ [15897 24296]]
+2025-04-16 12:41:05.712 INFO utils - get_metrics: ada-boost test accuracy: 0.8128
+2025-04-16 12:41:05.712 INFO utils - get_metrics: ada-boost test f1 score: 0.7787
+2025-04-16 12:41:05.712 INFO utils - get_metrics: ada-boost test recall: 0.6585
+2025-04-16 12:41:05.713 INFO utils - get_metrics: ada-boost test precision: 0.9526
+2025-04-16 12:41:05.714 INFO utils - get_metrics: ada-boost test confusion matrix 
+ [[6931  235]
+ [2449 4723]]
+2025-04-16 12:43:07.615 INFO ada_boost - <module>: ada-boost classifier
+2025-04-16 12:43:08.505 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
+2025-04-16 12:43:08.505 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
+2025-04-16 12:43:09.845 INFO df_utils - standarize_data: Stadarize data, filter_col=target, filter_value=None
+2025-04-16 12:43:09.939 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
+2025-04-16 12:43:10.028 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
+2025-04-16 12:43:10.029 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
+2025-04-16 12:43:10.047 INFO ada_boost - optimize_ada_boost: Optimizing AdaBoostClassifier(random_state=0), with grid search {'n_estimators': [50, 100, 150], 'learning_rate': [0.5, 1]}
+2025-04-16 12:43:23.000 INFO ada_boost - <module>: ada-boost classifier
+2025-04-16 12:43:24.065 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
+2025-04-16 12:43:24.066 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
+2025-04-16 12:43:25.031 INFO df_utils - standarize_data: Stadarize data, filter_col=target, filter_value=None
+2025-04-16 12:43:25.097 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
+2025-04-16 12:43:25.180 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
+2025-04-16 12:43:25.180 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
+2025-04-16 12:43:25.198 INFO ada_boost - optimize_ada_boost: Optimizing AdaBoostClassifier(random_state=0), with grid search {'n_estimators': [50, 100, 150], 'learning_rate': [0.5, 1]}
+2025-04-16 12:45:17.048 INFO ada_boost - optimize_ada_boost: Best f1 : 0.938
+2025-04-16 12:45:17.048 INFO ada_boost - optimize_ada_boost: Best parameters:
+2025-04-16 12:45:17.048 INFO ada_boost - optimize_ada_boost: {'learning_rate': 1, 'n_estimators': 150}
+2025-04-16 12:45:17.049 INFO utils - load_file: loading ./models/ada_boost_classifier.pkl
+2025-04-16 12:45:17.050 INFO utils - load_file: loading ./predictions/ada_boost_val_predictions.pkl
+2025-04-16 12:45:17.050 INFO utils - load_file: loading ./predictions/ada_boost_test_predictions.pkl
+2025-04-16 12:45:17.050 INFO utils - manage_predictions: No probability files to load for ada_boost
+2025-04-16 12:45:17.050 INFO utils - load_file: loading ./predictions/ada_boost_val_probabilities.pkl
+2025-04-16 12:45:17.051 INFO utils - load_file: loading ./predictions/ada_boost_test_probabilities.pkl
+2025-04-16 12:45:17.068 INFO utils - get_metrics: ada-boost validation accuracy: 0.7927
+2025-04-16 12:45:17.068 INFO utils - get_metrics: ada-boost validation f1 score: 0.7425
+2025-04-16 12:45:17.068 INFO utils - get_metrics: ada-boost validation recall: 0.6045
+2025-04-16 12:45:17.068 INFO utils - get_metrics: ada-boost validation precision: 0.9623
+2025-04-16 12:45:17.070 INFO utils - get_metrics: ada-boost validation confusion matrix 
+ [[40147   953]
+ [15897 24296]]
+2025-04-16 12:45:17.349 INFO utils - get_metrics: ada-boost test accuracy: 0.8128
+2025-04-16 12:45:17.349 INFO utils - get_metrics: ada-boost test f1 score: 0.7787
+2025-04-16 12:45:17.349 INFO utils - get_metrics: ada-boost test recall: 0.6585
+2025-04-16 12:45:17.349 INFO utils - get_metrics: ada-boost test precision: 0.9526
+2025-04-16 12:45:17.350 INFO utils - get_metrics: ada-boost test confusion matrix 
+ [[6931  235]
+ [2449 4723]]
+2025-04-16 12:47:05.457 INFO ada_boost - <module>: ada-boost classifier
+2025-04-16 12:47:06.266 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
+2025-04-16 12:47:06.267 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
+2025-04-16 12:47:07.195 INFO df_utils - standarize_data: Stadarize data, filter_col=target, filter_value=None
+2025-04-16 12:47:07.274 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
+2025-04-16 12:47:07.351 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
+2025-04-16 12:47:07.351 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
+2025-04-16 12:47:07.369 INFO ada_boost - optimize_ada_boost: Optimizing AdaBoostClassifier(random_state=0), with grid search {'n_estimators': [50, 100, 150], 'learning_rate': [0.5, 1]}
+2025-04-16 12:47:44.842 INFO ada_boost - <module>: ada-boost classifier
+2025-04-16 12:47:45.659 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
+2025-04-16 12:47:45.659 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
+2025-04-16 12:47:46.812 INFO df_utils - standarize_data: Stadarize data, filter_col=target, filter_value=None
+2025-04-16 12:47:46.895 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
+2025-04-16 12:47:46.985 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
+2025-04-16 12:47:46.985 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
+2025-04-16 12:47:47.005 INFO ada_boost - optimize_ada_boost: Optimizing AdaBoostClassifier(random_state=0), with grid search {'n_estimators': [150, 250], 'learning_rate': [1]}
+2025-04-16 12:49:07.809 INFO ada_boost - optimize_ada_boost: Best f1 : 0.940
+2025-04-16 12:49:07.809 INFO ada_boost - optimize_ada_boost: Best parameters:
+2025-04-16 12:49:07.809 INFO ada_boost - optimize_ada_boost: {'learning_rate': 1, 'n_estimators': 250}
+2025-04-16 12:49:07.810 INFO utils - load_file: loading ./models/ada_boost_classifier.pkl
+2025-04-16 12:49:07.811 INFO utils - load_file: loading ./predictions/ada_boost_val_predictions.pkl
+2025-04-16 12:49:07.811 INFO utils - load_file: loading ./predictions/ada_boost_test_predictions.pkl
+2025-04-16 12:49:07.811 INFO utils - manage_predictions: No probability files to load for ada_boost
+2025-04-16 12:49:07.811 INFO utils - load_file: loading ./predictions/ada_boost_val_probabilities.pkl
+2025-04-16 12:49:07.812 INFO utils - load_file: loading ./predictions/ada_boost_test_probabilities.pkl
+2025-04-16 12:49:07.828 INFO utils - get_metrics: ada-boost validation accuracy: 0.7927
+2025-04-16 12:49:07.829 INFO utils - get_metrics: ada-boost validation f1 score: 0.7425
+2025-04-16 12:49:07.829 INFO utils - get_metrics: ada-boost validation recall: 0.6045
+2025-04-16 12:49:07.829 INFO utils - get_metrics: ada-boost validation precision: 0.9623
+2025-04-16 12:49:07.831 INFO utils - get_metrics: ada-boost validation confusion matrix 
+ [[40147   953]
+ [15897 24296]]
+2025-04-16 12:49:08.106 INFO utils - get_metrics: ada-boost test accuracy: 0.8128
+2025-04-16 12:49:08.106 INFO utils - get_metrics: ada-boost test f1 score: 0.7787
+2025-04-16 12:49:08.106 INFO utils - get_metrics: ada-boost test recall: 0.6585
+2025-04-16 12:49:08.106 INFO utils - get_metrics: ada-boost test precision: 0.9526
+2025-04-16 12:49:08.107 INFO utils - get_metrics: ada-boost test confusion matrix 
+ [[6931  235]
+ [2449 4723]]
+2025-04-16 12:49:51.502 INFO ada_boost - <module>: ada-boost classifier
+2025-04-16 12:49:52.289 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
+2025-04-16 12:49:52.290 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
+2025-04-16 12:49:53.234 INFO df_utils - standarize_data: Stadarize data, filter_col=target, filter_value=None
+2025-04-16 12:49:53.302 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
+2025-04-16 12:49:53.381 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
+2025-04-16 12:49:53.381 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
+2025-04-16 12:49:53.397 INFO ada_boost - execute_ada_boost: start ada_boost classifier training
+2025-04-16 12:50:45.339 INFO utils - save_model: saving model to ./models/ada_boost_classifier.pkl
+2025-04-16 12:50:45.346 INFO utils - get_cross_val_predictions: Getting cross validation predictions for AdaBoostClassifier(learning_rate=1, n_estimators=250, random_state=0)
+2025-04-16 12:54:12.453 INFO utils - get_cross_val_predictions: Trying to get cross validation probabilities for AdaBoostClassifier(learning_rate=1, n_estimators=250, random_state=0)
+2025-04-16 12:57:44.480 INFO utils - get_predictions: Getting test predictions for AdaBoostClassifier(learning_rate=1, n_estimators=250, random_state=0)
+2025-04-16 12:57:44.994 INFO utils - get_predictions: Trying to get test predictions for AdaBoostClassifier(learning_rate=1, n_estimators=250, random_state=0)
+2025-04-16 12:57:45.592 INFO utils - save_prediction: saving model to ./predictions/ada_boost_val_predictions.pkl
+2025-04-16 12:57:45.593 INFO utils - save_prediction: saving model to ./predictions/ada_boost_test_predictions.pkl
+2025-04-16 12:57:45.595 INFO utils - save_prediction: saving model to ./predictions/ada_boost_val_probabilities.pkl
+2025-04-16 12:57:45.597 INFO utils - save_prediction: saving model to ./predictions/ada_boost_test_probabilities.pkl
+2025-04-16 12:57:45.619 INFO utils - get_metrics: ada-boost validation accuracy: 0.943
+2025-04-16 12:57:45.619 INFO utils - get_metrics: ada-boost validation f1 score: 0.9418
+2025-04-16 12:57:45.619 INFO utils - get_metrics: ada-boost validation recall: 0.9327
+2025-04-16 12:57:45.619 INFO utils - get_metrics: ada-boost validation precision: 0.9511
+2025-04-16 12:57:45.622 INFO utils - get_metrics: ada-boost validation confusion matrix 
+ [[39171  1929]
+ [ 2705 37488]]
+2025-04-16 12:57:45.915 INFO utils - get_metrics: ada-boost test accuracy: 0.9467
+2025-04-16 12:57:45.915 INFO utils - get_metrics: ada-boost test f1 score: 0.9463
+2025-04-16 12:57:45.915 INFO utils - get_metrics: ada-boost test recall: 0.9395
+2025-04-16 12:57:45.915 INFO utils - get_metrics: ada-boost test precision: 0.9533
+2025-04-16 12:57:45.917 INFO utils - get_metrics: ada-boost test confusion matrix 
+ [[6836  330]
+ [ 434 6738]]
+2025-04-16 13:05:27.021 INFO gradient_boosting - <module>: gradient-boosting classifier
+2025-04-16 13:05:27.757 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
+2025-04-16 13:05:27.757 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
+2025-04-16 13:05:28.673 INFO df_utils - standarize_data: Stadarize data, filter_col=target, filter_value=None
+2025-04-16 13:05:28.738 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
+2025-04-16 13:05:28.815 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
+2025-04-16 13:05:28.815 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
+2025-04-16 13:06:44.789 INFO gradient_boosting - <module>: gradient-boosting classifier
+2025-04-16 13:06:45.646 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
+2025-04-16 13:06:45.646 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
+2025-04-16 13:06:46.568 INFO df_utils - standarize_data: Stadarize data, filter_col=target, filter_value=None
+2025-04-16 13:06:46.648 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
+2025-04-16 13:06:46.728 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
+2025-04-16 13:06:46.728 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
+2025-04-16 13:08:41.996 INFO gradient_boosting - <module>: gradient-boosting classifier
+2025-04-16 13:08:42.736 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
+2025-04-16 13:08:42.736 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
+2025-04-16 13:08:43.647 INFO df_utils - standarize_data: Stadarize data, filter_col=target, filter_value=None
+2025-04-16 13:08:43.715 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
+2025-04-16 13:08:43.797 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
+2025-04-16 13:08:43.797 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
+2025-04-16 13:09:10.785 INFO gradient_boosting - <module>: gradient-boosting classifier
+2025-04-16 13:09:11.631 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
+2025-04-16 13:09:11.631 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
+2025-04-16 13:09:12.673 INFO df_utils - standarize_data: Stadarize data, filter_col=target, filter_value=None
+2025-04-16 13:09:12.753 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
+2025-04-16 13:09:12.851 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
+2025-04-16 13:09:12.851 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
+2025-04-16 13:09:32.611 INFO gradient_boosting - <module>: gradient-boosting classifier
+2025-04-16 13:09:33.383 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
+2025-04-16 13:09:33.383 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
+2025-04-16 13:09:34.299 INFO df_utils - standarize_data: Stadarize data, filter_col=target, filter_value=None
+2025-04-16 13:09:34.369 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
+2025-04-16 13:09:34.446 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
+2025-04-16 13:09:34.447 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
+2025-04-16 13:10:41.841 INFO gradient_boosting - optimize_gradient_boosting: Best f1 : 0.944
+2025-04-16 13:10:41.841 INFO gradient_boosting - optimize_gradient_boosting: Best parameters:
+2025-04-16 13:10:41.841 INFO gradient_boosting - optimize_gradient_boosting: {'learning_rate': 0.1, 'min_samples_leaf': 2, 'min_samples_split': 2, 'n_estimators': 50}
+2025-04-16 13:10:41.841 INFO utils - load_file: loading ./models/gradient_boosting_classifier.pkl
+2025-04-16 13:10:41.856 INFO utils - load_file: loading ./predictions/gradient_boosting_val_predictions.pkl
+2025-04-16 13:10:41.856 INFO utils - load_file: loading ./predictions/gradient_boosting_test_predictions.pkl
+2025-04-16 13:10:41.857 INFO utils - manage_predictions: No probability files to load for gradient_boosting
+2025-04-16 13:10:41.857 INFO utils - load_file: loading ./predictions/gradient_boosting_val_probabilities.pkl
+2025-04-16 13:10:41.866 INFO utils - load_file: loading ./predictions/gradient_boosting_test_probabilities.pkl
+2025-04-16 13:10:41.895 INFO utils - get_metrics: gradient-boosting validation accuracy: 0.9517
+2025-04-16 13:10:41.895 INFO utils - get_metrics: gradient-boosting validation f1 score: 0.951
+2025-04-16 13:10:41.895 INFO utils - get_metrics: gradient-boosting validation recall: 0.9484
+2025-04-16 13:10:41.895 INFO utils - get_metrics: gradient-boosting validation precision: 0.9536
+2025-04-16 13:10:41.897 INFO utils - get_metrics: gradient-boosting validation confusion matrix 
+ [[39245  1855]
+ [ 2073 38120]]
+2025-04-16 13:10:42.177 INFO utils - get_metrics: gradient-boosting test accuracy: 0.9549
+2025-04-16 13:10:42.177 INFO utils - get_metrics: gradient-boosting test f1 score: 0.9549
+2025-04-16 13:10:42.178 INFO utils - get_metrics: gradient-boosting test recall: 0.954
+2025-04-16 13:10:42.178 INFO utils - get_metrics: gradient-boosting test precision: 0.9557
+2025-04-16 13:10:42.179 INFO utils - get_metrics: gradient-boosting test confusion matrix 
+ [[6849  317]
+ [ 330 6842]]
+2025-04-16 13:12:47.919 INFO gradient_boosting - <module>: gradient-boosting classifier
+2025-04-16 13:12:48.792 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
+2025-04-16 13:12:48.792 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
+2025-04-16 13:12:49.704 INFO df_utils - standarize_data: Stadarize data, filter_col=target, filter_value=None
+2025-04-16 13:12:49.772 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
+2025-04-16 13:12:49.848 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
+2025-04-16 13:12:49.848 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
+2025-04-16 13:12:49.864 INFO gradient_boosting - execute_gradient_boost: start gradient_boosting classifier training
+2025-04-16 13:13:48.150 INFO utils - save_model: saving model to ./models/gradient_boosting_classifier.pkl
+2025-04-16 13:13:48.155 INFO utils - get_cross_val_predictions: Getting cross validation predictions for GradientBoostingClassifier(random_state=0)
+2025-04-16 13:18:28.619 INFO utils - get_cross_val_predictions: Trying to get cross validation probabilities for GradientBoostingClassifier(random_state=0)
+2025-04-16 13:22:43.576 INFO utils - get_predictions: Getting test predictions for GradientBoostingClassifier(random_state=0)
+2025-04-16 13:22:43.610 INFO utils - get_predictions: Trying to get test predictions for GradientBoostingClassifier(random_state=0)
+2025-04-16 13:22:43.654 INFO utils - save_prediction: saving model to ./predictions/gradient_boosting_val_predictions.pkl
+2025-04-16 13:22:43.656 INFO utils - save_prediction: saving model to ./predictions/gradient_boosting_test_predictions.pkl
+2025-04-16 13:22:43.657 INFO utils - save_prediction: saving model to ./predictions/gradient_boosting_val_probabilities.pkl
+2025-04-16 13:22:43.659 INFO utils - save_prediction: saving model to ./predictions/gradient_boosting_test_probabilities.pkl
+2025-04-16 13:22:43.685 INFO utils - get_metrics: gradient-boosting validation accuracy: 0.9517
+2025-04-16 13:22:43.685 INFO utils - get_metrics: gradient-boosting validation f1 score: 0.951
+2025-04-16 13:22:43.685 INFO utils - get_metrics: gradient-boosting validation recall: 0.9484
+2025-04-16 13:22:43.685 INFO utils - get_metrics: gradient-boosting validation precision: 0.9536
+2025-04-16 13:22:43.688 INFO utils - get_metrics: gradient-boosting validation confusion matrix 
+ [[39245  1855]
+ [ 2073 38120]]
+2025-04-16 13:22:44.049 INFO utils - get_metrics: gradient-boosting test accuracy: 0.9549
+2025-04-16 13:22:44.049 INFO utils - get_metrics: gradient-boosting test f1 score: 0.9549
+2025-04-16 13:22:44.049 INFO utils - get_metrics: gradient-boosting test recall: 0.954
+2025-04-16 13:22:44.049 INFO utils - get_metrics: gradient-boosting test precision: 0.9557
+2025-04-16 13:22:44.050 INFO utils - get_metrics: gradient-boosting test confusion matrix 
+ [[6849  317]
+ [ 330 6842]]
+2025-04-16 13:26:22.179 INFO gradient_boosting - <module>: gradient-boosting classifier
+2025-04-16 13:26:22.976 INFO df_utils - prepare_df: Shape before processing: (110061, 78) 
+2025-04-16 13:26:22.976 INFO df_utils - rename_target: Renaming target data from wbit_error to 'target'
+2025-04-16 13:26:23.914 INFO df_utils - standarize_data: Stadarize data, filter_col=target, filter_value=None
+2025-04-16 13:26:23.999 INFO df_utils - prepare_df: Shape after processing: (95631, 38) 
+2025-04-16 13:26:24.093 INFO df_utils - prepare_df: Shape of train data: (81293, 38) 
+2025-04-16 13:26:24.093 INFO df_utils - prepare_df: Shape of test data: (14338, 38) 
+2025-04-16 13:26:24.111 INFO utils - load_file: loading ./models/gradient_boosting_classifier.pkl
+2025-04-16 13:26:24.129 INFO utils - get_cross_val_predictions: Getting cross validation predictions for GradientBoostingClassifier(random_state=0)
+2025-04-16 13:30:33.206 INFO utils - get_cross_val_predictions: Trying to get cross validation probabilities for GradientBoostingClassifier(random_state=0)
+2025-04-16 13:34:47.328 INFO utils - get_predictions: Getting test predictions for GradientBoostingClassifier(random_state=0)
+2025-04-16 13:34:47.357 INFO utils - get_predictions: Trying to get test predictions for GradientBoostingClassifier(random_state=0)
+2025-04-16 13:34:47.386 INFO utils - save_prediction: saving model to ./predictions/gradient_boosting_val_predictions.pkl
+2025-04-16 13:34:47.388 INFO utils - save_prediction: saving model to ./predictions/gradient_boosting_test_predictions.pkl
+2025-04-16 13:34:47.389 INFO utils - save_prediction: saving model to ./predictions/gradient_boosting_val_probabilities.pkl
+2025-04-16 13:34:47.391 INFO utils - save_prediction: saving model to ./predictions/gradient_boosting_test_probabilities.pkl
+2025-04-16 13:34:47.411 INFO utils - get_metrics: gradient-boosting validation accuracy: 0.9517
+2025-04-16 13:34:47.411 INFO utils - get_metrics: gradient-boosting validation f1 score: 0.951
+2025-04-16 13:34:47.411 INFO utils - get_metrics: gradient-boosting validation recall: 0.9484
+2025-04-16 13:34:47.411 INFO utils - get_metrics: gradient-boosting validation precision: 0.9536
+2025-04-16 13:34:47.414 INFO utils - get_metrics: gradient-boosting validation confusion matrix 
+ [[39245  1855]
+ [ 2073 38120]]
+2025-04-16 13:34:47.717 INFO utils - get_metrics: gradient-boosting test accuracy: 0.9549
+2025-04-16 13:34:47.717 INFO utils - get_metrics: gradient-boosting test f1 score: 0.9549
+2025-04-16 13:34:47.717 INFO utils - get_metrics: gradient-boosting test recall: 0.954
+2025-04-16 13:34:47.717 INFO utils - get_metrics: gradient-boosting test precision: 0.9557
+2025-04-16 13:34:47.718 INFO utils - get_metrics: gradient-boosting test confusion matrix 
+ [[6849  317]
+ [ 330 6842]]
+2025-04-16 13:37:02.900 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-16 13:37:02.900 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-16 13:37:02.901 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-16 13:37:02.901 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-16 13:37:02.977 INFO utils - get_metrics: assemble validation accuracy: 0.9463
+2025-04-16 13:37:02.977 INFO utils - get_metrics: assemble validation f1 score: 0.9444
+2025-04-16 13:37:02.977 INFO utils - get_metrics: assemble validation recall: 0.9222
+2025-04-16 13:37:02.977 INFO utils - get_metrics: assemble validation precision: 0.9676
+2025-04-16 13:37:02.979 INFO utils - get_metrics: assemble validation confusion matrix 
+ [[39860  1240]
+ [ 3127 37066]]
+2025-04-16 13:37:03.305 INFO utils - get_metrics: assemble test accuracy: 0.9496
+2025-04-16 13:37:03.305 INFO utils - get_metrics: assemble test f1 score: 0.9486
+2025-04-16 13:37:03.305 INFO utils - get_metrics: assemble test recall: 0.9299
+2025-04-16 13:37:03.305 INFO utils - get_metrics: assemble test precision: 0.9682
+2025-04-16 13:37:03.306 INFO utils - get_metrics: assemble test confusion matrix 
+ [[6947  219]
+ [ 503 6669]]
+2025-04-16 13:38:09.105 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-16 13:38:09.105 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-16 13:38:09.105 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-16 13:38:09.105 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-16 13:38:09.146 INFO utils - get_metrics: assemble validation accuracy: 0.9463
+2025-04-16 13:38:09.147 INFO utils - get_metrics: assemble validation f1 score: 0.9444
+2025-04-16 13:38:09.147 INFO utils - get_metrics: assemble validation recall: 0.9222
+2025-04-16 13:38:09.147 INFO utils - get_metrics: assemble validation precision: 0.9676
+2025-04-16 13:38:09.148 INFO utils - get_metrics: assemble validation confusion matrix 
+ [[39860  1240]
+ [ 3127 37066]]
+2025-04-16 13:38:09.494 INFO utils - get_metrics: assemble test accuracy: 0.9496
+2025-04-16 13:38:09.494 INFO utils - get_metrics: assemble test f1 score: 0.9486
+2025-04-16 13:38:09.494 INFO utils - get_metrics: assemble test recall: 0.9299
+2025-04-16 13:38:09.494 INFO utils - get_metrics: assemble test precision: 0.9682
+2025-04-16 13:38:09.495 INFO utils - get_metrics: assemble test confusion matrix 
+ [[6947  219]
+ [ 503 6669]]
+2025-04-16 13:41:28.646 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_predictions.pkl', './predictions\\gradient_boosting_val_predictions.pkl', './predictions\\kn_val_predictions.pkl', './predictions\\lr_val_predictions.pkl', './predictions\\svc_val_predictions.pkl']
+2025-04-16 13:41:28.647 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_predictions.pkl', './predictions\\gradient_boosting_test_predictions.pkl', './predictions\\kn_test_predictions.pkl', './predictions\\lr_test_predictions.pkl', './predictions\\svc_test_predictions.pkl']
+2025-04-16 13:41:28.647 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_val_probabilities.pkl', './predictions\\gradient_boosting_val_probabilities.pkl', './predictions\\kn_val_probabilities.pkl', './predictions\\lr_val_probabilities.pkl']
+2025-04-16 13:41:28.647 INFO ensemble - get_predictions_paths: ['./predictions\\ada_boost_test_probabilities.pkl', './predictions\\gradient_boosting_test_probabilities.pkl', './predictions\\kn_test_probabilities.pkl', './predictions\\lr_test_probabilities.pkl']
+2025-04-16 13:41:28.688 INFO utils - get_metrics: assemble validation accuracy: 0.9463
+2025-04-16 13:41:28.688 INFO utils - get_metrics: assemble validation f1 score: 0.9444
+2025-04-16 13:41:28.689 INFO utils - get_metrics: assemble validation recall: 0.9222
+2025-04-16 13:41:28.689 INFO utils - get_metrics: assemble validation precision: 0.9676
+2025-04-16 13:41:28.691 INFO utils - get_metrics: assemble validation confusion matrix 
+ [[39860  1240]
+ [ 3127 37066]]
+2025-04-16 13:41:29.019 INFO utils - get_metrics: assemble test accuracy: 0.9496
+2025-04-16 13:41:29.019 INFO utils - get_metrics: assemble test f1 score: 0.9486
+2025-04-16 13:41:29.020 INFO utils - get_metrics: assemble test recall: 0.9299
+2025-04-16 13:41:29.020 INFO utils - get_metrics: assemble test precision: 0.9682
+2025-04-16 13:41:29.021 INFO utils - get_metrics: assemble test confusion matrix 
+ [[6947  219]
+ [ 503 6669]]

@@ -9,8 +9,8 @@ import df_utils
 
 #__ Config ___________________________________________________________________________________
 OPTIMIZE_MODEL : bool = False
-TRAIN_MODEL : bool = True
-SAVE_MODEL : bool = True
+TRAIN_MODEL : bool = False
+SAVE_MODEL : bool = False
 COMPUTE_PREDICTIONS : bool = True
 SAVE_PREDICTIONS : bool = True
 
@@ -20,7 +20,10 @@ SEED_NUMBER : int = 0
 
 def optimize_gradient_boosting( x_train : pd.DataFrame,
                                 y_train: pd.DataFrame,
-                                C:list = [0.01,0.1],
+                                learning_rate:list[float],
+                                n_estimators:list[int],
+                                min_samples_split:list[int],
+                                min_samples_leaf:list[int],
                                 scoring = "precision",
                                 n_points: int = 10000
                                 ) -> dict:
@@ -28,10 +31,13 @@ def optimize_gradient_boosting( x_train : pd.DataFrame,
     if n_points > x_train.shape[0]:
         n_points = x_train.shape[0]
 
-    parameters : dict = {"C":C}
+    parameters : dict = {"learning_rate":learning_rate,
+                         "n_estimators":n_estimators,
+                         "min_samples_split":min_samples_split,
+                         "min_samples_leaf":min_samples_leaf}
 
     gradient_boosting_classifier = GradientBoostingClassifier(random_state=SEED_NUMBER)
-    grid_search = GridSearchCV(gradient_boosting_classifier, param_grid=parameters, cv=5, scoring=scoring )
+    grid_search = GridSearchCV(gradient_boosting_classifier, param_grid=parameters, cv=5, scoring=scoring,verbose=3 )
     grid_search.fit(x_train.iloc[:n_points,:], y_train[:n_points])
 
     logging.info(f"Best {scoring} : {grid_search.best_score_:.3f}")
@@ -51,10 +57,10 @@ def execute_gradient_boost( optimize_model : bool,
                             ) -> None:
 
     #__ Load Data ________________________________________________________________________________
+
     diff : pd.DataFrame = pd.read_csv('./data/diff.csv')
     np.random.seed(seed_number)
     train_mask : np.ndarray = np.random.rand(len(diff)) < train_test_split
-
     train_x, train_y, test_x, test_y = df_utils.prepare_df( df_original = diff,
                                                             target_name = "wbit_error",
                                                             train_mask = train_mask,
@@ -66,11 +72,17 @@ def execute_gradient_boost( optimize_model : bool,
     if optimize_model:
         parameters:dict = optimize_gradient_boosting( x_train = train_x,
                                                       y_train = train_y,
-                                                      C=[0.1,1],
-                                                      scoring = "precision",
+                                                      learning_rate=[0.1],
+                                                      n_estimators=[50],
+                                                      min_samples_split=[2,3],
+                                                      min_samples_leaf=[1,2],
+                                                      scoring = "f1",
                                                       n_points = 10000)
     else:
-        parameters:dict = {"C":1}
+        parameters : dict = {"learning_rate":0.1,
+                             "n_estimators":200,
+                             "min_samples_split":2,
+                             "min_samples_leaf":2}
     
     #__ Train model _______________________________________________________________________________
     if train_model:

@@ -21,8 +21,8 @@ def save_model(model:any, model_name:str) -> bool:
 def load_file(file_path:str) -> any:
     logging.info(f"loading {file_path}")
     with open(f"{file_path}", 'rb') as fid:
-        objecto = pickle.load(fid)
-    return objecto   
+        object = pickle.load(fid)
+    return object
 
 
 def save_prediction( prediction : np.ndarray, prediction_name : str) -> bool:
