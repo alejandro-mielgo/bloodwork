@@ -3,9 +3,8 @@ import df_utils
 import numpy as np
 import logging
 import pandas as pd
-import os
 import pickle
-import utils
+
 
 TRAIN_TEST_SPLIT : float = 0.85
 SEED_NUMBER : int = 0
@@ -25,7 +24,7 @@ def get_predictions_paths() -> tuple[list[str]]:
     return val_predictions_paths, test_predictions_paths
 
 
-def create_true_labels_file(seed_number:int,train_test_split:float) -> None:
+def load_data(seed_number:int,train_test_split:float) -> None:
     # if os.path.exists('./predictions/val_labels.pkl'):
     #     print('file already exists')
     #     return
@@ -50,6 +49,8 @@ def create_true_labels_file(seed_number:int,train_test_split:float) -> None:
     with open(f'./predictions/test_labels.pkl', 'wb') as fid:
         logging.info(f"saving model to ./predictions/test_labels.pkl")
         pickle.dump(test_y.to_numpy(), fid)
+    
+    return train_x, train_y, test_x, test_y 
 
 
 def load_predictions(path_list:list[str],test:bool=False) -> pd.DataFrame:
@@ -67,24 +68,14 @@ def load_predictions(path_list:list[str],test:bool=False) -> pd.DataFrame:
     
     predictions_df:pd.DataFrame = pd.DataFrame.from_dict(predictions_dict)
 
-    generate_aggregated_prediction(predictions_df)
-
-    if test:
-        with open(f"./predictions/test_labels.pkl", 'rb') as fid:
-            true_labels= pickle.load(fid)   
-    else:
-        with open(f"./predictions/val_labels.pkl", 'rb') as fid:
-            true_labels= pickle.load(fid)
-    
-
-    predictions_df['true_labels'] = true_labels
     return predictions_df
 
 
-def generate_aggregated_prediction(predictions:pd.DataFrame) -> np.ndarray:
-    n_cols:int = predictions.shape[1]
-    predictions['mayority'] = (predictions.sum(axis=1)/n_cols).round(0).astype(int)
-    
+def merge_predicitions_and_features(df_x:pd.DataFrame,predictions:pd.DataFrame,df_y:pd.DataFrame) -> pd.DataFrame:
+    df_x = df_x.reset_index(drop=True)
+    df_y = df_y.reset_index(drop=True)
+    merged_df:pd.DataFrame = pd.concat([df_x,predictions,df_y],axis=1)
+    return merged_df
 
 
 if __name__=="__main__":
@@ -98,26 +89,15 @@ if __name__=="__main__":
 
     val_predictions_paths,test_predictions_paths = get_predictions_paths()
 
-    create_true_labels_file(seed_number=SEED_NUMBER, train_test_split=TRAIN_TEST_SPLIT)
-
-    val_predictions:pd.DataFrame = load_predictions(val_predictions_paths)
+    train_x,train_y,test_x,test_y = load_data(seed_number=SEED_NUMBER, train_test_split=TRAIN_TEST_SPLIT)
+    
+    train_predictions:pd.DataFrame = load_predictions(val_predictions_paths)
     test_predictions:pd.DataFrame = load_predictions(test_predictions_paths,test=True)
 
+    train:pd.DataFrame = merge_predicitions_and_features(df_x=train_x,predictions=train_predictions,df_y=train_y)
+    test:pd.DataFrame = merge_predicitions_and_features(df_x=test_x,predictions=test_predictions,df_y=test_y)
+    
 
-    utils.get_metrics(y_true=val_predictions['true_labels'].to_numpy(),
-                      y_pred=val_predictions['mayority'].to_numpy(),
-                      model_name="assemble validation",
-                      graph=True)
-
-    utils.get_metrics(y_true=test_predictions['true_labels'].to_numpy(),
-                      y_pred=test_predictions['mayority'].to_numpy(),
-                      model_name="assemble test",
-                      graph=True)
-
-
-    print(val_predictions.head(10))
-    print(test_predictions.head(10))
-
-    val_predictions.to_csv('./predictions/val_predictions.csv')
-    test_predictions.to_csv('./predictions/test_predictions.csv')
+    train.to_csv('./predictions/train.csv')
+    test.to_csv('./predictions/test.csv')
 

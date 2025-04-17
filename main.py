@@ -7,8 +7,6 @@ import numpy as np
 
 
 
-
-
 @st.cache_data
 def get_data(csv_path:str) -> pd.DataFrame:
 

@@ -9,7 +9,7 @@ simplefilter(action="ignore", category=pd.errors.PerformanceWarning) # aviso al 
 
 def df_health( dataframe : pd.DataFrame, verbose : bool = False, graph : bool = False ) -> dict:
     
-    missing = {}
+    missing:dict = {}
 
     n_cols : int = dataframe.shape[1]
     n_rows : int = dataframe.shape[0]
