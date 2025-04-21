@@ -4,7 +4,11 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import df_utils
 import numpy as np
+from scipy.stats import mannwhitneyu
+import pickle
+from sklearn.metrics import confusion_matrix
 
+import utils
 
 
 @st.cache_data
@@ -59,6 +63,73 @@ def df_health_streamlit( dataframe : pd.DataFrame,verbose:bool=True, show_plot:b
     return { "n_rows":n_rows, "n_cols":n_cols }
 
 
+def compare_populations(df:pd.DataFrame, feature:str, significant_threshold:float = 0.05) -> pd.DataFrame:
+
+    u_1,p = mannwhitneyu(df[df["target"]==0][feature], df[df["target"]==1][feature], alternative="two-sided",nan_policy="omit")
+    n_0:int = len(df[df["target"]==0][feature]) 
+    n_1:int = len(df[df["target"]==1][feature])
+    u_2:float = n_0*n_1 - u_1
+
+    st.write(f"### Mann-Whitney U test for {feature}  \n",
+             f"h_0: Both populations are the same  \n",
+             f"h_1: Populations are different  \n")
+
+    st.write(f"U statistic target 0: {u_1}  \n",
+             f"U statistic target 1: {u_2}  \n",
+             f"p-value: {p}  \n")
+    
+    if p < significant_threshold:
+        st.write(f"The difference between the two populations **is significant** with alpha = {significant_threshold}  \n",)
+    else:
+        st.write(f"The difference between the two populations **is not significant** with alpha = {significant_threshold}  \n",)
+
+
+def get_metrics_performance(model_name:str) -> None:
+
+    with open(f"./predictions/val_labels.pkl", 'rb') as fid:
+        val_labels:np.ndarray =pickle.load(fid)
+    with open(f"./predictions/test_labels.pkl", 'rb') as fid:
+        test_labels:np.ndarray =pickle.load(fid)
+
+    if model_name == "nn_ensemble":
+        acc:float = 0.9583
+        precision:float = 0.9736
+        recall:float = 0.9404
+        f1 = 2*((precision*recall)/(precision+recall))
+        val_metrics = {"accuracy":acc, "f1":f1, "recall":recall, "precision":precision}
+
+        confusion_matrix_val = np.array([[0,0],[0,0]])
+    else:
+        with open(f"./predictions/{model_name}_val_predictions.pkl", 'rb') as fid:
+            val_predictions = pickle.load(fid)
+        val_metrics = utils.get_metrics(y_true=val_labels, y_pred=val_predictions, graph=False)
+        confusion_matrix_val:np.ndarray = confusion_matrix(y_true=val_labels, y_pred=val_predictions)
+    
+    with open(f"./predictions/{model_name}_test_predictions.pkl", 'rb') as fid:
+        test_predictions = pickle.load(fid)
+
+    
+    test_metrics = utils.get_metrics(y_true=test_labels, y_pred=test_predictions, graph=False)
+    confusion_matrix_test:np.ndarray = confusion_matrix(y_true=test_labels, y_pred=test_predictions)
+
+    #plot confusion matrix
+    fig, ax = plt.subplots(1,2, figsize=(10,4))
+    sns.heatmap(confusion_matrix_val, annot=True, fmt="d", cmap="Blues", ax=ax[0])
+    ax[0].set_title("Validation confusion matrix")
+    ax[0].set_xlabel("Predicted")
+    ax[0].set_ylabel("True")
+    sns.heatmap(confusion_matrix_test, annot=True, fmt="d", cmap="Blues", ax=ax[1])
+    ax[1].set_title("Test confusion matrix")
+    ax[1].set_xlabel("Predicted")
+    ax[1].set_ylabel("True")
+    st.pyplot(fig)
+
+    df:pd.DataFrame = pd.DataFrame.from_dict(val_metrics, orient="index", columns=["validation"])
+    df["test"] = test_metrics.values()
+    st.write(df)
+
+    
+
 if __name__ == "__main__":
 
     raw_data,columns = get_data(csv_path = "./data/diff.csv" )
@@ -67,16 +138,16 @@ if __name__ == "__main__":
     # Wrong blood in tube data
     """)
 
-    hist_tab, scatter_tab, health_tab, model_tab = st.tabs(["Histograms", "Scatter plot", "Data frame health", "Models"])
+    hist_tab, scatter_tab, health_tab, model_tab = st.tabs(["Histograms", "Scatter plot", "Data health", "Models"])
 
     with hist_tab:
         active_feature:str = st.selectbox(label="Select feature:", options=columns)
         
         col_a1, col_a2 = st.columns(2)
         with col_a1:
-            points_to_show:int = st.slider(label="Points to show",value=10000, min_value=1000, max_value=len(raw_data), step=1,key="points to show hist")
+            points_to_show:int = st.slider(label="Points to show",value=10000, min_value=1000, max_value=len(raw_data), step=1000,key="points to show hist")
         with col_a2:
-            n_bins:int = st.slider(label="Number of bins",value=35, min_value=10, max_value=70, step=1)
+            n_bins:int = st.slider(label="Number of bins",value=35, min_value=10, max_value=70, step=1, key='n_bins')
 
         fig, ax = plt.subplots()
         ax.set_title(f'{active_feature} histogram')
@@ -86,25 +157,37 @@ if __name__ == "__main__":
         stats:pd.DataFrame = get_feature_stats(df=raw_data,active_feature=active_feature)
         st.table(stats)
 
+        compare_populations(df=raw_data, feature=active_feature)
+
 
     with scatter_tab:
         col_b1, col_b2 = st.columns(2)
         with col_b1:
-            feature_x:str = st.selectbox(label="Select feature for x axis:", options=columns, key="selectbox_x")
+            feature_x:str = st.selectbox(label="Select feature for x axis:", options=columns, key="selectbox_x", index=2)
         with col_b2:
-            feature_y:str = st.selectbox(label="Select feature for y axis:", options=columns, key="selectbox_y")
-        points_to_show_2:int = st.slider(label="Points to show",value=10000, min_value=1000, max_value=len(raw_data), step=1, key="points to show scatter")
+            feature_y:str = st.selectbox(label="Select feature for y axis:", options=columns, key="selectbox_y",index=3)
+        points_to_show_2:int = st.slider(label="Points to show",value=5000, min_value=1000, max_value=len(raw_data), step=1000, key="points to show scatter")
         fig, ax = plt.subplots()
         sns.scatterplot(data=raw_data.iloc[:points_to_show_2], x=feature_x,y=feature_y, hue="target", palette="Set2", ax=ax)
         st.pyplot(fig)
 
 
-    # with health_tab:
-    #     st.write("## Original dataset")
-    #     df_health_streamlit(dataframe=raw_data)
+    with health_tab:
+        st.write("## Original dataset")
+        df_health_streamlit(dataframe=raw_data)
 
-    #     st.write("### Removing missing data")
-    #     threshold:float = st.number_input(label="Threshold of missing rows to remove column",value=0.1,min_value=0.0,max_value=1.0)
-    #     clean_df:pd.DataFrame = df_utils.clean_missing(df_original=raw_data,cols_to_drop=None,method="delete",missing_threshold=threshold)
-    
-    #     df_health_streamlit(dataframe=clean_df,show_plot=False)
+
+    with model_tab:
+        options:dict[str,str]={ "ada boost":"ada_boost",
+                                "gradient boosting": "gradient_boosting",
+                                "k nearest neighbors":"kn",
+                                "logistic regression":"lr",
+                                "support vector classifier":"svc",
+                                "majority vote":"majority",
+                                "neural network ensemble":"nn_ensemble"}
+
+
+        option:str = st.selectbox(label="Select model:", options=options.keys(), on_change=None, key="selectbox_model")
+        model_name:str = options[option]
+        st.write(f'### model performance for {option}')
+        get_metrics_performance(model_name=model_name)

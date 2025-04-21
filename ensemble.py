@@ -25,11 +25,7 @@ def get_predictions_paths() -> tuple[list[str]]:
 
 
 def load_data(seed_number:int,train_test_split:float) -> None:
-    # if os.path.exists('./predictions/val_labels.pkl'):
-    #     print('file already exists')
-    #     return
-    
-    # extract true labels for validation
+
     diff : pd.DataFrame = pd.read_csv('./data/diff.csv')
     np.random.seed(seed_number)
     train_mask : np.ndarray = np.random.rand(len(diff)) < train_test_split
@@ -78,6 +74,27 @@ def merge_predicitions_and_features(df_x:pd.DataFrame,predictions:pd.DataFrame,d
     return merged_df
 
 
+def get_mayority_predictions(df_val:pd.DataFrame, df_test:pd.DataFrame) -> None:
+    prediction_columns:list[str] = ['ada_boost','gradient_boosting','kn','lr','svc']
+    majority_vote_val = round(df_val[prediction_columns].sum(axis=1) / df_val[prediction_columns].shape[1])
+    majority_vote_test = round(df_test[prediction_columns].sum(axis=1) / df_test[prediction_columns].shape[1])
+
+    print(majority_vote_val[0:10])
+
+    with open(f'./predictions/majority_val_predictions.pkl', 'wb') as fid:
+        logging.info(f"saving model to ./predictions/majority_val_predictions.pkl")
+        pickle.dump(majority_vote_val, fid)
+    with open(f'./predictions/majority_test_predictions.pkl', 'wb') as fid:
+        logging.info(f"saving model to ./predictions/majority_test_predictions.pkl")
+        pickle.dump(majority_vote_test, fid)
+    
+    return majority_vote_val, majority_vote_test
+    
+
+def rnn_ensemble(train_x:pd.DataFrame,train_y:pd.DataFrame,test_x:pd.DataFrame,test_y:pd.DataFrame) -> None:
+    pass
+
+
 if __name__=="__main__":
 
     logging.basicConfig(
@@ -96,6 +113,9 @@ if __name__=="__main__":
 
     train:pd.DataFrame = merge_predicitions_and_features(df_x=train_x,predictions=train_predictions,df_y=train_y)
     test:pd.DataFrame = merge_predicitions_and_features(df_x=test_x,predictions=test_predictions,df_y=test_y)
+    print(train.head())
+
+    majority_val, majority_test = get_mayority_predictions(train,test)
     
 
     train.to_csv('./predictions/train.csv')
