@@ -15,8 +15,9 @@ import utils
 def get_data(csv_path:str) -> pd.DataFrame:
 
     df:pd.DataFrame = pd.read_csv(csv_path)
-    df.drop(columns=["Unnamed: 0","key","sex"],inplace=True)
+    df.drop(columns=["Unnamed: 0","key"],inplace=True)
     df.rename(columns={"wbit_error":'target'}, inplace=True)
+    df = df_utils.one_hot(df_original=df)
 
     columns:list[str] = df.columns.to_list()
     columns.remove("target")
@@ -28,9 +29,11 @@ def get_feature_stats(df:pd.DataFrame, active_feature:str) -> pd.DataFrame:
 
     stats:dict = {"mean":[df[df["target"]==0][active_feature].mean(), df[df["target"]==1][active_feature].mean()],
                   "stdv":[df[df["target"]==0][active_feature].std(), df[df["target"]==1][active_feature].std()],
+                  "min":[df[df["target"]==0][active_feature].min(), df[df["target"]==1][active_feature].min()],
                   "quantile 25":[df[df["target"]==0][active_feature].quantile(0.25), df[df["target"]==1][active_feature].quantile(0.25)],
                   "median":[df[df["target"]==0][active_feature].median() , df[df["target"]==1][active_feature].median()],
-                  "quantile 75":[df[df["target"]==0][active_feature].quantile(0.75), df[df["target"]==1][active_feature].quantile(0.75)]
+                  "quantile 75":[df[df["target"]==0][active_feature].quantile(0.75), df[df["target"]==1][active_feature].quantile(0.75)],
+                  "max":[df[df["target"]==0][active_feature].max(), df[df["target"]==1][active_feature].max()]
                   }
 
     df = pd.DataFrame.from_dict( stats,
@@ -57,7 +60,11 @@ def df_health_streamlit( dataframe : pd.DataFrame,verbose:bool=True, show_plot:b
     
     if show_plot:
         fig = plt.figure(figsize=(14, 5))
-        plt.bar(missing.keys(), missing.values())
+        # add a color gradient to the bars red for high values and green for low values
+        colors = ['#FF0000' if v > 10000 else '#00FF00' for v in missing.values()]
+        plt.bar(missing.keys(), missing.values(), color=colors)
+        plt.title("Missing data per feature")
+        plt.xlabel("Feature name")
         plt.xticks(rotation=90)
         st.pyplot(fig)
     return { "n_rows":n_rows, "n_cols":n_cols }
@@ -129,20 +136,18 @@ def get_metrics_performance(model_name:str) -> None:
     st.write(df)
 
     
-
 if __name__ == "__main__":
 
     raw_data,columns = get_data(csv_path = "./data/diff.csv" )
 
-    st.write("""
-    # Wrong blood in tube data
-    """)
+    st.write("# Wrong blood in tube data")
 
     hist_tab, scatter_tab, health_tab, model_tab = st.tabs(["Histograms", "Scatter plot", "Data health", "Models"])
 
+
     with hist_tab:
+        st.write('Data shape:', raw_data.shape)
         active_feature:str = st.selectbox(label="Select feature:", options=columns)
-        
         col_a1, col_a2 = st.columns(2)
         with col_a1:
             points_to_show:int = st.slider(label="Points to show",value=10000, min_value=1000, max_value=len(raw_data), step=1000,key="points to show hist")
