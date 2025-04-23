@@ -6,7 +6,7 @@ import pandas as pd
 import logging
 
 import utils
-import df_utils
+from Dataset import Dataset
 
 #__ Config ___________________________________________________________________________________
 OPTIMIZE_MODEL : bool = False
@@ -55,21 +55,18 @@ def execute_ada_boost( optimize_model : bool,
                             ) -> None:
 
     #__ Load Data ________________________________________________________________________________
-    diff : pd.DataFrame = pd.read_csv('./data/diff.csv')
+    original_df : pd.DataFrame = pd.read_csv('./data/diff.csv')
     np.random.seed(seed_number)
-    train_mask : np.ndarray = np.random.rand(len(diff)) < train_test_split
 
-    train_x, train_y, test_x, test_y = df_utils.prepare_df( df_original = diff,
-                                                            target_name = "wbit_error",
-                                                            train_mask = train_mask,
-                                                            standarize = 1,
-                                                            cuad_features = False,
-                                                            rate_features = False )
+    dataset = Dataset(data=original_df)
+    dataset.drop_columns(['Unnamed: 0','key','pat_age_yrs','sex']).rename_target('wbit_error').split_train_test(seed_number=seed_number, train_test_split=train_test_split).clean_missing(missing_threshold=0.15)
+    dataset.standarize().split_x_y()
+    logging.info(dataset.train.head())
     
     #__ Find best parameters ______________________________________________________________________
     if optimize_model:
-        parameters:dict = optimize_ada_boost(   x_train = train_x,
-                                                y_train = train_y,
+        parameters:dict = optimize_ada_boost(   x_train = dataset.train_x,
+                                                y_train = dataset.train_y,
                                                 n_estimators= [150,250],
                                                 learning_rate= [1],
                                                 scoring = "f1",
@@ -85,8 +82,7 @@ def execute_ada_boost( optimize_model : bool,
                                                   learning_rate=parameters['learning_rate'],
                                                   random_state=SEED_NUMBER)
         logging.info("start ada_boost classifier training")
-        logging.info("start ada_boost classifier training")
-        ada_boost_classifier.fit(X=train_x, y=train_y)
+        ada_boost_classifier.fit(X=dataset.train_x, y=dataset.train_y)
     else:
         ada_boost_classifier = utils.load_file(ada_boost_classifier)
 
@@ -97,26 +93,20 @@ def execute_ada_boost( optimize_model : bool,
     ada_boost_val_predictions, ada_boost_test_predictions, ada_boost_val_probabilities, ada_boost_test_probabilities = utils.manage_predictions(
         model = ada_boost_classifier,
         model_name = "ada_boost",
-        x_train = train_x,
-        y_train = train_y,
-        x_test = test_x,
-        y_test = test_y,
+        x_train = dataset.train_x,
+        y_train = dataset.train_y,
+        x_test = dataset.test_x,
+        y_test = dataset.test_y,
         compute_predictions = compute_predictions,
         save_predictions = save_predictions)
 
-    utils.get_metrics(y_true = train_y, y_pred = ada_boost_val_predictions, model_name="ada-boost validation")
-    utils.get_metrics(y_true = test_y,  y_pred = ada_boost_test_predictions, model_name="ada-boost test")
+    utils.get_metrics(y_true = dataset.train_y, y_pred = ada_boost_val_predictions, model_name="ada-boost validation")
+    utils.get_metrics(y_true = dataset.test_y,  y_pred = ada_boost_test_predictions, model_name="ada-boost test")
 
 
 if __name__ == '__main__':
 
-    logging.basicConfig(
-        filename='bloodwork.log',
-        level=logging.INFO,
-        format='%(asctime)s.%(msecs)03d %(levelname)s %(module)s - %(funcName)s: %(message)s',
-        datefmt='%Y-%m-%d %H:%M:%S',
-    )
-    logging.info("ada-boost classifier")
+    utils.start_logs()
 
     execute_ada_boost(  optimize_model=OPTIMIZE_MODEL,
                         train_model=TRAIN_MODEL,

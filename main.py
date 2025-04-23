@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 import df_utils
 import numpy as np
 from scipy.stats import mannwhitneyu
-import pickle
 from sklearn.metrics import confusion_matrix
 
 import utils
@@ -13,7 +12,7 @@ import utils
 
 @st.cache_data
 def get_data(csv_path:str) -> pd.DataFrame:
-
+    #Load raw data for histogram and scatter plots
     df:pd.DataFrame = pd.read_csv(csv_path)
     df.drop(columns=["Unnamed: 0","key"],inplace=True)
     df.rename(columns={"wbit_error":'target'}, inplace=True)
@@ -61,7 +60,7 @@ def df_health_streamlit( dataframe : pd.DataFrame,verbose:bool=True, show_plot:b
     if show_plot:
         fig = plt.figure(figsize=(14, 5))
         # add a color gradient to the bars red for high values and green for low values
-        colors = ['#FF0000' if v > 10000 else '#00FF00' for v in missing.values()]
+        colors = ['#FF0000' if v > 0.15*len(dataframe) else '#00FF00' for v in missing.values()]
         plt.bar(missing.keys(), missing.values(), color=colors)
         plt.title("Missing data per feature")
         plt.xlabel("Feature name")
@@ -91,33 +90,24 @@ def compare_populations(df:pd.DataFrame, feature:str, significant_threshold:floa
         st.write(f"The difference between the two populations **is not significant** with alpha = {significant_threshold}  \n",)
 
 
-def get_metrics_performance(model_name:str) -> None:
+@st.cache_data
+def load_predictions() -> tuple[pd.DataFrame,pd.DataFrame]:
+    val_predictions = pd.read_csv("./predictions/train_predictions.csv")
+    test_predictions = pd.read_csv("./predictions/test_predictions.csv")
+    return val_predictions, test_predictions
 
-    with open(f"./predictions/val_labels.pkl", 'rb') as fid:
-        val_labels:np.ndarray =pickle.load(fid)
-    with open(f"./predictions/test_labels.pkl", 'rb') as fid:
-        test_labels:np.ndarray =pickle.load(fid)
 
-    if model_name == "nn_ensemble":
-        acc:float = 0.9583
-        precision:float = 0.9736
-        recall:float = 0.9404
-        f1 = 2*((precision*recall)/(precision+recall))
-        val_metrics = {"accuracy":acc, "f1":f1, "recall":recall, "precision":precision}
+def get_metrics_performance(model_name:str,val_predictions:pd.DataFrame,test_predictions:pd.DataFrame) -> None:
 
-        confusion_matrix_val = np.array([[0,0],[0,0]])
+    if model_name == 'nn':
+        val_metrics:dict[str:float] = {'accuracy': 0.0, 'f1': 0.0, 'recall': 0.0, 'precision': 0.0}
+        confusion_matrix_val:np.ndarray = np.array([[0,0],[0,0]])
     else:
-        with open(f"./predictions/{model_name}_val_predictions.pkl", 'rb') as fid:
-            val_predictions = pickle.load(fid)
-        val_metrics = utils.get_metrics(y_true=val_labels, y_pred=val_predictions, graph=False)
-        confusion_matrix_val:np.ndarray = confusion_matrix(y_true=val_labels, y_pred=val_predictions)
+        val_metrics = utils.get_metrics(y_true=val_predictions['target'], y_pred=val_predictions[model_name], graph=False)
+        confusion_matrix_val:np.ndarray = confusion_matrix(y_true=val_predictions['target'], y_pred=val_predictions[model_name])
     
-    with open(f"./predictions/{model_name}_test_predictions.pkl", 'rb') as fid:
-        test_predictions = pickle.load(fid)
-
-    
-    test_metrics = utils.get_metrics(y_true=test_labels, y_pred=test_predictions, graph=False)
-    confusion_matrix_test:np.ndarray = confusion_matrix(y_true=test_labels, y_pred=test_predictions)
+    test_metrics = utils.get_metrics(y_true=test_predictions['target'], y_pred=test_predictions[model_name], graph=False)
+    confusion_matrix_test:np.ndarray = confusion_matrix(y_true=test_predictions['target'], y_pred=test_predictions[model_name])
 
     #plot confusion matrix
     fig, ax = plt.subplots(1,2, figsize=(10,4))
@@ -139,14 +129,12 @@ def get_metrics_performance(model_name:str) -> None:
 if __name__ == "__main__":
 
     raw_data,columns = get_data(csv_path = "./data/diff.csv" )
-
     st.write("# Wrong blood in tube data")
-
     hist_tab, scatter_tab, health_tab, model_tab = st.tabs(["Histograms", "Scatter plot", "Data health", "Models"])
 
 
     with hist_tab:
-        st.write('Data shape:', raw_data.shape)
+
         active_feature:str = st.selectbox(label="Select feature:", options=columns)
         col_a1, col_a2 = st.columns(2)
         with col_a1:
@@ -188,11 +176,17 @@ if __name__ == "__main__":
                                 "k nearest neighbors":"kn",
                                 "logistic regression":"lr",
                                 "support vector classifier":"svc",
-                                "majority vote":"majority",
-                                "neural network ensemble":"nn_ensemble"}
+                                "neural network":"nn",
+                                # "majority vote":"majority",
+                                # "neural network ensemble":"nn_ensemble"
+                                }
 
+        val_predictions, test_predictions = load_predictions()
 
         option:str = st.selectbox(label="Select model:", options=options.keys(), on_change=None, key="selectbox_model")
         model_name:str = options[option]
+        
         st.write(f'### model performance for {option}')
-        get_metrics_performance(model_name=model_name)
+        get_metrics_performance(model_name=model_name,
+                                val_predictions=val_predictions,
+                                test_predictions=test_predictions)

@@ -3,9 +3,10 @@ from sklearn.model_selection import GridSearchCV
 import numpy as np
 import pandas as pd
 import logging
+import time
 
 import utils
-import df_utils
+from Dataset import Dataset
 
 #__ Config ___________________________________________________________________________________
 OPTIMIZE_MODEL : bool = False
@@ -52,24 +53,23 @@ def execute_kn(optimize_model : bool,
                seed_number : int) -> None:
     
 
-    #__ Load Data ________________________________________________________________________________
-    diff : pd.DataFrame = pd.read_csv('./data/diff.csv')
-    np.random.seed(seed_number)
-    train_mask : np.ndarray = np.random.rand(len(diff)) < train_test_split
 
-    train_x, train_y, test_x, test_y = df_utils.prepare_df( df_original = diff,
-                                                            target_name= "wbit_error",
-                                                            train_mask = train_mask,
-                                                            standarize = 1,
-                                                            cuad_features = False,
-                                                            rate_features = False )
+    #__ Load Data ________________________________________________________________________________
+    original_df : pd.DataFrame = pd.read_csv('./data/diff.csv')
+    np.random.seed(seed_number)
+
+    dataset = Dataset(data=original_df)
+    dataset.drop_columns(['Unnamed: 0','key','pat_age_yrs','sex']).rename_target('wbit_error').split_train_test(seed_number=seed_number, train_test_split=train_test_split).clean_missing(missing_threshold=0.15)
+    dataset.standarize().split_x_y()
+    logging.info(dataset.train.head())
+
     #__ Find best parameters ______________________________________________________________________
     if optimize_model:
-        parameters:dict = optimize_kn(x_train = train_x,
-                                      y_train = train_y,
+        parameters:dict = optimize_kn(x_train = dataset.train_x,
+                                      y_train = dataset.train_y,
                                       n_neigbours = [3,4,5],
                                       scoring = "f1",
-                                      n_points = 100000)
+                                      n_points = 2000)
     else:
         parameters:dict = { "n_neighbors":4, 'p':1, 'weights':'distance' }
     
@@ -77,7 +77,7 @@ def execute_kn(optimize_model : bool,
     if train_model:
         logging.info("start k neighbors classifier training")
         kn_classifier = KNeighborsClassifier(n_neighbors=parameters["n_neighbors"],p=parameters['p'],weights=parameters['weights'])
-        kn_classifier.fit(X=train_x, y=train_y)
+        kn_classifier.fit(X=dataset.train_x, y=dataset.train_y)
     else:
         kn_classifier = utils.load_file('./models/kn_classifier.pkl')
 
@@ -88,25 +88,20 @@ def execute_kn(optimize_model : bool,
     kn_val_predictions, kn_test_predictions, kn_val_probabilities, kn_test_probabilities = utils.manage_predictions(
         model = kn_classifier,
         model_name = "kn",
-        x_train = train_x,
-        y_train = train_y,
-        x_test = test_x,
-        y_test = test_y,
+        x_train = dataset.train_x,
+        y_train = dataset.train_y,
+        x_test = dataset.test_x,
+        y_test = dataset.test_y,
         compute_predictions = compute_predictions,
         save_predictions = save_predictions)
 
 
-    utils.get_metrics(y_true = train_y, y_pred = kn_val_predictions, model_name="k-neighbors validation")
-    utils.get_metrics(y_true = test_y,  y_pred = kn_test_predictions, model_name="k-neighbors test")
+    utils.get_metrics(y_true = dataset.train_y, y_pred = kn_val_predictions, model_name="k-neighbors validation")
+    utils.get_metrics(y_true = dataset.test_y,  y_pred = kn_test_predictions, model_name="k-neighbors test")
 
 if __name__ == "__main__":
+    utils.start_logs()
 
-    logging.basicConfig(
-        filename='bloodwork.log',
-        level=logging.INFO,
-        format='%(asctime)s.%(msecs)03d %(levelname)s %(module)s - %(funcName)s: %(message)s',
-        datefmt='%Y-%m-%d %H:%M:%S',
-    )
     logging.info("K Neighbors classifier")
 
     execute_kn(optimize_model=OPTIMIZE_MODEL,

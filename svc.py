@@ -4,8 +4,9 @@ import numpy as np
 import pandas as pd
 import logging
 
+from Dataset import Dataset
 import utils
-import df_utils
+
 
 #__ Config ___________________________________________________________________________________
 OPTIMIZE_MODEL : bool = False
@@ -48,22 +49,20 @@ def execute_svc(optimize_model : bool,
                 train_test_split : float,
                 seed_number : int) -> None:
 
-    #__ Load Data ________________________________________________________________________________
-    diff : pd.DataFrame = pd.read_csv('./data/diff.csv')
-    np.random.seed(seed_number)
-    train_mask : np.ndarray = np.random.rand(len(diff)) < train_test_split
 
-    train_x, train_y, test_x, test_y = df_utils.prepare_df( df_original = diff,
-                                                            target_name = "wbit_error",
-                                                            train_mask = train_mask,
-                                                            standarize = 2,
-                                                            cuad_features = False,
-                                                            rate_features = False )
+    #__ Load Data ________________________________________________________________________________
+    original_df : pd.DataFrame = pd.read_csv('./data/diff.csv')
+    np.random.seed(seed_number)
+
+    dataset = Dataset(data=original_df)
+    dataset.drop_columns(['Unnamed: 0','key','pat_age_yrs','sex']).rename_target('wbit_error').split_train_test(seed_number=seed_number, train_test_split=train_test_split).clean_missing(missing_threshold=0.15)
+    dataset.standarize().split_x_y()
+    logging.info(dataset.train.head())
     
     #__ Find best parameters ______________________________________________________________________
     if optimize_model:
-        parameters:dict = optimize_svc(x_train = train_x,
-                                      y_train = train_y,
+        parameters:dict = optimize_svc(x_train = dataset.train_x,
+                                      y_train = dataset.train_y,
                                       C=[0.1,1],
                                       scoring = "precision",
                                       n_points = 10000)
@@ -74,7 +73,7 @@ def execute_svc(optimize_model : bool,
     if train_model:
         logging.info("start svc classifier training")
         svc_classifier = SVC(C=parameters['C'])
-        svc_classifier.fit(X=train_x, y=train_y)
+        svc_classifier.fit(X=dataset.train_x, y=dataset.train_y)
     else:
         svc_classifier = utils.load_file('./models/svc_classifier.pkl')
 
@@ -85,26 +84,20 @@ def execute_svc(optimize_model : bool,
     svc_val_predictions, svc_test_predictions, svc_val_probabilities, svc_test_probabilities = utils.manage_predictions(
         model = svc_classifier,
         model_name = "svc",
-        x_train = train_x,
-        y_train = train_y,
-        x_test = test_x,
-        y_test = test_y,
+        x_train = dataset.train_x,
+        y_train = dataset.train_y,
+        x_test = dataset.test_x,
+        y_test = dataset.test_y,
         compute_predictions = compute_predictions,
         save_predictions = save_predictions)
 
-    utils.get_metrics(y_true = train_y, y_pred = svc_val_predictions, model_name="svc validation")
-    utils.get_metrics(y_true = test_y,  y_pred = svc_test_predictions, model_name="svc test")
+    utils.get_metrics(y_true = dataset.train_y, y_pred = svc_val_predictions, model_name="svc validation")
+    utils.get_metrics(y_true = dataset.test_y,  y_pred = svc_test_predictions, model_name="svc test")
 
 
 if __name__ == '__main__':
 
-    logging.basicConfig(
-        filename='bloodwork.log',
-        level=logging.INFO,
-        format='%(asctime)s.%(msecs)03d %(levelname)s %(module)s - %(funcName)s: %(message)s',
-        datefmt='%Y-%m-%d %H:%M:%S',
-    )
-    logging.info("SVC classifier")
+    utils.start_logs()
 
     execute_svc(optimize_model=OPTIMIZE_MODEL,
                 train_model=TRAIN_MODEL,

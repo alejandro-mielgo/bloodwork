@@ -5,12 +5,12 @@ import pandas as pd
 import logging
 
 import utils
-import df_utils
+from Dataset import Dataset
 
 #__ Config ___________________________________________________________________________________
 OPTIMIZE_MODEL : bool = False
-TRAIN_MODEL : bool = False
-SAVE_MODEL : bool = False
+TRAIN_MODEL : bool = True
+SAVE_MODEL : bool = True
 COMPUTE_PREDICTIONS : bool = True
 SAVE_PREDICTIONS : bool = True
 
@@ -57,21 +57,18 @@ def execute_gradient_boost( optimize_model : bool,
                             ) -> None:
 
     #__ Load Data ________________________________________________________________________________
-
-    diff : pd.DataFrame = pd.read_csv('./data/diff.csv')
+    original_df : pd.DataFrame = pd.read_csv('./data/diff.csv')
     np.random.seed(seed_number)
-    train_mask : np.ndarray = np.random.rand(len(diff)) < train_test_split
-    train_x, train_y, test_x, test_y = df_utils.prepare_df( df_original = diff,
-                                                            target_name = "wbit_error",
-                                                            train_mask = train_mask,
-                                                            standarize = 1,
-                                                            cuad_features = False,
-                                                            rate_features = False )
+
+    dataset = Dataset(data=original_df)
+    dataset.drop_columns(['Unnamed: 0','key','pat_age_yrs','sex']).rename_target('wbit_error').split_train_test(seed_number=seed_number, train_test_split=train_test_split).clean_missing(missing_threshold=0.15)
+    dataset.standarize().split_x_y()
+    logging.info(dataset.train.head())
     
     #__ Find best parameters ______________________________________________________________________
     if optimize_model:
-        parameters:dict = optimize_gradient_boosting( x_train = train_x,
-                                                      y_train = train_y,
+        parameters:dict = optimize_gradient_boosting( x_train = dataset.train_x,
+                                                      y_train = dataset.train_y,
                                                       learning_rate=[0.1],
                                                       n_estimators=[50],
                                                       min_samples_split=[2,3],
@@ -87,8 +84,12 @@ def execute_gradient_boost( optimize_model : bool,
     #__ Train model _______________________________________________________________________________
     if train_model:
         logging.info("start gradient_boosting classifier training")
-        gradient_boosting_classifier = GradientBoostingClassifier(random_state=SEED_NUMBER)
-        gradient_boosting_classifier.fit(X=train_x, y=train_y)
+        gradient_boosting_classifier = GradientBoostingClassifier(random_state=SEED_NUMBER,
+                                                                  learning_rate=parameters['learning_rate'],
+                                                                  n_estimators=parameters['n_estimators'],
+                                                                  min_samples_split=parameters['min_samples_split'],
+                                                                  min_samples_leaf=parameters['min_samples_leaf'])
+        gradient_boosting_classifier.fit(X=dataset.train_x, y=dataset.train_y)
     else:
         gradient_boosting_classifier = utils.load_file('./models/gradient_boosting_classifier.pkl')
 
@@ -99,26 +100,20 @@ def execute_gradient_boost( optimize_model : bool,
     gradient_boosting_val_predictions, gradient_boosting_test_predictions, gradient_boosting_val_probabilities, gradient_boosting_test_probabilities = utils.manage_predictions(
         model = gradient_boosting_classifier,
         model_name = "gradient_boosting",
-        x_train = train_x,
-        y_train = train_y,
-        x_test = test_x,
-        y_test = test_y,
+        x_train = dataset.train_x,
+        y_train = dataset.train_y,
+        x_test = dataset.test_x,
+        y_test = dataset.test_y,
         compute_predictions = compute_predictions,
         save_predictions = save_predictions)
 
-    utils.get_metrics(y_true = train_y, y_pred = gradient_boosting_val_predictions, model_name="gradient-boosting validation")
-    utils.get_metrics(y_true = test_y,  y_pred = gradient_boosting_test_predictions, model_name="gradient-boosting test")
+    utils.get_metrics(y_true = dataset.train_y, y_pred = gradient_boosting_val_predictions, model_name="gradient-boosting validation")
+    utils.get_metrics(y_true = dataset.test_y,  y_pred = gradient_boosting_test_predictions, model_name="gradient-boosting test")
 
 
 if __name__ == '__main__':
 
-    logging.basicConfig(
-        filename='bloodwork.log',
-        level=logging.INFO,
-        format='%(asctime)s.%(msecs)03d %(levelname)s %(module)s - %(funcName)s: %(message)s',
-        datefmt='%Y-%m-%d %H:%M:%S',
-    )
-    logging.info("gradient-boosting classifier")
+    utils.start_logs()
 
     execute_gradient_boost( optimize_model=OPTIMIZE_MODEL,
                             train_model=TRAIN_MODEL,
@@ -126,4 +121,4 @@ if __name__ == '__main__':
                             compute_predictions=COMPUTE_PREDICTIONS,
                             save_predictions=SAVE_PREDICTIONS,
                             train_test_split=TRAIN_TEST_SPLIT,
-                            seed_number=SEED_NUMBER)
+                            seed_number=SEED_NUMBER )

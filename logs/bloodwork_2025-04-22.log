@@ -1,0 +1,111 @@
+2025-04-22 21:05:36.652 INFO logistic - execute_lr: start logistic regression training
+2025-04-22 21:10:22.948 INFO logistic - execute_lr: <bound method NDFrame.head of           target  pat_age_yrs  hrs_between_cbcs  wbc_delta  rbc_delta  hgb_delta  ...  lymphocytes_count_pct_delta  monocytes_count_pct_delta  absolute_neutrophils_count_pct_delta  absolute_lymphocytes_count_pct_delta  absolute_monocytes_count_pct_delta  sex_M
+0       1.010652     0.242229         -0.717214  -0.296199   0.652709   1.318984  ...                    -0.176260                  -0.262622                             -0.085394                             -0.200600                           -0.135778   True
+2      -0.989448    -0.920831          0.855957   0.050094  -0.244131  -0.336978  ...                    -0.099024                  -0.131293                             -0.077033                             -0.085940                           -0.086319   True
+3      -0.989448    -0.930149          0.044041   0.817556   0.046394   0.021068  ...                    -0.118787                  -0.177745                             -0.056106                             -0.025029                           -0.050665  False
+4      -0.989448    -0.893874          1.438563   0.031376   0.551656   0.513381  ...                    -0.108794                  -0.121806                             -0.083027                             -0.103945                           -0.087332  False
+5       1.010652    -0.602926          1.911405   0.836274   1.435864   0.110579  ...                    -0.025670                  -0.498094                             -0.073072                              0.693496                           -0.149306   True
+...          ...          ...               ...        ...        ...        ...  ...                          ...                        ...                                   ...                                   ...                                 ...    ...
+110054 -0.989448    -0.931641          0.851514  -0.941990  -0.825182  -1.276849  ...                    -0.105111                   0.288200                             -0.098369                             -0.187623                           -0.098232   True
+110056 -0.989448     0.578842          0.552433  -0.090295  -0.282026  -0.247467  ...                    -0.136475                  -0.155121                             -0.084455                             -0.154444                           -0.112307  False
+110057  1.010652    -0.916926          3.396585  -0.090295  -0.332552  -0.605513  ...                    -0.171028                  -0.056926                             -0.073710                             -0.181719                           -0.082598  False
+110058 -0.989448    -0.902299         -0.731434   0.106250   0.008500  -0.023688  ...                    -0.100924                  -0.043716                             -0.077963                             -0.079413                           -0.058653  False
+110059  1.010652    -0.878003          0.283573  -0.361714  -1.924127  -1.903429  ...                     0.017200                  -0.069843                             -0.093060                             -0.059351                           -0.108903   True
+
+[77253 rows x 41 columns]>
+2025-04-22 21:10:22.993 INFO logistic - execute_lr: start logistic regression training
+2025-04-22 21:11:46.371 INFO logistic - execute_lr:      target  pat_age_yrs  hrs_between_cbcs  wbc_delta  rbc_delta  hgb_delta  ...  lymphocytes_count_pct_delta  monocytes_count_pct_delta  absolute_neutrophils_count_pct_delta  absolute_lymphocytes_count_pct_delta  absolute_monocytes_count_pct_delta  sex_M
+0  1.010652     0.242229         -0.717214  -0.296199   0.652709   1.318984  ...                    -0.176260                  -0.262622                             -0.085394                             -0.200600                           -0.135778   True
+2 -0.989448    -0.920831          0.855957   0.050094  -0.244131  -0.336978  ...                    -0.099024                  -0.131293                             -0.077033                             -0.085940                           -0.086319   True
+3 -0.989448    -0.930149          0.044041   0.817556   0.046394   0.021068  ...                    -0.118787                  -0.177745                             -0.056106                             -0.025029                           -0.050665  False
+4 -0.989448    -0.893874          1.438563   0.031376   0.551656   0.513381  ...                    -0.108794                  -0.121806                             -0.083027                             -0.103945                           -0.087332  False
+5  1.010652    -0.602926          1.911405   0.836274   1.435864   0.110579  ...                    -0.025670                  -0.498094                             -0.073072                              0.693496                           -0.149306   True
+
+[5 rows x 41 columns]
+2025-04-22 21:11:46.414 INFO logistic - execute_lr: start logistic regression training
+2025-04-22 21:12:46.582 INFO logistic - execute_lr:    target  pat_age_yrs  hrs_between_cbcs  wbc_delta  rbc_delta  hgb_delta  ...  lymphocytes_count_pct_delta  monocytes_count_pct_delta  absolute_neutrophils_count_pct_delta  absolute_lymphocytes_count_pct_delta  absolute_monocytes_count_pct_delta  sex_M
+0       1     0.242229         -0.717214  -0.296199   0.652709   1.318984  ...                    -0.176260                  -0.262622                             -0.085394                             -0.200600                           -0.135778   True
+2       0    -0.920831          0.855957   0.050094  -0.244131  -0.336978  ...                    -0.099024                  -0.131293                             -0.077033                             -0.085940                           -0.086319   True
+3       0    -0.930149          0.044041   0.817556   0.046394   0.021068  ...                    -0.118787                  -0.177745                             -0.056106                             -0.025029                           -0.050665  False
+4       0    -0.893874          1.438563   0.031376   0.551656   0.513381  ...                    -0.108794                  -0.121806                             -0.083027                             -0.103945                           -0.087332  False
+5       1    -0.602926          1.911405   0.836274   1.435864   0.110579  ...                    -0.025670                  -0.498094                             -0.073072                              0.693496                           -0.149306   True
+
+[5 rows x 41 columns]
+2025-04-22 21:12:46.672 INFO logistic - execute_lr: start logistic regression training
+2025-04-22 21:12:48.712 INFO utils - save_model: saving model to ./models/lr_classifier.pkl
+2025-04-22 21:12:48.715 INFO utils - get_cross_val_predictions: Getting cross validation predictions for LogisticRegression(C=1, max_iter=1000)
+2025-04-22 21:12:54.660 INFO utils - get_cross_val_predictions: Trying to get cross validation probabilities for LogisticRegression(C=1, max_iter=1000)
+2025-04-22 21:13:00.031 INFO utils - get_predictions: Getting test predictions for LogisticRegression(C=1, max_iter=1000)
+2025-04-22 21:13:00.041 INFO utils - get_predictions: Trying to get test predictions for LogisticRegression(C=1, max_iter=1000)
+2025-04-22 21:13:00.049 INFO utils - save_prediction: saving model to ./predictions/lr_val_predictions.pkl
+2025-04-22 21:13:00.051 INFO utils - save_prediction: saving model to ./predictions/lr_test_predictions.pkl
+2025-04-22 21:13:00.053 INFO utils - save_prediction: saving model to ./predictions/lr_val_probabilities.pkl
+2025-04-22 21:13:00.056 INFO utils - save_prediction: saving model to ./predictions/lr_test_probabilities.pkl
+2025-04-22 21:16:41.745 INFO logistic - execute_lr:    target  pat_age_yrs  hrs_between_cbcs  wbc_delta  rbc_delta  hgb_delta  ...  lymphocytes_count_pct_delta  monocytes_count_pct_delta  absolute_neutrophils_count_pct_delta  absolute_lymphocytes_count_pct_delta  absolute_monocytes_count_pct_delta  sex_M
+0       1     0.242229         -0.717214  -0.296199   0.652709   1.318984  ...                    -0.176260                  -0.262622                             -0.085394                             -0.200600                           -0.135778   True
+2       0    -0.920831          0.855957   0.050094  -0.244131  -0.336978  ...                    -0.099024                  -0.131293                             -0.077033                             -0.085940                           -0.086319   True
+3       0    -0.930149          0.044041   0.817556   0.046394   0.021068  ...                    -0.118787                  -0.177745                             -0.056106                             -0.025029                           -0.050665  False
+4       0    -0.893874          1.438563   0.031376   0.551656   0.513381  ...                    -0.108794                  -0.121806                             -0.083027                             -0.103945                           -0.087332  False
+5       1    -0.602926          1.911405   0.836274   1.435864   0.110579  ...                    -0.025670                  -0.498094                             -0.073072                              0.693496                           -0.149306   True
+
+[5 rows x 41 columns]
+2025-04-22 21:16:41.785 INFO logistic - execute_lr: start logistic regression training
+2025-04-22 21:16:43.085 INFO utils - save_model: saving model to ./models/lr_classifier.pkl
+2025-04-22 21:16:43.088 INFO utils - get_cross_val_predictions: Getting cross validation predictions for LogisticRegression(C=1, max_iter=1000)
+2025-04-22 21:16:50.218 INFO utils - get_cross_val_predictions: Trying to get cross validation probabilities for LogisticRegression(C=1, max_iter=1000)
+2025-04-22 21:16:55.642 INFO utils - get_predictions: Getting test predictions for LogisticRegression(C=1, max_iter=1000)
+2025-04-22 21:16:55.651 INFO utils - get_predictions: Trying to get test predictions for LogisticRegression(C=1, max_iter=1000)
+2025-04-22 21:16:55.659 INFO utils - save_prediction: saving model to ./predictions/lr_val_predictions.pkl
+2025-04-22 21:16:55.660 INFO utils - save_prediction: saving model to ./predictions/lr_test_predictions.pkl
+2025-04-22 21:16:55.662 INFO utils - save_prediction: saving model to ./predictions/lr_val_probabilities.pkl
+2025-04-22 21:16:55.664 INFO utils - save_prediction: saving model to ./predictions/lr_test_probabilities.pkl
+2025-04-22 21:16:55.689 INFO utils - get_metrics: logistic regression validation accuracy: 0.8306
+2025-04-22 21:16:55.689 INFO utils - get_metrics: logistic regression validation f1 score: 0.8129
+2025-04-22 21:16:55.689 INFO utils - get_metrics: logistic regression validation recall: 0.7436
+2025-04-22 21:16:55.689 INFO utils - get_metrics: logistic regression validation precision: 0.8964
+2025-04-22 21:16:55.691 INFO utils - get_metrics: logistic regression validation confusion matrix 
+ [[35752  3284]
+ [ 9800 28417]]
+2025-04-22 21:16:56.063 INFO utils - get_metrics: logistic regression test accuracy: 0.8289
+2025-04-22 21:16:56.063 INFO utils - get_metrics: logistic regression test f1 score: 0.812
+2025-04-22 21:16:56.063 INFO utils - get_metrics: logistic regression test recall: 0.739
+2025-04-22 21:16:56.063 INFO utils - get_metrics: logistic regression test precision: 0.901
+2025-04-22 21:16:56.064 INFO utils - get_metrics: logistic regression test confusion matrix 
+ [[6268  554]
+ [1780 5040]]
+2025-04-22 22:27:39.902 INFO Dataset - __init__: Creating Dataset object from {data}
+2025-04-22 22:27:39.993 INFO Dataset - rename_target: Renaming target column wbit_error to 'target'
+2025-04-22 22:38:29.265 INFO Dataset - __init__: Creating Dataset object from {data}
+2025-04-22 22:38:29.411 INFO Dataset - rename_target: Renaming target column wbit_error to 'target'
+2025-04-22 22:38:33.856 INFO logistic - execute_lr:    target  hrs_between_cbcs  wbc_delta  rbc_delta  hgb_delta  hct_delta  mcv_delta  mch_delta  mchc_delta  rdw_with_standard_deviation_delta  ...     34_34     34_35     34_36     34_37     35_35     35_36     35_37     36_36     36_37     37_37
+0       1         -0.717214  -0.296199   0.652709   1.318984   1.550687   1.639780   1.113111   -0.707837                          -0.391235  ... -0.036509 -0.046096 -0.097779 -0.039594 -0.027133 -0.024982 -0.029871 -0.025812 -0.015214 -0.011352
+2       0          0.855957   0.050094  -0.244131  -0.336978  -0.344973  -0.158598  -0.130588   -0.008821                          -0.269933  ... -0.033873 -0.042276 -0.061555 -0.036878 -0.027121 -0.024169 -0.029685 -0.025182 -0.014378 -0.011280
+3       0          0.044041   0.817556   0.046394   0.021068  -0.161522  -0.388466  -0.023985    0.573693                          -0.593406  ... -0.034925 -0.038617 -0.052324 -0.035981 -0.027075 -0.022789 -0.029309 -0.024588 -0.013504 -0.011194
+4       0          1.438563   0.031376   0.551656   0.513381   0.449981  -0.266771  -0.095053    0.282436                          -0.532755  ... -0.033642 -0.043601 -0.065467 -0.036829 -0.027130 -0.024470 -0.029743 -0.025323 -0.014491 -0.011282
+5       1          1.911405   0.836274   1.435864   0.110579   0.449981  -2.295017  -2.689054   -1.232100                          -0.310367  ... -0.038628 -0.049040 -0.087645 -0.040698 -0.027114 -0.018516 -0.029866 -0.003970 -0.013671 -0.011362
+
+[5 rows x 780 columns]
+2025-04-22 22:38:34.186 INFO logistic - execute_lr: start logistic regression training
+2025-04-22 22:39:16.100 INFO utils - save_model: saving model to ./models/lr_classifier.pkl
+2025-04-22 22:39:16.104 INFO utils - get_cross_val_predictions: Getting cross validation predictions for LogisticRegression(C=1, max_iter=1000)
+2025-04-22 22:42:03.003 INFO utils - get_cross_val_predictions: Trying to get cross validation probabilities for LogisticRegression(C=1, max_iter=1000)
+2025-04-22 22:44:53.667 INFO utils - get_predictions: Getting test predictions for LogisticRegression(C=1, max_iter=1000)
+2025-04-22 22:44:53.738 INFO utils - get_predictions: Trying to get test predictions for LogisticRegression(C=1, max_iter=1000)
+2025-04-22 22:44:53.816 INFO utils - save_prediction: saving model to ./predictions/lr_val_predictions.pkl
+2025-04-22 22:44:53.819 INFO utils - save_prediction: saving model to ./predictions/lr_test_predictions.pkl
+2025-04-22 22:44:53.822 INFO utils - save_prediction: saving model to ./predictions/lr_val_probabilities.pkl
+2025-04-22 22:44:53.826 INFO utils - save_prediction: saving model to ./predictions/lr_test_probabilities.pkl
+2025-04-22 22:44:53.864 INFO utils - get_metrics: logistic regression validation accuracy: 0.9372
+2025-04-22 22:44:53.864 INFO utils - get_metrics: logistic regression validation f1 score: 0.9347
+2025-04-22 22:44:53.864 INFO utils - get_metrics: logistic regression validation recall: 0.909
+2025-04-22 22:44:53.864 INFO utils - get_metrics: logistic regression validation precision: 0.9619
+2025-04-22 22:44:53.869 INFO utils - get_metrics: logistic regression validation confusion matrix 
+ [[37660  1376]
+ [ 3477 34740]]
+2025-04-22 22:44:55.317 INFO utils - get_metrics: logistic regression test accuracy: 0.9424
+2025-04-22 22:44:55.317 INFO utils - get_metrics: logistic regression test f1 score: 0.9408
+2025-04-22 22:44:55.317 INFO utils - get_metrics: logistic regression test recall: 0.9158
+2025-04-22 22:44:55.317 INFO utils - get_metrics: logistic regression test precision: 0.9672
+2025-04-22 22:44:55.319 INFO utils - get_metrics: logistic regression test confusion matrix 
+ [[6610  212]
+ [ 574 6246]]

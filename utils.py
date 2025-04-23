@@ -8,6 +8,7 @@ from scipy import stats
 import pickle
 import numpy as np
 import os.path
+import time
 
 import df_utils
 
@@ -75,7 +76,7 @@ def get_cross_val_predictions(model : any,
     return  cross_val_predictions, cross_val_probabilities
 
 
-def get_metrics(y_true, y_pred, model_name:str="model", graph:bool=True) -> None:
+def get_metrics(y_true, y_pred, model_name:str="model", graph:bool=True) -> dict[str:float]:
     
     metrics = {}
 
@@ -190,3 +191,13 @@ def manage_predictions(model : any,
             test_probabilities = load_file(f"./predictions/{model_name}_test_probabilities.pkl")
     
     return val_predictions, test_predictions, val_probabilities, test_probabilities
+
+
+def start_logs():
+    today = time.strftime("%Y-%m-%d")
+    logging.basicConfig(
+        filename=f'./logs/{today}_bloodwork.log',
+        level=logging.INFO,
+        format='%(asctime)s.%(msecs)03d %(levelname)s %(module)s - %(funcName)s: %(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S',
+    )

@@ -1,0 +1,106 @@
+2025-04-22 23:06:58.494 INFO kneighbors - <module>: K Neighbors classifier
+2025-04-22 23:06:59.405 INFO Dataset - __init__: Creating Dataset object from {data}
+2025-04-22 23:06:59.526 INFO Dataset - rename_target: Renaming target column wbit_error to 'target'
+2025-04-22 23:07:00.436 INFO kneighbors - execute_kn:    target  hrs_between_cbcs  wbc_delta  rbc_delta  hgb_delta  hct_delta  ...  neutrophils_count_pct_delta  lymphocytes_count_pct_delta  monocytes_count_pct_delta  absolute_neutrophils_count_pct_delta  absolute_lymphocytes_count_pct_delta  absolute_monocytes_count_pct_delta
+0       1         -0.717214  -0.296199   0.652709   1.318984   1.550687  ...                    -0.080134                    -0.176260                  -0.262622                             -0.085394                             -0.200600                           -0.135778
+2       0          0.855957   0.050094  -0.244131  -0.336978  -0.344973  ...                    -0.098100                    -0.099024                  -0.131293                             -0.077033                             -0.085940                           -0.086319
+3       0          0.044041   0.817556   0.046394   0.021068  -0.161522  ...                    -0.075078                    -0.118787                  -0.177745                             -0.056106                             -0.025029                           -0.050665
+4       0          1.438563   0.031376   0.551656   0.513381   0.449981  ...                    -0.147606                    -0.108794                  -0.121806                             -0.083027                             -0.103945                           -0.087332
+5       1          1.911405   0.836274   1.435864   0.110579   0.449981  ...                    -0.304911                    -0.025670                  -0.498094                             -0.073072                              0.693496                           -0.149306
+
+[5 rows x 39 columns]
+2025-04-22 23:07:00.466 INFO kneighbors - execute_kn: start k neighbors classifier training
+2025-04-22 23:07:00.495 INFO utils - save_model: saving model to ./models/kn_classifier.pkl
+2025-04-22 23:07:00.534 INFO utils - get_cross_val_predictions: Getting cross validation predictions for KNeighborsClassifier(n_neighbors=4, p=1, weights='distance')
+2025-04-22 23:07:34.363 INFO utils - get_cross_val_predictions: Trying to get cross validation probabilities for KNeighborsClassifier(n_neighbors=4, p=1, weights='distance')
+2025-04-22 23:08:14.792 INFO utils - get_predictions: Getting test predictions for KNeighborsClassifier(n_neighbors=4, p=1, weights='distance')
+2025-04-22 23:08:23.096 INFO utils - get_predictions: Trying to get test predictions for KNeighborsClassifier(n_neighbors=4, p=1, weights='distance')
+2025-04-22 23:08:33.467 INFO utils - save_prediction: saving model to ./predictions/kn_val_predictions.pkl
+2025-04-22 23:08:33.469 INFO utils - save_prediction: saving model to ./predictions/kn_test_predictions.pkl
+2025-04-22 23:08:33.470 INFO utils - save_prediction: saving model to ./predictions/kn_val_probabilities.pkl
+2025-04-22 23:08:33.472 INFO utils - save_prediction: saving model to ./predictions/kn_test_probabilities.pkl
+2025-04-22 23:08:33.496 INFO utils - get_metrics: k-neighbors validation accuracy: 0.9109
+2025-04-22 23:08:33.496 INFO utils - get_metrics: k-neighbors validation f1 score: 0.9035
+2025-04-22 23:08:33.497 INFO utils - get_metrics: k-neighbors validation recall: 0.8429
+2025-04-22 23:08:33.497 INFO utils - get_metrics: k-neighbors validation precision: 0.9735
+2025-04-22 23:08:33.499 INFO utils - get_metrics: k-neighbors validation confusion matrix 
+ [[38159   877]
+ [ 6005 32212]]
+2025-04-22 23:08:33.853 INFO utils - get_metrics: k-neighbors test accuracy: 0.919
+2025-04-22 23:08:33.853 INFO utils - get_metrics: k-neighbors test f1 score: 0.9138
+2025-04-22 23:08:33.854 INFO utils - get_metrics: k-neighbors test recall: 0.8585
+2025-04-22 23:08:33.854 INFO utils - get_metrics: k-neighbors test precision: 0.9766
+2025-04-22 23:08:33.855 INFO utils - get_metrics: k-neighbors test confusion matrix 
+ [[6682  140]
+ [ 965 5855]]
+2025-04-22 23:16:45.390 INFO Dataset - __init__: Creating Dataset object from {data}
+2025-04-22 23:16:45.523 INFO Dataset - rename_target: Renaming target column wbit_error to 'target'
+2025-04-22 23:16:46.564 INFO svc - execute_svc:    target  hrs_between_cbcs  wbc_delta  rbc_delta  hgb_delta  hct_delta  ...  neutrophils_count_pct_delta  lymphocytes_count_pct_delta  monocytes_count_pct_delta  absolute_neutrophils_count_pct_delta  absolute_lymphocytes_count_pct_delta  absolute_monocytes_count_pct_delta
+0       1         -0.717214  -0.296199   0.652709   1.318984   1.550687  ...                    -0.080134                    -0.176260                  -0.262622                             -0.085394                             -0.200600                           -0.135778
+2       0          0.855957   0.050094  -0.244131  -0.336978  -0.344973  ...                    -0.098100                    -0.099024                  -0.131293                             -0.077033                             -0.085940                           -0.086319
+3       0          0.044041   0.817556   0.046394   0.021068  -0.161522  ...                    -0.075078                    -0.118787                  -0.177745                             -0.056106                             -0.025029                           -0.050665
+4       0          1.438563   0.031376   0.551656   0.513381   0.449981  ...                    -0.147606                    -0.108794                  -0.121806                             -0.083027                             -0.103945                           -0.087332
+5       1          1.911405   0.836274   1.435864   0.110579   0.449981  ...                    -0.304911                    -0.025670                  -0.498094                             -0.073072                              0.693496                           -0.149306
+
+[5 rows x 39 columns]
+2025-04-22 23:16:46.603 INFO svc - execute_svc: start svc classifier training
+2025-04-22 23:19:06.091 INFO utils - save_model: saving model to ./models/svc_classifier.pkl
+2025-04-22 23:19:06.101 INFO utils - get_cross_val_predictions: Getting cross validation predictions for SVC(C=1)
+2025-04-22 23:27:18.877 INFO utils - get_cross_val_predictions: Trying to get cross validation probabilities for SVC(C=1)
+2025-04-22 23:28:34.310 INFO utils - get_cross_val_predictions: No probabilities available for SVC(C=1)
+2025-04-22 23:28:34.316 INFO utils - get_predictions: Getting test predictions for SVC(C=1)
+2025-04-22 23:28:51.026 INFO utils - get_predictions: Trying to get test predictions for SVC(C=1)
+2025-04-22 23:28:51.026 INFO utils - get_predictions: no probabilities available for SVC(C=1)
+2025-04-22 23:28:51.027 INFO utils - save_prediction: saving model to ./predictions/svc_val_predictions.pkl
+2025-04-22 23:28:51.029 INFO utils - save_prediction: saving model to ./predictions/svc_test_predictions.pkl
+2025-04-22 23:28:51.047 INFO utils - get_metrics: svc validation accuracy: 0.9438
+2025-04-22 23:28:51.047 INFO utils - get_metrics: svc validation f1 score: 0.9424
+2025-04-22 23:28:51.047 INFO utils - get_metrics: svc validation recall: 0.9281
+2025-04-22 23:28:51.047 INFO utils - get_metrics: svc validation precision: 0.9571
+2025-04-22 23:28:51.050 INFO utils - get_metrics: svc validation confusion matrix 
+ [[37445  1591]
+ [ 2747 35470]]
+2025-04-22 23:28:51.339 INFO utils - get_metrics: svc test accuracy: 0.9479
+2025-04-22 23:28:51.339 INFO utils - get_metrics: svc test f1 score: 0.9473
+2025-04-22 23:28:51.339 INFO utils - get_metrics: svc test recall: 0.9365
+2025-04-22 23:28:51.339 INFO utils - get_metrics: svc test precision: 0.9583
+2025-04-22 23:28:51.341 INFO utils - get_metrics: svc test confusion matrix 
+ [[6544  278]
+ [ 433 6387]]
+2025-04-22 23:48:26.082 INFO Dataset - __init__: Creating Dataset object from {data}
+2025-04-22 23:48:26.102 INFO Dataset - drop_columns: Dropping columns ['Unnamed: 0', 'key', 'pat_age_yrs', 'sex'] from dataset
+2025-04-22 23:48:26.204 INFO Dataset - rename_target: Renaming target column wbit_error to 'target'
+2025-04-22 23:48:26.261 INFO Dataset - clean_missing: Cleaning missing data with threshold 0.15 and method delete
+2025-04-22 23:48:27.017 INFO Dataset - clean_missing: Columns droped: ['mpv_delta', 'immature_granulocyte_automated_count_delta', 'absolute_immature_granulocyte_automated_count_delta', 'atypical_lymphocytes_manual_count_delta', 'bands_manual_count_delta', 'blasts_manual_count_delta', 'promyelocytes_manual_count_delta', 'myelocytes_manual_count_delta', 'metamyelocytes_manual_count_delta', 'other_cell_type_manual_count_delta', 'absolute_blasts_manual_count_delta', 'absolute_promyelocytes_manual_count_delta', 'absolute_myelocytes_manual_count_delta', 'absolute_metamyelocytes_manual_count_delta', 'absolute_other_cell_type_manual_count_delta', 'mpv_pct_delta', 'nrbc_per_100_wbcs_by_automated_count_pct_delta', 'immature_granulocyte_automated_count_pct_delta', 'eosinophils_count_pct_delta', 'basophils_count_pct_delta', 'absolute_immature_granulocyte_automated_count_pct_delta', 'absolute_eosinophils_count_pct_delta', 'absolute_basophils_count_pct_delta', 'atypical_lymphocytes_manual_count_pct_delta', 'bands_manual_count_pct_delta', 'blasts_manual_count_pct_delta', 'promyelocytes_manual_count_pct_delta', 'myelocytes_manual_count_pct_delta', 'metamyelocytes_manual_count_pct_delta', 'other_cell_type_manual_count_pct_delta', 'absolute_blasts_manual_count_pct_delta', 'absolute_promyelocytes_manual_count_pct_delta', 'absolute_myelocytes_manual_count_pct_delta', 'absolute_metamyelocytes_manual_count_pct_delta', 'absolute_other_cell_type_manual_count_pct_delta']
+2025-04-22 23:48:27.143 INFO gradient_boosting - execute_gradient_boost:    target  hrs_between_cbcs  wbc_delta  rbc_delta  hgb_delta  hct_delta  ...  neutrophils_count_pct_delta  lymphocytes_count_pct_delta  monocytes_count_pct_delta  absolute_neutrophils_count_pct_delta  absolute_lymphocytes_count_pct_delta  absolute_monocytes_count_pct_delta
+0       1         -0.717214  -0.296199   0.652709   1.318984   1.550687  ...                    -0.080134                    -0.176260                  -0.262622                             -0.085394                             -0.200600                           -0.135778
+2       0          0.855957   0.050094  -0.244131  -0.336978  -0.344973  ...                    -0.098100                    -0.099024                  -0.131293                             -0.077033                             -0.085940                           -0.086319
+3       0          0.044041   0.817556   0.046394   0.021068  -0.161522  ...                    -0.075078                    -0.118787                  -0.177745                             -0.056106                             -0.025029                           -0.050665
+4       0          1.438563   0.031376   0.551656   0.513381   0.449981  ...                    -0.147606                    -0.108794                  -0.121806                             -0.083027                             -0.103945                           -0.087332
+5       1          1.911405   0.836274   1.435864   0.110579   0.449981  ...                    -0.304911                    -0.025670                  -0.498094                             -0.073072                              0.693496                           -0.149306
+
+[5 rows x 39 columns]
+2025-04-22 23:48:27.175 INFO gradient_boosting - execute_gradient_boost: start gradient_boosting classifier training
+2025-04-22 23:50:29.198 INFO utils - save_model: saving model to ./models/gradient_boosting_classifier.pkl
+2025-04-22 23:50:29.204 INFO utils - get_cross_val_predictions: Getting cross validation predictions for GradientBoostingClassifier(min_samples_leaf=2, n_estimators=200, random_state=0)
+2025-04-22 23:58:39.129 INFO utils - get_cross_val_predictions: Trying to get cross validation probabilities for GradientBoostingClassifier(min_samples_leaf=2, n_estimators=200, random_state=0)
+2025-04-23 00:06:49.732 INFO utils - get_predictions: Getting test predictions for GradientBoostingClassifier(min_samples_leaf=2, n_estimators=200, random_state=0)
+2025-04-23 00:06:49.777 INFO utils - get_predictions: Trying to get test predictions for GradientBoostingClassifier(min_samples_leaf=2, n_estimators=200, random_state=0)
+2025-04-23 00:06:49.820 INFO utils - save_prediction: saving model to ./predictions/gradient_boosting_val_predictions.pkl
+2025-04-23 00:06:49.822 INFO utils - save_prediction: saving model to ./predictions/gradient_boosting_test_predictions.pkl
+2025-04-23 00:06:49.823 INFO utils - save_prediction: saving model to ./predictions/gradient_boosting_val_probabilities.pkl
+2025-04-23 00:06:49.824 INFO utils - save_prediction: saving model to ./predictions/gradient_boosting_test_probabilities.pkl
+2025-04-23 00:06:49.842 INFO utils - get_metrics: gradient-boosting validation accuracy: 0.9565
+2025-04-23 00:06:49.843 INFO utils - get_metrics: gradient-boosting validation f1 score: 0.9559
+2025-04-23 00:06:49.843 INFO utils - get_metrics: gradient-boosting validation recall: 0.9535
+2025-04-23 00:06:49.843 INFO utils - get_metrics: gradient-boosting validation precision: 0.9583
+2025-04-23 00:06:49.845 INFO utils - get_metrics: gradient-boosting validation confusion matrix 
+ [[37452  1584]
+ [ 1776 36441]]
+2025-04-23 00:06:50.140 INFO utils - get_metrics: gradient-boosting test accuracy: 0.9602
+2025-04-23 00:06:50.140 INFO utils - get_metrics: gradient-boosting test f1 score: 0.9601
+2025-04-23 00:06:50.140 INFO utils - get_metrics: gradient-boosting test recall: 0.9578
+2025-04-23 00:06:50.140 INFO utils - get_metrics: gradient-boosting test precision: 0.9624
+2025-04-23 00:06:50.141 INFO utils - get_metrics: gradient-boosting test confusion matrix 
+ [[6567  255]
+ [ 288 6532]]
