@@ -99,12 +99,12 @@ def load_predictions() -> tuple[pd.DataFrame,pd.DataFrame]:
 
 def get_metrics_performance(model_name:str,val_predictions:pd.DataFrame,test_predictions:pd.DataFrame) -> None:
 
-    if model_name == 'nn':
-        val_metrics:dict[str:float] = {'accuracy': 0.0, 'f1': 0.0, 'recall': 0.0, 'precision': 0.0}
-        confusion_matrix_val:np.ndarray = np.array([[0,0],[0,0]])
-    else:
-        val_metrics = utils.get_metrics(y_true=val_predictions['target'], y_pred=val_predictions[model_name], graph=False)
-        confusion_matrix_val:np.ndarray = confusion_matrix(y_true=val_predictions['target'], y_pred=val_predictions[model_name])
+    # if model_name == 'nn':
+    #     val_metrics:dict[str:float] = {'accuracy': 0.0, 'f1': 0.0, 'recall': 0.0, 'precision': 0.0}
+    #     confusion_matrix_val:np.ndarray = np.array([[0,0],[0,0]])
+    # else:
+    val_metrics = utils.get_metrics(y_true=val_predictions['target'], y_pred=val_predictions[model_name], graph=False)
+    confusion_matrix_val:np.ndarray = confusion_matrix(y_true=val_predictions['target'], y_pred=val_predictions[model_name])
     
     test_metrics = utils.get_metrics(y_true=test_predictions['target'], y_pred=test_predictions[model_name], graph=False)
     confusion_matrix_test:np.ndarray = confusion_matrix(y_true=test_predictions['target'], y_pred=test_predictions[model_name])
@@ -183,7 +183,7 @@ if __name__ == "__main__":
 
         val_predictions, test_predictions = load_predictions()
 
-        option:str = st.selectbox(label="Select model:", options=options.keys(), on_change=None, key="selectbox_model")
+        option:str = st.selectbox(label="Select model:", options=options.keys(), key="selectbox_model")
         model_name:str = options[option]
         
         st.write(f'### model performance for {option}')

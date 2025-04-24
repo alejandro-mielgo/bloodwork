@@ -1,5 +1,4 @@
 import glob
-import df_utils
 import numpy as np
 import logging
 import pandas as pd
@@ -38,14 +37,6 @@ def load_data(seed_number:int,train_test_split:float) -> Dataset:
     dataset.clean_missing(missing_threshold=0.15)
     dataset.standarize()
     dataset.split_x_y()
-
-    with open(f'./predictions/val_labels.pkl', 'wb') as fid:
-        logging.info(f"saving model to ./predictions/val_labels.pkl")
-        pickle.dump(dataset.train_y.to_numpy(), fid)
-
-    with open(f'./predictions/test_labels.pkl', 'wb') as fid:
-        logging.info(f"saving model to ./predictions/test_labels.pkl")
-        pickle.dump(dataset.test_y.to_numpy(), fid)
     
     return dataset
 
@@ -78,39 +69,45 @@ def merge_predicitions_and_features(feat_df:pd.DataFrame,predictions_df:pd.DataF
 
 def get_mayority_predictions(df_val:pd.DataFrame, df_test:pd.DataFrame) -> None:
     prediction_columns:list[str] = ['ada_boost','gradient_boosting','kn','lr','svc']
-    majority_vote_val = round(df_val[prediction_columns].sum(axis=1) / df_val[prediction_columns].shape[1])
-    majority_vote_test = round(df_test[prediction_columns].sum(axis=1) / df_test[prediction_columns].shape[1])
+    majority_vote_val = round(df_val[prediction_columns].sum(axis=1) / df_val[prediction_columns].shape[1]).to_numpy().astype(int)
+    majority_vote_test = round(df_test[prediction_columns].sum(axis=1) / df_test[prediction_columns].shape[1]).to_numpy().astype(int)
+    utils.save_prediction(majority_vote_val, "majority_vote_val_pred")
+    utils.save_prediction(majority_vote_test, "majority_vote_test_pred")
 
-    print(majority_vote_val[0:10])
-
-    with open(f'./predictions/majority_val_predictions.pkl', 'wb') as fid:
-        logging.info(f"saving model to ./predictions/majority_val_predictions.pkl")
-        pickle.dump(majority_vote_val, fid)
-    with open(f'./predictions/majority_test_predictions.pkl', 'wb') as fid:
-        logging.info(f"saving model to ./predictions/majority_test_predictions.pkl")
-        pickle.dump(majority_vote_test, fid)
-    
     return majority_vote_val, majority_vote_test
     
 
 if __name__=="__main__":
 
     utils.start_logs()
-
+    
     val_predictions_paths,test_predictions_paths = get_predictions_paths()
-
     dataset:Dataset = load_data(seed_number=SEED_NUMBER, train_test_split=TRAIN_TEST_SPLIT)
     
+    # Dataframes que solo contienen las predicciones individuales + targets
     train_predictions:pd.DataFrame = load_predictions(val_predictions_paths)
     test_predictions:pd.DataFrame = load_predictions(test_predictions_paths,test=True)
     train_predictions['target'] = dataset.train_y.to_numpy()
     test_predictions['target'] = dataset.test_y.to_numpy()
-    train_predictions.to_csv('./predictions/train_predictions.csv')
-    test_predictions.to_csv('./predictions/test_predictions.csv')
+  
+    # Ensemble majority vote
+    majority_vote_val, majority_vote_test = get_mayority_predictions(df_val=train_predictions, df_test=test_predictions)
+    utils.get_metrics(y_true=dataset.train_y, y_pred=majority_vote_val, model_name="majority vote validation")
+    utils.get_metrics(y_true=dataset.test_y, y_pred=majority_vote_test, model_name="majority vote test")
+    aux_train_predictions = train_predictions.copy()
+    aux_test_predictions = test_predictions.copy()
+    aux_train_predictions.insert(0, 'majority_vote', majority_vote_val)
+    aux_test_predictions.insert(0, 'majority_vote', majority_vote_test)
+    
+    # Guardar los resultados de las predicciones individuales, incluyendo el mayority vote
+    aux_train_predictions.to_csv('./predictions/train_predictions.csv')
+    aux_test_predictions.to_csv('./predictions/test_predictions.csv')
 
+
+
+    # Dataframes que contienen las features (limpias) + predicciones + targets
+    # Para hacer una red neuronal que use de entradas las predicciones y las features
     train:pd.DataFrame = merge_predicitions_and_features(feat_df=dataset.train_x, predictions_df=train_predictions) 
     test:pd.DataFrame = merge_predicitions_and_features(feat_df=dataset.test_x, predictions_df=test_predictions)
-
-    
     train.to_csv('./predictions/train.csv')
     test.to_csv('./predictions/test.csv')

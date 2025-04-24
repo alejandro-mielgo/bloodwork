@@ -4,4 +4,5 @@ bloodwork.log
 data
 predictions/individual_predictions
 data/original_data_r
+data/no_diff.csv
 
