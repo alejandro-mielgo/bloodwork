@@ -109,6 +109,8 @@ def get_metrics(
         fig, ax = plt.subplots(figsize=(5, 4))
         plt.title(f"{model_name}")
         sns.heatmap(cm, annot=labels, fmt="", ax=ax, cmap="flare")
+        plt.xlabel("Predicted")
+        plt.ylabel("True")
         plt.savefig(f"./images/{model_name}.png", bbox_inches="tight")
 
     return metrics

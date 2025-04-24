@@ -11,7 +11,7 @@ import utils
 
 
 @st.cache_data
-def get_data(csv_path:str) -> pd.DataFrame:
+def get_data(csv_path:str) -> tuple[pd.DataFrame,list[str]]:
     #Load raw data for histogram and scatter plots
     df:pd.DataFrame = pd.read_csv(csv_path)
     df.drop(columns=["Unnamed: 0","key"],inplace=True)
@@ -97,25 +97,37 @@ def load_predictions() -> tuple[pd.DataFrame,pd.DataFrame]:
     return val_predictions, test_predictions
 
 
-def get_metrics_performance(model_name:str,val_predictions:pd.DataFrame,test_predictions:pd.DataFrame) -> None:
+def get_model_performance(model_name:str,val_predictions:pd.DataFrame,test_predictions:pd.DataFrame) -> None:
 
-    # if model_name == 'nn':
-    #     val_metrics:dict[str:float] = {'accuracy': 0.0, 'f1': 0.0, 'recall': 0.0, 'precision': 0.0}
-    #     confusion_matrix_val:np.ndarray = np.array([[0,0],[0,0]])
-    # else:
     val_metrics = utils.get_metrics(y_true=val_predictions['target'], y_pred=val_predictions[model_name], graph=False)
     confusion_matrix_val:np.ndarray = confusion_matrix(y_true=val_predictions['target'], y_pred=val_predictions[model_name])
     
     test_metrics = utils.get_metrics(y_true=test_predictions['target'], y_pred=test_predictions[model_name], graph=False)
     confusion_matrix_test:np.ndarray = confusion_matrix(y_true=test_predictions['target'], y_pred=test_predictions[model_name])
 
+    group_names = ["True Neg", "False Pos", "False Neg", "True Pos"]
+    group_counts_v = ["{0:0.0f}".format(value) for value in confusion_matrix_val.flatten()]
+    group_percentages_v = ["{0:.2%}".format(value) for value in confusion_matrix_val.flatten() / np.sum(confusion_matrix_val)]
+    labels_v = [f"{v1}\n{v2}\n{v3}"
+                for v1, v2, v3 in zip(group_names, group_counts_v, group_percentages_v)]
+    labels_v = np.asarray(labels_v).reshape(2, 2)
+
+    group_counts_t = ["{0:0.0f}".format(value) for value in confusion_matrix_test.flatten()]
+    group_percentages_t = ["{0:.2%}".format(value) for value in confusion_matrix_test.flatten() / np.sum(confusion_matrix_test)]
+    labels_t = [f"{v1}\n{v2}\n{v3}"
+                for v1, v2, v3 in zip(group_names, group_counts_t, group_percentages_t)]
+    labels_t= np.asarray(labels_t).reshape(2, 2)
+
+
     #plot confusion matrix
     fig, ax = plt.subplots(1,2, figsize=(10,4))
-    sns.heatmap(confusion_matrix_val, annot=True, fmt="d", cmap="Blues", ax=ax[0])
+    
+    sns.heatmap(confusion_matrix_val,annot=labels_v, fmt="", cmap="Blues", ax=ax[0])
     ax[0].set_title("Validation confusion matrix")
     ax[0].set_xlabel("Predicted")
     ax[0].set_ylabel("True")
-    sns.heatmap(confusion_matrix_test, annot=True, fmt="d", cmap="Blues", ax=ax[1])
+    
+    sns.heatmap(confusion_matrix_test, annot=labels_t, fmt="", cmap="Blues", ax=ax[1])
     ax[1].set_title("Test confusion matrix")
     ax[1].set_xlabel("Predicted")
     ax[1].set_ylabel("True")
@@ -177,7 +189,8 @@ if __name__ == "__main__":
                                 "logistic regression":"lr",
                                 "support vector classifier":"svc",
                                 "neural network":"nn",
-                                # "majority vote":"majority",
+                                "cat boost":"catboost",
+                                "majority vote":"majority_vote",
                                 # "neural network ensemble":"nn_ensemble"
                                 }
 
@@ -187,6 +200,6 @@ if __name__ == "__main__":
         model_name:str = options[option]
         
         st.write(f'### model performance for {option}')
-        get_metrics_performance(model_name=model_name,
-                                val_predictions=val_predictions,
-                                test_predictions=test_predictions)
+        get_model_performance( model_name=model_name,
+                               val_predictions=val_predictions,
+                               test_predictions=test_predictions)

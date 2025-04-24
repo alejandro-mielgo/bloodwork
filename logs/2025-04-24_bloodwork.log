@@ -506,3 +506,341 @@
 2025-04-24 11:01:28.457 INFO utils - get_metrics: majority vote test confusion matrix 
  [[6629  193]
  [ 444 6376]]
+2025-04-24 13:38:04.627 INFO Dataset - __init__: Creating Dataset object from <class 'pandas.core.frame.DataFrame'>
+2025-04-24 13:38:04.651 INFO Dataset - drop_columns: Dropping columns ['Unnamed: 0', 'key', 'pat_age_yrs', 'sex'] from dataset
+2025-04-24 13:38:04.779 INFO Dataset - rename_target: Renaming target column wbit_error to 'target'
+2025-04-24 13:38:04.846 INFO Dataset - clean_missing: Cleaning missing data with threshold 0.15 and method delete
+2025-04-24 13:38:05.616 INFO Dataset - clean_missing: Columns droped: ['mpv_delta', 'immature_granulocyte_automated_count_delta', 'absolute_immature_granulocyte_automated_count_delta', 'atypical_lymphocytes_manual_count_delta', 'bands_manual_count_delta', 'blasts_manual_count_delta', 'promyelocytes_manual_count_delta', 'myelocytes_manual_count_delta', 'metamyelocytes_manual_count_delta', 'other_cell_type_manual_count_delta', 'absolute_blasts_manual_count_delta', 'absolute_promyelocytes_manual_count_delta', 'absolute_myelocytes_manual_count_delta', 'absolute_metamyelocytes_manual_count_delta', 'absolute_other_cell_type_manual_count_delta', 'mpv_pct_delta', 'nrbc_per_100_wbcs_by_automated_count_pct_delta', 'immature_granulocyte_automated_count_pct_delta', 'eosinophils_count_pct_delta', 'basophils_count_pct_delta', 'absolute_immature_granulocyte_automated_count_pct_delta', 'absolute_eosinophils_count_pct_delta', 'absolute_basophils_count_pct_delta', 'atypical_lymphocytes_manual_count_pct_delta', 'bands_manual_count_pct_delta', 'blasts_manual_count_pct_delta', 'promyelocytes_manual_count_pct_delta', 'myelocytes_manual_count_pct_delta', 'metamyelocytes_manual_count_pct_delta', 'other_cell_type_manual_count_pct_delta', 'absolute_blasts_manual_count_pct_delta', 'absolute_promyelocytes_manual_count_pct_delta', 'absolute_myelocytes_manual_count_pct_delta', 'absolute_metamyelocytes_manual_count_pct_delta', 'absolute_other_cell_type_manual_count_pct_delta']
+2025-04-24 13:38:05.616 INFO Dataset - standarize: Standarizing data with cols to ignore ['target']
+2025-04-24 13:38:05.692 INFO Dataset - split_x_y: Splitting data into x and y
+2025-04-24 13:38:05.710 INFO cat_boost - <module>:    target  hrs_between_cbcs  ...  absolute_lymphocytes_count_pct_delta  absolute_monocytes_count_pct_delta
+0       1         -0.717214  ...                             -0.200600                           -0.135778
+2       0          0.855957  ...                             -0.085940                           -0.086319
+3       0          0.044041  ...                             -0.025029                           -0.050665
+4       0          1.438563  ...                             -0.103945                           -0.087332
+5       1          1.911405  ...                              0.693496                           -0.149306
+
+[5 rows x 39 columns]
+2025-04-24 13:38:23.127 INFO Dataset - __init__: Creating Dataset object from <class 'pandas.core.frame.DataFrame'>
+2025-04-24 13:38:23.146 INFO Dataset - drop_columns: Dropping columns ['Unnamed: 0', 'key', 'pat_age_yrs', 'sex'] from dataset
+2025-04-24 13:38:23.249 INFO Dataset - rename_target: Renaming target column wbit_error to 'target'
+2025-04-24 13:38:23.307 INFO Dataset - clean_missing: Cleaning missing data with threshold 0.15 and method delete
+2025-04-24 13:38:24.037 INFO Dataset - clean_missing: Columns droped: ['mpv_delta', 'immature_granulocyte_automated_count_delta', 'absolute_immature_granulocyte_automated_count_delta', 'atypical_lymphocytes_manual_count_delta', 'bands_manual_count_delta', 'blasts_manual_count_delta', 'promyelocytes_manual_count_delta', 'myelocytes_manual_count_delta', 'metamyelocytes_manual_count_delta', 'other_cell_type_manual_count_delta', 'absolute_blasts_manual_count_delta', 'absolute_promyelocytes_manual_count_delta', 'absolute_myelocytes_manual_count_delta', 'absolute_metamyelocytes_manual_count_delta', 'absolute_other_cell_type_manual_count_delta', 'mpv_pct_delta', 'nrbc_per_100_wbcs_by_automated_count_pct_delta', 'immature_granulocyte_automated_count_pct_delta', 'eosinophils_count_pct_delta', 'basophils_count_pct_delta', 'absolute_immature_granulocyte_automated_count_pct_delta', 'absolute_eosinophils_count_pct_delta', 'absolute_basophils_count_pct_delta', 'atypical_lymphocytes_manual_count_pct_delta', 'bands_manual_count_pct_delta', 'blasts_manual_count_pct_delta', 'promyelocytes_manual_count_pct_delta', 'myelocytes_manual_count_pct_delta', 'metamyelocytes_manual_count_pct_delta', 'other_cell_type_manual_count_pct_delta', 'absolute_blasts_manual_count_pct_delta', 'absolute_promyelocytes_manual_count_pct_delta', 'absolute_myelocytes_manual_count_pct_delta', 'absolute_metamyelocytes_manual_count_pct_delta', 'absolute_other_cell_type_manual_count_pct_delta']
+2025-04-24 13:38:24.038 INFO Dataset - standarize: Standarizing data with cols to ignore ['target']
+2025-04-24 13:38:24.118 INFO Dataset - split_x_y: Splitting data into x and y
+2025-04-24 13:38:24.137 INFO cat_boost - <module>:    target  hrs_between_cbcs  ...  absolute_lymphocytes_count_pct_delta  absolute_monocytes_count_pct_delta
+0       1         -0.717214  ...                             -0.200600                           -0.135778
+2       0          0.855957  ...                             -0.085940                           -0.086319
+3       0          0.044041  ...                             -0.025029                           -0.050665
+4       0          1.438563  ...                             -0.103945                           -0.087332
+5       1          1.911405  ...                              0.693496                           -0.149306
+
+[5 rows x 39 columns]
+2025-04-24 13:40:36.752 INFO Dataset - __init__: Creating Dataset object from <class 'pandas.core.frame.DataFrame'>
+2025-04-24 13:40:36.770 INFO Dataset - drop_columns: Dropping columns ['Unnamed: 0', 'key', 'pat_age_yrs', 'sex'] from dataset
+2025-04-24 13:40:36.874 INFO Dataset - rename_target: Renaming target column wbit_error to 'target'
+2025-04-24 13:40:36.930 INFO Dataset - clean_missing: Cleaning missing data with threshold 0.15 and method delete
+2025-04-24 13:40:37.654 INFO Dataset - clean_missing: Columns droped: ['mpv_delta', 'immature_granulocyte_automated_count_delta', 'absolute_immature_granulocyte_automated_count_delta', 'atypical_lymphocytes_manual_count_delta', 'bands_manual_count_delta', 'blasts_manual_count_delta', 'promyelocytes_manual_count_delta', 'myelocytes_manual_count_delta', 'metamyelocytes_manual_count_delta', 'other_cell_type_manual_count_delta', 'absolute_blasts_manual_count_delta', 'absolute_promyelocytes_manual_count_delta', 'absolute_myelocytes_manual_count_delta', 'absolute_metamyelocytes_manual_count_delta', 'absolute_other_cell_type_manual_count_delta', 'mpv_pct_delta', 'nrbc_per_100_wbcs_by_automated_count_pct_delta', 'immature_granulocyte_automated_count_pct_delta', 'eosinophils_count_pct_delta', 'basophils_count_pct_delta', 'absolute_immature_granulocyte_automated_count_pct_delta', 'absolute_eosinophils_count_pct_delta', 'absolute_basophils_count_pct_delta', 'atypical_lymphocytes_manual_count_pct_delta', 'bands_manual_count_pct_delta', 'blasts_manual_count_pct_delta', 'promyelocytes_manual_count_pct_delta', 'myelocytes_manual_count_pct_delta', 'metamyelocytes_manual_count_pct_delta', 'other_cell_type_manual_count_pct_delta', 'absolute_blasts_manual_count_pct_delta', 'absolute_promyelocytes_manual_count_pct_delta', 'absolute_myelocytes_manual_count_pct_delta', 'absolute_metamyelocytes_manual_count_pct_delta', 'absolute_other_cell_type_manual_count_pct_delta']
+2025-04-24 13:40:37.654 INFO Dataset - standarize: Standarizing data with cols to ignore ['target']
+2025-04-24 13:40:37.753 INFO Dataset - split_x_y: Splitting data into x and y
+2025-04-24 13:40:37.778 INFO cat_boost - <module>:    target  hrs_between_cbcs  ...  absolute_lymphocytes_count_pct_delta  absolute_monocytes_count_pct_delta
+0       1         -0.717214  ...                             -0.200600                           -0.135778
+2       0          0.855957  ...                             -0.085940                           -0.086319
+3       0          0.044041  ...                             -0.025029                           -0.050665
+4       0          1.438563  ...                             -0.103945                           -0.087332
+5       1          1.911405  ...                              0.693496                           -0.149306
+
+[5 rows x 39 columns]
+2025-04-24 13:40:57.312 INFO utils - get_metrics: CatBoost accuracy: 0.9687
+2025-04-24 13:40:57.313 INFO utils - get_metrics: CatBoost f1: 0.9687
+2025-04-24 13:40:57.313 INFO utils - get_metrics: CatBoost recall: 0.9686
+2025-04-24 13:40:57.313 INFO utils - get_metrics: CatBoost precision: 0.9688
+2025-04-24 13:40:57.314 INFO utils - get_metrics: CatBoost confusion matrix 
+ [[6609  213]
+ [ 214 6606]]
+2025-04-24 13:47:48.651 INFO Dataset - __init__: Creating Dataset object from <class 'pandas.core.frame.DataFrame'>
+2025-04-24 13:47:48.669 INFO Dataset - drop_columns: Dropping columns ['Unnamed: 0', 'key', 'pat_age_yrs', 'sex'] from dataset
+2025-04-24 13:47:48.772 INFO Dataset - rename_target: Renaming target column wbit_error to 'target'
+2025-04-24 13:47:48.829 INFO Dataset - clean_missing: Cleaning missing data with threshold 0.15 and method delete
+2025-04-24 13:47:49.548 INFO Dataset - clean_missing: Columns droped: ['mpv_delta', 'immature_granulocyte_automated_count_delta', 'absolute_immature_granulocyte_automated_count_delta', 'atypical_lymphocytes_manual_count_delta', 'bands_manual_count_delta', 'blasts_manual_count_delta', 'promyelocytes_manual_count_delta', 'myelocytes_manual_count_delta', 'metamyelocytes_manual_count_delta', 'other_cell_type_manual_count_delta', 'absolute_blasts_manual_count_delta', 'absolute_promyelocytes_manual_count_delta', 'absolute_myelocytes_manual_count_delta', 'absolute_metamyelocytes_manual_count_delta', 'absolute_other_cell_type_manual_count_delta', 'mpv_pct_delta', 'nrbc_per_100_wbcs_by_automated_count_pct_delta', 'immature_granulocyte_automated_count_pct_delta', 'eosinophils_count_pct_delta', 'basophils_count_pct_delta', 'absolute_immature_granulocyte_automated_count_pct_delta', 'absolute_eosinophils_count_pct_delta', 'absolute_basophils_count_pct_delta', 'atypical_lymphocytes_manual_count_pct_delta', 'bands_manual_count_pct_delta', 'blasts_manual_count_pct_delta', 'promyelocytes_manual_count_pct_delta', 'myelocytes_manual_count_pct_delta', 'metamyelocytes_manual_count_pct_delta', 'other_cell_type_manual_count_pct_delta', 'absolute_blasts_manual_count_pct_delta', 'absolute_promyelocytes_manual_count_pct_delta', 'absolute_myelocytes_manual_count_pct_delta', 'absolute_metamyelocytes_manual_count_pct_delta', 'absolute_other_cell_type_manual_count_pct_delta']
+2025-04-24 13:47:49.548 INFO Dataset - standarize: Standarizing data with cols to ignore ['target']
+2025-04-24 13:47:49.625 INFO Dataset - split_x_y: Splitting data into x and y
+2025-04-24 13:47:49.643 INFO cat_boost - <module>:    target  hrs_between_cbcs  ...  absolute_lymphocytes_count_pct_delta  absolute_monocytes_count_pct_delta
+0       1         -0.717214  ...                             -0.200600                           -0.135778
+2       0          0.855957  ...                             -0.085940                           -0.086319
+3       0          0.044041  ...                             -0.025029                           -0.050665
+4       0          1.438563  ...                             -0.103945                           -0.087332
+5       1          1.911405  ...                              0.693496                           -0.149306
+
+[5 rows x 39 columns]
+2025-04-24 13:59:43.759 INFO Dataset - __init__: Creating Dataset object from <class 'pandas.core.frame.DataFrame'>
+2025-04-24 13:59:43.783 INFO Dataset - drop_columns: Dropping columns ['Unnamed: 0', 'key', 'pat_age_yrs', 'sex'] from dataset
+2025-04-24 13:59:43.909 INFO Dataset - rename_target: Renaming target column wbit_error to 'target'
+2025-04-24 13:59:43.980 INFO Dataset - clean_missing: Cleaning missing data with threshold 0.15 and method delete
+2025-04-24 13:59:44.740 INFO Dataset - clean_missing: Columns droped: ['mpv_delta', 'immature_granulocyte_automated_count_delta', 'absolute_immature_granulocyte_automated_count_delta', 'atypical_lymphocytes_manual_count_delta', 'bands_manual_count_delta', 'blasts_manual_count_delta', 'promyelocytes_manual_count_delta', 'myelocytes_manual_count_delta', 'metamyelocytes_manual_count_delta', 'other_cell_type_manual_count_delta', 'absolute_blasts_manual_count_delta', 'absolute_promyelocytes_manual_count_delta', 'absolute_myelocytes_manual_count_delta', 'absolute_metamyelocytes_manual_count_delta', 'absolute_other_cell_type_manual_count_delta', 'mpv_pct_delta', 'nrbc_per_100_wbcs_by_automated_count_pct_delta', 'immature_granulocyte_automated_count_pct_delta', 'eosinophils_count_pct_delta', 'basophils_count_pct_delta', 'absolute_immature_granulocyte_automated_count_pct_delta', 'absolute_eosinophils_count_pct_delta', 'absolute_basophils_count_pct_delta', 'atypical_lymphocytes_manual_count_pct_delta', 'bands_manual_count_pct_delta', 'blasts_manual_count_pct_delta', 'promyelocytes_manual_count_pct_delta', 'myelocytes_manual_count_pct_delta', 'metamyelocytes_manual_count_pct_delta', 'other_cell_type_manual_count_pct_delta', 'absolute_blasts_manual_count_pct_delta', 'absolute_promyelocytes_manual_count_pct_delta', 'absolute_myelocytes_manual_count_pct_delta', 'absolute_metamyelocytes_manual_count_pct_delta', 'absolute_other_cell_type_manual_count_pct_delta']
+2025-04-24 13:59:44.741 INFO Dataset - standarize: Standarizing data with cols to ignore ['target']
+2025-04-24 13:59:44.818 INFO Dataset - split_x_y: Splitting data into x and y
+2025-04-24 13:59:44.837 INFO cat_boost - load_data:    target  hrs_between_cbcs  ...  absolute_lymphocytes_count_pct_delta  absolute_monocytes_count_pct_delta
+0       1         -0.717214  ...                             -0.200600                           -0.135778
+2       0          0.855957  ...                             -0.085940                           -0.086319
+3       0          0.044041  ...                             -0.025029                           -0.050665
+4       0          1.438563  ...                             -0.103945                           -0.087332
+5       1          1.911405  ...                              0.693496                           -0.149306
+
+[5 rows x 39 columns]
+2025-04-24 14:00:30.826 INFO Dataset - __init__: Creating Dataset object from <class 'pandas.core.frame.DataFrame'>
+2025-04-24 14:00:30.845 INFO Dataset - drop_columns: Dropping columns ['Unnamed: 0', 'key', 'pat_age_yrs', 'sex'] from dataset
+2025-04-24 14:00:30.949 INFO Dataset - rename_target: Renaming target column wbit_error to 'target'
+2025-04-24 14:00:31.011 INFO Dataset - clean_missing: Cleaning missing data with threshold 0.15 and method delete
+2025-04-24 14:00:31.795 INFO Dataset - clean_missing: Columns droped: ['mpv_delta', 'immature_granulocyte_automated_count_delta', 'absolute_immature_granulocyte_automated_count_delta', 'atypical_lymphocytes_manual_count_delta', 'bands_manual_count_delta', 'blasts_manual_count_delta', 'promyelocytes_manual_count_delta', 'myelocytes_manual_count_delta', 'metamyelocytes_manual_count_delta', 'other_cell_type_manual_count_delta', 'absolute_blasts_manual_count_delta', 'absolute_promyelocytes_manual_count_delta', 'absolute_myelocytes_manual_count_delta', 'absolute_metamyelocytes_manual_count_delta', 'absolute_other_cell_type_manual_count_delta', 'mpv_pct_delta', 'nrbc_per_100_wbcs_by_automated_count_pct_delta', 'immature_granulocyte_automated_count_pct_delta', 'eosinophils_count_pct_delta', 'basophils_count_pct_delta', 'absolute_immature_granulocyte_automated_count_pct_delta', 'absolute_eosinophils_count_pct_delta', 'absolute_basophils_count_pct_delta', 'atypical_lymphocytes_manual_count_pct_delta', 'bands_manual_count_pct_delta', 'blasts_manual_count_pct_delta', 'promyelocytes_manual_count_pct_delta', 'myelocytes_manual_count_pct_delta', 'metamyelocytes_manual_count_pct_delta', 'other_cell_type_manual_count_pct_delta', 'absolute_blasts_manual_count_pct_delta', 'absolute_promyelocytes_manual_count_pct_delta', 'absolute_myelocytes_manual_count_pct_delta', 'absolute_metamyelocytes_manual_count_pct_delta', 'absolute_other_cell_type_manual_count_pct_delta']
+2025-04-24 14:00:31.796 INFO Dataset - standarize: Standarizing data with cols to ignore ['target']
+2025-04-24 14:00:31.876 INFO Dataset - split_x_y: Splitting data into x and y
+2025-04-24 14:00:31.894 INFO cat_boost - load_data:    target  hrs_between_cbcs  ...  absolute_lymphocytes_count_pct_delta  absolute_monocytes_count_pct_delta
+0       1         -0.717214  ...                             -0.200600                           -0.135778
+2       0          0.855957  ...                             -0.085940                           -0.086319
+3       0          0.044041  ...                             -0.025029                           -0.050665
+4       0          1.438563  ...                             -0.103945                           -0.087332
+5       1          1.911405  ...                              0.693496                           -0.149306
+
+[5 rows x 39 columns]
+2025-04-24 14:00:59.203 INFO Dataset - __init__: Creating Dataset object from <class 'pandas.core.frame.DataFrame'>
+2025-04-24 14:00:59.221 INFO Dataset - drop_columns: Dropping columns ['Unnamed: 0', 'key', 'pat_age_yrs', 'sex'] from dataset
+2025-04-24 14:00:59.322 INFO Dataset - rename_target: Renaming target column wbit_error to 'target'
+2025-04-24 14:00:59.380 INFO Dataset - clean_missing: Cleaning missing data with threshold 0.15 and method delete
+2025-04-24 14:01:00.135 INFO Dataset - clean_missing: Columns droped: ['mpv_delta', 'immature_granulocyte_automated_count_delta', 'absolute_immature_granulocyte_automated_count_delta', 'atypical_lymphocytes_manual_count_delta', 'bands_manual_count_delta', 'blasts_manual_count_delta', 'promyelocytes_manual_count_delta', 'myelocytes_manual_count_delta', 'metamyelocytes_manual_count_delta', 'other_cell_type_manual_count_delta', 'absolute_blasts_manual_count_delta', 'absolute_promyelocytes_manual_count_delta', 'absolute_myelocytes_manual_count_delta', 'absolute_metamyelocytes_manual_count_delta', 'absolute_other_cell_type_manual_count_delta', 'mpv_pct_delta', 'nrbc_per_100_wbcs_by_automated_count_pct_delta', 'immature_granulocyte_automated_count_pct_delta', 'eosinophils_count_pct_delta', 'basophils_count_pct_delta', 'absolute_immature_granulocyte_automated_count_pct_delta', 'absolute_eosinophils_count_pct_delta', 'absolute_basophils_count_pct_delta', 'atypical_lymphocytes_manual_count_pct_delta', 'bands_manual_count_pct_delta', 'blasts_manual_count_pct_delta', 'promyelocytes_manual_count_pct_delta', 'myelocytes_manual_count_pct_delta', 'metamyelocytes_manual_count_pct_delta', 'other_cell_type_manual_count_pct_delta', 'absolute_blasts_manual_count_pct_delta', 'absolute_promyelocytes_manual_count_pct_delta', 'absolute_myelocytes_manual_count_pct_delta', 'absolute_metamyelocytes_manual_count_pct_delta', 'absolute_other_cell_type_manual_count_pct_delta']
+2025-04-24 14:01:00.135 INFO Dataset - standarize: Standarizing data with cols to ignore ['target']
+2025-04-24 14:01:00.218 INFO Dataset - split_x_y: Splitting data into x and y
+2025-04-24 14:01:00.238 INFO cat_boost - load_data:    target  hrs_between_cbcs  ...  absolute_lymphocytes_count_pct_delta  absolute_monocytes_count_pct_delta
+0       1         -0.717214  ...                             -0.200600                           -0.135778
+2       0          0.855957  ...                             -0.085940                           -0.086319
+3       0          0.044041  ...                             -0.025029                           -0.050665
+4       0          1.438563  ...                             -0.103945                           -0.087332
+5       1          1.911405  ...                              0.693496                           -0.149306
+
+[5 rows x 39 columns]
+2025-04-24 14:03:25.168 INFO Dataset - __init__: Creating Dataset object from <class 'pandas.core.frame.DataFrame'>
+2025-04-24 14:03:25.186 INFO Dataset - drop_columns: Dropping columns ['Unnamed: 0', 'key', 'pat_age_yrs', 'sex'] from dataset
+2025-04-24 14:03:25.289 INFO Dataset - rename_target: Renaming target column wbit_error to 'target'
+2025-04-24 14:03:25.347 INFO Dataset - clean_missing: Cleaning missing data with threshold 0.15 and method delete
+2025-04-24 14:03:26.075 INFO Dataset - clean_missing: Columns droped: ['mpv_delta', 'immature_granulocyte_automated_count_delta', 'absolute_immature_granulocyte_automated_count_delta', 'atypical_lymphocytes_manual_count_delta', 'bands_manual_count_delta', 'blasts_manual_count_delta', 'promyelocytes_manual_count_delta', 'myelocytes_manual_count_delta', 'metamyelocytes_manual_count_delta', 'other_cell_type_manual_count_delta', 'absolute_blasts_manual_count_delta', 'absolute_promyelocytes_manual_count_delta', 'absolute_myelocytes_manual_count_delta', 'absolute_metamyelocytes_manual_count_delta', 'absolute_other_cell_type_manual_count_delta', 'mpv_pct_delta', 'nrbc_per_100_wbcs_by_automated_count_pct_delta', 'immature_granulocyte_automated_count_pct_delta', 'eosinophils_count_pct_delta', 'basophils_count_pct_delta', 'absolute_immature_granulocyte_automated_count_pct_delta', 'absolute_eosinophils_count_pct_delta', 'absolute_basophils_count_pct_delta', 'atypical_lymphocytes_manual_count_pct_delta', 'bands_manual_count_pct_delta', 'blasts_manual_count_pct_delta', 'promyelocytes_manual_count_pct_delta', 'myelocytes_manual_count_pct_delta', 'metamyelocytes_manual_count_pct_delta', 'other_cell_type_manual_count_pct_delta', 'absolute_blasts_manual_count_pct_delta', 'absolute_promyelocytes_manual_count_pct_delta', 'absolute_myelocytes_manual_count_pct_delta', 'absolute_metamyelocytes_manual_count_pct_delta', 'absolute_other_cell_type_manual_count_pct_delta']
+2025-04-24 14:03:26.075 INFO Dataset - standarize: Standarizing data with cols to ignore ['target']
+2025-04-24 14:03:26.151 INFO Dataset - split_x_y: Splitting data into x and y
+2025-04-24 14:03:26.169 INFO cat_boost - load_data:    target  hrs_between_cbcs  ...  absolute_lymphocytes_count_pct_delta  absolute_monocytes_count_pct_delta
+0       1         -0.717214  ...                             -0.200600                           -0.135778
+2       0          0.855957  ...                             -0.085940                           -0.086319
+3       0          0.044041  ...                             -0.025029                           -0.050665
+4       0          1.438563  ...                             -0.103945                           -0.087332
+5       1          1.911405  ...                              0.693496                           -0.149306
+
+[5 rows x 39 columns]
+2025-04-24 14:05:23.012 INFO utils - get_metrics: CatBoost validation accuracy: 0.9658
+2025-04-24 14:05:23.013 INFO utils - get_metrics: CatBoost validation f1: 0.9653
+2025-04-24 14:05:23.013 INFO utils - get_metrics: CatBoost validation recall: 0.9637
+2025-04-24 14:05:23.013 INFO utils - get_metrics: CatBoost validation precision: 0.967
+2025-04-24 14:05:23.016 INFO utils - get_metrics: CatBoost validation confusion matrix 
+ [[37780  1256]
+ [ 1389 36828]]
+2025-04-24 14:05:23.439 INFO utils - get_metrics: CatBoost test accuracy: 0.9687
+2025-04-24 14:05:23.439 INFO utils - get_metrics: CatBoost test f1: 0.9687
+2025-04-24 14:05:23.439 INFO utils - get_metrics: CatBoost test recall: 0.9686
+2025-04-24 14:05:23.439 INFO utils - get_metrics: CatBoost test precision: 0.9688
+2025-04-24 14:05:23.441 INFO utils - get_metrics: CatBoost test confusion matrix 
+ [[6609  213]
+ [ 214 6606]]
+2025-04-24 14:10:53.840 INFO Dataset - __init__: Creating Dataset object from <class 'pandas.core.frame.DataFrame'>
+2025-04-24 14:10:53.861 INFO Dataset - drop_columns: Dropping columns ['Unnamed: 0', 'key', 'pat_age_yrs', 'sex'] from dataset
+2025-04-24 14:10:53.981 INFO Dataset - rename_target: Renaming target column wbit_error to 'target'
+2025-04-24 14:10:54.044 INFO Dataset - clean_missing: Cleaning missing data with threshold 0.15 and method delete
+2025-04-24 14:10:54.828 INFO Dataset - clean_missing: Columns droped: ['mpv_delta', 'immature_granulocyte_automated_count_delta', 'absolute_immature_granulocyte_automated_count_delta', 'atypical_lymphocytes_manual_count_delta', 'bands_manual_count_delta', 'blasts_manual_count_delta', 'promyelocytes_manual_count_delta', 'myelocytes_manual_count_delta', 'metamyelocytes_manual_count_delta', 'other_cell_type_manual_count_delta', 'absolute_blasts_manual_count_delta', 'absolute_promyelocytes_manual_count_delta', 'absolute_myelocytes_manual_count_delta', 'absolute_metamyelocytes_manual_count_delta', 'absolute_other_cell_type_manual_count_delta', 'mpv_pct_delta', 'nrbc_per_100_wbcs_by_automated_count_pct_delta', 'immature_granulocyte_automated_count_pct_delta', 'eosinophils_count_pct_delta', 'basophils_count_pct_delta', 'absolute_immature_granulocyte_automated_count_pct_delta', 'absolute_eosinophils_count_pct_delta', 'absolute_basophils_count_pct_delta', 'atypical_lymphocytes_manual_count_pct_delta', 'bands_manual_count_pct_delta', 'blasts_manual_count_pct_delta', 'promyelocytes_manual_count_pct_delta', 'myelocytes_manual_count_pct_delta', 'metamyelocytes_manual_count_pct_delta', 'other_cell_type_manual_count_pct_delta', 'absolute_blasts_manual_count_pct_delta', 'absolute_promyelocytes_manual_count_pct_delta', 'absolute_myelocytes_manual_count_pct_delta', 'absolute_metamyelocytes_manual_count_pct_delta', 'absolute_other_cell_type_manual_count_pct_delta']
+2025-04-24 14:10:54.828 INFO Dataset - standarize: Standarizing data with cols to ignore ['target']
+2025-04-24 14:10:54.931 INFO Dataset - split_x_y: Splitting data into x and y
+2025-04-24 14:10:54.954 INFO cat_boost - load_data:    target  hrs_between_cbcs  ...  absolute_lymphocytes_count_pct_delta  absolute_monocytes_count_pct_delta
+0       1         -0.717214  ...                             -0.200600                           -0.135778
+2       0          0.855957  ...                             -0.085940                           -0.086319
+3       0          0.044041  ...                             -0.025029                           -0.050665
+4       0          1.438563  ...                             -0.103945                           -0.087332
+5       1          1.911405  ...                              0.693496                           -0.149306
+
+[5 rows x 39 columns]
+2025-04-24 14:12:46.972 INFO utils - get_metrics: CatBoost validation accuracy: 0.9658
+2025-04-24 14:12:46.972 INFO utils - get_metrics: CatBoost validation f1: 0.9653
+2025-04-24 14:12:46.972 INFO utils - get_metrics: CatBoost validation recall: 0.9637
+2025-04-24 14:12:46.972 INFO utils - get_metrics: CatBoost validation precision: 0.967
+2025-04-24 14:12:46.974 INFO utils - get_metrics: CatBoost validation confusion matrix 
+ [[37780  1256]
+ [ 1389 36828]]
+2025-04-24 14:12:47.268 INFO utils - get_metrics: CatBoost test accuracy: 0.9687
+2025-04-24 14:12:47.268 INFO utils - get_metrics: CatBoost test f1: 0.9687
+2025-04-24 14:12:47.268 INFO utils - get_metrics: CatBoost test recall: 0.9686
+2025-04-24 14:12:47.268 INFO utils - get_metrics: CatBoost test precision: 0.9688
+2025-04-24 14:12:47.269 INFO utils - get_metrics: CatBoost test confusion matrix 
+ [[6609  213]
+ [ 214 6606]]
+2025-04-24 14:12:47.466 INFO utils - save_prediction: saving model to ./predictions/individual_predictions/catboost_val_predictions.pkl
+2025-04-24 14:12:47.468 INFO utils - save_prediction: saving model to ./predictions/individual_predictions/catboost_test_predictions.pkl
+2025-04-24 14:14:43.256 INFO Dataset - __init__: Creating Dataset object from <class 'pandas.core.frame.DataFrame'>
+2025-04-24 14:14:43.277 INFO Dataset - drop_columns: Dropping columns ['Unnamed: 0', 'key', 'pat_age_yrs', 'sex'] from dataset
+2025-04-24 14:14:43.381 INFO Dataset - rename_target: Renaming target column wbit_error to 'target'
+2025-04-24 14:14:43.439 INFO Dataset - clean_missing: Cleaning missing data with threshold 0.15 and method delete
+2025-04-24 14:14:44.174 INFO Dataset - clean_missing: Columns droped: ['mpv_delta', 'immature_granulocyte_automated_count_delta', 'absolute_immature_granulocyte_automated_count_delta', 'atypical_lymphocytes_manual_count_delta', 'bands_manual_count_delta', 'blasts_manual_count_delta', 'promyelocytes_manual_count_delta', 'myelocytes_manual_count_delta', 'metamyelocytes_manual_count_delta', 'other_cell_type_manual_count_delta', 'absolute_blasts_manual_count_delta', 'absolute_promyelocytes_manual_count_delta', 'absolute_myelocytes_manual_count_delta', 'absolute_metamyelocytes_manual_count_delta', 'absolute_other_cell_type_manual_count_delta', 'mpv_pct_delta', 'nrbc_per_100_wbcs_by_automated_count_pct_delta', 'immature_granulocyte_automated_count_pct_delta', 'eosinophils_count_pct_delta', 'basophils_count_pct_delta', 'absolute_immature_granulocyte_automated_count_pct_delta', 'absolute_eosinophils_count_pct_delta', 'absolute_basophils_count_pct_delta', 'atypical_lymphocytes_manual_count_pct_delta', 'bands_manual_count_pct_delta', 'blasts_manual_count_pct_delta', 'promyelocytes_manual_count_pct_delta', 'myelocytes_manual_count_pct_delta', 'metamyelocytes_manual_count_pct_delta', 'other_cell_type_manual_count_pct_delta', 'absolute_blasts_manual_count_pct_delta', 'absolute_promyelocytes_manual_count_pct_delta', 'absolute_myelocytes_manual_count_pct_delta', 'absolute_metamyelocytes_manual_count_pct_delta', 'absolute_other_cell_type_manual_count_pct_delta']
+2025-04-24 14:14:44.174 INFO Dataset - standarize: Standarizing data with cols to ignore ['target']
+2025-04-24 14:14:44.252 INFO Dataset - split_x_y: Splitting data into x and y
+2025-04-24 14:14:44.270 INFO cat_boost - load_data:    target  hrs_between_cbcs  ...  absolute_lymphocytes_count_pct_delta  absolute_monocytes_count_pct_delta
+0       1         -0.717214  ...                             -0.200600                           -0.135778
+2       0          0.855957  ...                             -0.085940                           -0.086319
+3       0          0.044041  ...                             -0.025029                           -0.050665
+4       0          1.438563  ...                             -0.103945                           -0.087332
+5       1          1.911405  ...                              0.693496                           -0.149306
+
+[5 rows x 39 columns]
+2025-04-24 14:18:29.169 INFO utils - get_metrics: CatBoost validation accuracy: 0.9664
+2025-04-24 14:18:29.170 INFO utils - get_metrics: CatBoost validation f1: 0.966
+2025-04-24 14:18:29.170 INFO utils - get_metrics: CatBoost validation recall: 0.9646
+2025-04-24 14:18:29.170 INFO utils - get_metrics: CatBoost validation precision: 0.9675
+2025-04-24 14:18:29.172 INFO utils - get_metrics: CatBoost validation confusion matrix 
+ [[37796  1240]
+ [ 1353 36864]]
+2025-04-24 14:18:29.466 INFO utils - get_metrics: CatBoost test accuracy: 0.9708
+2025-04-24 14:18:29.466 INFO utils - get_metrics: CatBoost test f1: 0.9707
+2025-04-24 14:18:29.466 INFO utils - get_metrics: CatBoost test recall: 0.9708
+2025-04-24 14:18:29.466 INFO utils - get_metrics: CatBoost test precision: 0.9707
+2025-04-24 14:18:29.467 INFO utils - get_metrics: CatBoost test confusion matrix 
+ [[6622  200]
+ [ 199 6621]]
+2025-04-24 14:18:29.704 INFO utils - save_prediction: saving model to ./predictions/individual_predictions/catboost_val_predictions.pkl
+2025-04-24 14:18:29.705 INFO utils - save_prediction: saving model to ./predictions/individual_predictions/catboost_test_predictions.pkl
+2025-04-24 14:22:55.298 INFO Dataset - __init__: Creating Dataset object from <class 'pandas.core.frame.DataFrame'>
+2025-04-24 14:22:55.319 INFO Dataset - drop_columns: Dropping columns ['Unnamed: 0', 'key', 'pat_age_yrs', 'sex'] from dataset
+2025-04-24 14:22:55.427 INFO Dataset - rename_target: Renaming target column wbit_error to 'target'
+2025-04-24 14:22:55.489 INFO Dataset - clean_missing: Cleaning missing data with threshold 0.15 and method delete
+2025-04-24 14:22:56.239 INFO Dataset - clean_missing: Columns droped: ['mpv_delta', 'immature_granulocyte_automated_count_delta', 'absolute_immature_granulocyte_automated_count_delta', 'atypical_lymphocytes_manual_count_delta', 'bands_manual_count_delta', 'blasts_manual_count_delta', 'promyelocytes_manual_count_delta', 'myelocytes_manual_count_delta', 'metamyelocytes_manual_count_delta', 'other_cell_type_manual_count_delta', 'absolute_blasts_manual_count_delta', 'absolute_promyelocytes_manual_count_delta', 'absolute_myelocytes_manual_count_delta', 'absolute_metamyelocytes_manual_count_delta', 'absolute_other_cell_type_manual_count_delta', 'mpv_pct_delta', 'nrbc_per_100_wbcs_by_automated_count_pct_delta', 'immature_granulocyte_automated_count_pct_delta', 'eosinophils_count_pct_delta', 'basophils_count_pct_delta', 'absolute_immature_granulocyte_automated_count_pct_delta', 'absolute_eosinophils_count_pct_delta', 'absolute_basophils_count_pct_delta', 'atypical_lymphocytes_manual_count_pct_delta', 'bands_manual_count_pct_delta', 'blasts_manual_count_pct_delta', 'promyelocytes_manual_count_pct_delta', 'myelocytes_manual_count_pct_delta', 'metamyelocytes_manual_count_pct_delta', 'other_cell_type_manual_count_pct_delta', 'absolute_blasts_manual_count_pct_delta', 'absolute_promyelocytes_manual_count_pct_delta', 'absolute_myelocytes_manual_count_pct_delta', 'absolute_metamyelocytes_manual_count_pct_delta', 'absolute_other_cell_type_manual_count_pct_delta']
+2025-04-24 14:22:56.239 INFO Dataset - standarize: Standarizing data with cols to ignore ['target']
+2025-04-24 14:22:56.318 INFO Dataset - split_x_y: Splitting data into x and y
+2025-04-24 14:22:56.337 INFO cat_boost - load_data:    target  hrs_between_cbcs  ...  absolute_lymphocytes_count_pct_delta  absolute_monocytes_count_pct_delta
+0       1         -0.717214  ...                             -0.200600                           -0.135778
+2       0          0.855957  ...                             -0.085940                           -0.086319
+3       0          0.044041  ...                             -0.025029                           -0.050665
+4       0          1.438563  ...                             -0.103945                           -0.087332
+5       1          1.911405  ...                              0.693496                           -0.149306
+
+[5 rows x 39 columns]
+2025-04-24 14:23:57.945 INFO utils - get_metrics: CatBoost test accuracy: 0.9702
+2025-04-24 14:23:57.945 INFO utils - get_metrics: CatBoost test f1: 0.9703
+2025-04-24 14:23:57.946 INFO utils - get_metrics: CatBoost test recall: 0.9708
+2025-04-24 14:23:57.946 INFO utils - get_metrics: CatBoost test precision: 0.9697
+2025-04-24 14:23:57.949 INFO utils - get_metrics: CatBoost test confusion matrix 
+ [[6615  207]
+ [ 199 6621]]
+2025-04-24 14:23:58.269 INFO utils - save_prediction: saving model to ./predictions/individual_predictions/catboost_test_predictions.pkl
+2025-04-24 14:24:43.609 INFO Dataset - __init__: Creating Dataset object from <class 'pandas.core.frame.DataFrame'>
+2025-04-24 14:24:43.627 INFO Dataset - drop_columns: Dropping columns ['Unnamed: 0', 'key', 'pat_age_yrs', 'sex'] from dataset
+2025-04-24 14:24:43.732 INFO Dataset - rename_target: Renaming target column wbit_error to 'target'
+2025-04-24 14:24:43.793 INFO Dataset - clean_missing: Cleaning missing data with threshold 0.15 and method delete
+2025-04-24 14:24:44.579 INFO Dataset - clean_missing: Columns droped: ['mpv_delta', 'immature_granulocyte_automated_count_delta', 'absolute_immature_granulocyte_automated_count_delta', 'atypical_lymphocytes_manual_count_delta', 'bands_manual_count_delta', 'blasts_manual_count_delta', 'promyelocytes_manual_count_delta', 'myelocytes_manual_count_delta', 'metamyelocytes_manual_count_delta', 'other_cell_type_manual_count_delta', 'absolute_blasts_manual_count_delta', 'absolute_promyelocytes_manual_count_delta', 'absolute_myelocytes_manual_count_delta', 'absolute_metamyelocytes_manual_count_delta', 'absolute_other_cell_type_manual_count_delta', 'mpv_pct_delta', 'nrbc_per_100_wbcs_by_automated_count_pct_delta', 'immature_granulocyte_automated_count_pct_delta', 'eosinophils_count_pct_delta', 'basophils_count_pct_delta', 'absolute_immature_granulocyte_automated_count_pct_delta', 'absolute_eosinophils_count_pct_delta', 'absolute_basophils_count_pct_delta', 'atypical_lymphocytes_manual_count_pct_delta', 'bands_manual_count_pct_delta', 'blasts_manual_count_pct_delta', 'promyelocytes_manual_count_pct_delta', 'myelocytes_manual_count_pct_delta', 'metamyelocytes_manual_count_pct_delta', 'other_cell_type_manual_count_pct_delta', 'absolute_blasts_manual_count_pct_delta', 'absolute_promyelocytes_manual_count_pct_delta', 'absolute_myelocytes_manual_count_pct_delta', 'absolute_metamyelocytes_manual_count_pct_delta', 'absolute_other_cell_type_manual_count_pct_delta']
+2025-04-24 14:24:44.579 INFO Dataset - standarize: Standarizing data with cols to ignore ['target']
+2025-04-24 14:24:44.657 INFO Dataset - split_x_y: Splitting data into x and y
+2025-04-24 14:24:44.676 INFO cat_boost - load_data:    target  hrs_between_cbcs  ...  absolute_lymphocytes_count_pct_delta  absolute_monocytes_count_pct_delta
+0       1         -0.717214  ...                             -0.200600                           -0.135778
+2       0          0.855957  ...                             -0.085940                           -0.086319
+3       0          0.044041  ...                             -0.025029                           -0.050665
+4       0          1.438563  ...                             -0.103945                           -0.087332
+5       1          1.911405  ...                              0.693496                           -0.149306
+
+[5 rows x 39 columns]
+2025-04-24 14:28:39.764 INFO utils - get_metrics: CatBoost validation accuracy: 0.9664
+2025-04-24 14:28:39.764 INFO utils - get_metrics: CatBoost validation f1: 0.966
+2025-04-24 14:28:39.764 INFO utils - get_metrics: CatBoost validation recall: 0.9646
+2025-04-24 14:28:39.764 INFO utils - get_metrics: CatBoost validation precision: 0.9675
+2025-04-24 14:28:39.767 INFO utils - get_metrics: CatBoost validation confusion matrix 
+ [[37796  1240]
+ [ 1353 36864]]
+2025-04-24 14:28:40.045 INFO utils - get_metrics: CatBoost test accuracy: 0.9708
+2025-04-24 14:28:40.045 INFO utils - get_metrics: CatBoost test f1: 0.9707
+2025-04-24 14:28:40.045 INFO utils - get_metrics: CatBoost test recall: 0.9708
+2025-04-24 14:28:40.045 INFO utils - get_metrics: CatBoost test precision: 0.9707
+2025-04-24 14:28:40.046 INFO utils - get_metrics: CatBoost test confusion matrix 
+ [[6622  200]
+ [ 199 6621]]
+2025-04-24 14:28:40.236 INFO utils - save_prediction: saving model to ./predictions/individual_predictions/catboost_val_predictions.pkl
+2025-04-24 14:28:40.237 INFO utils - save_prediction: saving model to ./predictions/individual_predictions/catboost_test_predictions.pkl
+2025-04-24 14:31:29.056 INFO ensemble - get_predictions_paths: ['./predictions/individual_predictions\\ada_boost_val_predictions.pkl', './predictions/individual_predictions\\catboost_val_predictions.pkl', './predictions/individual_predictions\\gradient_boosting_val_predictions.pkl', './predictions/individual_predictions\\kn_val_predictions.pkl', './predictions/individual_predictions\\lr_val_predictions.pkl', './predictions/individual_predictions\\nn_val_predictions.pkl', './predictions/individual_predictions\\svc_val_predictions.pkl']
+2025-04-24 14:31:29.056 INFO ensemble - get_predictions_paths: ['./predictions/individual_predictions\\ada_boost_test_predictions.pkl', './predictions/individual_predictions\\catboost_test_predictions.pkl', './predictions/individual_predictions\\gradient_boosting_test_predictions.pkl', './predictions/individual_predictions\\kn_test_predictions.pkl', './predictions/individual_predictions\\lr_test_predictions.pkl', './predictions/individual_predictions\\nn_test_predictions.pkl', './predictions/individual_predictions\\svc_test_predictions.pkl']
+2025-04-24 14:31:29.056 INFO ensemble - get_predictions_paths: []
+2025-04-24 14:31:29.056 INFO ensemble - get_predictions_paths: []
+2025-04-24 14:31:29.789 INFO Dataset - __init__: Creating Dataset object from <class 'pandas.core.frame.DataFrame'>
+2025-04-24 14:31:29.807 INFO Dataset - drop_columns: Dropping columns ['Unnamed: 0', 'key', 'pat_age_yrs', 'sex'] from dataset
+2025-04-24 14:31:29.909 INFO Dataset - rename_target: Renaming target column wbit_error to 'target'
+2025-04-24 14:31:29.966 INFO Dataset - clean_missing: Cleaning missing data with threshold 0.15 and method delete
+2025-04-24 14:31:30.678 INFO Dataset - clean_missing: Columns droped: ['mpv_delta', 'immature_granulocyte_automated_count_delta', 'absolute_immature_granulocyte_automated_count_delta', 'atypical_lymphocytes_manual_count_delta', 'bands_manual_count_delta', 'blasts_manual_count_delta', 'promyelocytes_manual_count_delta', 'myelocytes_manual_count_delta', 'metamyelocytes_manual_count_delta', 'other_cell_type_manual_count_delta', 'absolute_blasts_manual_count_delta', 'absolute_promyelocytes_manual_count_delta', 'absolute_myelocytes_manual_count_delta', 'absolute_metamyelocytes_manual_count_delta', 'absolute_other_cell_type_manual_count_delta', 'mpv_pct_delta', 'nrbc_per_100_wbcs_by_automated_count_pct_delta', 'immature_granulocyte_automated_count_pct_delta', 'eosinophils_count_pct_delta', 'basophils_count_pct_delta', 'absolute_immature_granulocyte_automated_count_pct_delta', 'absolute_eosinophils_count_pct_delta', 'absolute_basophils_count_pct_delta', 'atypical_lymphocytes_manual_count_pct_delta', 'bands_manual_count_pct_delta', 'blasts_manual_count_pct_delta', 'promyelocytes_manual_count_pct_delta', 'myelocytes_manual_count_pct_delta', 'metamyelocytes_manual_count_pct_delta', 'other_cell_type_manual_count_pct_delta', 'absolute_blasts_manual_count_pct_delta', 'absolute_promyelocytes_manual_count_pct_delta', 'absolute_myelocytes_manual_count_pct_delta', 'absolute_metamyelocytes_manual_count_pct_delta', 'absolute_other_cell_type_manual_count_pct_delta']
+2025-04-24 14:31:30.678 INFO Dataset - standarize: Standarizing data with cols to ignore ['target']
+2025-04-24 14:31:30.754 INFO Dataset - split_x_y: Splitting data into x and y
+2025-04-24 14:31:30.914 INFO utils - save_prediction: saving model to ./predictions/individual_predictions/majority_vote_val_pred.pkl
+2025-04-24 14:31:30.915 INFO utils - save_prediction: saving model to ./predictions/individual_predictions/majority_vote_test_pred.pkl
+2025-04-24 14:31:30.935 INFO utils - get_metrics: majority vote validation accuracy: 0.9486
+2025-04-24 14:31:30.935 INFO utils - get_metrics: majority vote validation f1: 0.9469
+2025-04-24 14:31:30.935 INFO utils - get_metrics: majority vote validation recall: 0.9271
+2025-04-24 14:31:30.935 INFO utils - get_metrics: majority vote validation precision: 0.9676
+2025-04-24 14:31:30.938 INFO utils - get_metrics: majority vote validation confusion matrix 
+ [[37850  1186]
+ [ 2786 35431]]
+2025-04-24 14:31:31.251 INFO utils - get_metrics: majority vote test accuracy: 0.9533
+2025-04-24 14:31:31.251 INFO utils - get_metrics: majority vote test f1: 0.9524
+2025-04-24 14:31:31.251 INFO utils - get_metrics: majority vote test recall: 0.9349
+2025-04-24 14:31:31.251 INFO utils - get_metrics: majority vote test precision: 0.9706
+2025-04-24 14:31:31.253 INFO utils - get_metrics: majority vote test confusion matrix 
+ [[6629  193]
+ [ 444 6376]]
+2025-04-24 14:32:46.375 INFO ensemble - get_predictions_paths: ['./predictions/individual_predictions\\ada_boost_val_predictions.pkl', './predictions/individual_predictions\\catboost_val_predictions.pkl', './predictions/individual_predictions\\gradient_boosting_val_predictions.pkl', './predictions/individual_predictions\\kn_val_predictions.pkl', './predictions/individual_predictions\\lr_val_predictions.pkl', './predictions/individual_predictions\\nn_val_predictions.pkl', './predictions/individual_predictions\\svc_val_predictions.pkl']
+2025-04-24 14:32:46.375 INFO ensemble - get_predictions_paths: ['./predictions/individual_predictions\\ada_boost_test_predictions.pkl', './predictions/individual_predictions\\catboost_test_predictions.pkl', './predictions/individual_predictions\\gradient_boosting_test_predictions.pkl', './predictions/individual_predictions\\kn_test_predictions.pkl', './predictions/individual_predictions\\lr_test_predictions.pkl', './predictions/individual_predictions\\nn_test_predictions.pkl', './predictions/individual_predictions\\svc_test_predictions.pkl']
+2025-04-24 14:32:46.375 INFO ensemble - get_predictions_paths: []
+2025-04-24 14:32:46.375 INFO ensemble - get_predictions_paths: []
+2025-04-24 14:32:47.263 INFO Dataset - __init__: Creating Dataset object from <class 'pandas.core.frame.DataFrame'>
+2025-04-24 14:32:47.284 INFO Dataset - drop_columns: Dropping columns ['Unnamed: 0', 'key', 'pat_age_yrs', 'sex'] from dataset
+2025-04-24 14:32:47.394 INFO Dataset - rename_target: Renaming target column wbit_error to 'target'
+2025-04-24 14:32:47.457 INFO Dataset - clean_missing: Cleaning missing data with threshold 0.15 and method delete
+2025-04-24 14:32:48.245 INFO Dataset - clean_missing: Columns droped: ['mpv_delta', 'immature_granulocyte_automated_count_delta', 'absolute_immature_granulocyte_automated_count_delta', 'atypical_lymphocytes_manual_count_delta', 'bands_manual_count_delta', 'blasts_manual_count_delta', 'promyelocytes_manual_count_delta', 'myelocytes_manual_count_delta', 'metamyelocytes_manual_count_delta', 'other_cell_type_manual_count_delta', 'absolute_blasts_manual_count_delta', 'absolute_promyelocytes_manual_count_delta', 'absolute_myelocytes_manual_count_delta', 'absolute_metamyelocytes_manual_count_delta', 'absolute_other_cell_type_manual_count_delta', 'mpv_pct_delta', 'nrbc_per_100_wbcs_by_automated_count_pct_delta', 'immature_granulocyte_automated_count_pct_delta', 'eosinophils_count_pct_delta', 'basophils_count_pct_delta', 'absolute_immature_granulocyte_automated_count_pct_delta', 'absolute_eosinophils_count_pct_delta', 'absolute_basophils_count_pct_delta', 'atypical_lymphocytes_manual_count_pct_delta', 'bands_manual_count_pct_delta', 'blasts_manual_count_pct_delta', 'promyelocytes_manual_count_pct_delta', 'myelocytes_manual_count_pct_delta', 'metamyelocytes_manual_count_pct_delta', 'other_cell_type_manual_count_pct_delta', 'absolute_blasts_manual_count_pct_delta', 'absolute_promyelocytes_manual_count_pct_delta', 'absolute_myelocytes_manual_count_pct_delta', 'absolute_metamyelocytes_manual_count_pct_delta', 'absolute_other_cell_type_manual_count_pct_delta']
+2025-04-24 14:32:48.246 INFO Dataset - standarize: Standarizing data with cols to ignore ['target']
+2025-04-24 14:32:48.333 INFO Dataset - split_x_y: Splitting data into x and y
+2025-04-24 14:32:48.386 INFO utils - save_prediction: saving model to ./predictions/individual_predictions/majority_vote_val_pred.pkl
+2025-04-24 14:32:48.387 INFO utils - save_prediction: saving model to ./predictions/individual_predictions/majority_vote_test_pred.pkl
+2025-04-24 14:32:48.410 INFO utils - get_metrics: majority vote validation accuracy: 0.9663
+2025-04-24 14:32:48.410 INFO utils - get_metrics: majority vote validation f1: 0.9656
+2025-04-24 14:32:48.410 INFO utils - get_metrics: majority vote validation recall: 0.9566
+2025-04-24 14:32:48.410 INFO utils - get_metrics: majority vote validation precision: 0.9748
+2025-04-24 14:32:48.413 INFO utils - get_metrics: majority vote validation confusion matrix 
+ [[38090   946]
+ [ 1658 36559]]
+2025-04-24 14:32:48.708 INFO utils - get_metrics: majority vote test accuracy: 0.9686
+2025-04-24 14:32:48.708 INFO utils - get_metrics: majority vote test f1: 0.9683
+2025-04-24 14:32:48.708 INFO utils - get_metrics: majority vote test recall: 0.9579
+2025-04-24 14:32:48.708 INFO utils - get_metrics: majority vote test precision: 0.9789
+2025-04-24 14:32:48.709 INFO utils - get_metrics: majority vote test confusion matrix 
+ [[6681  141]
+ [ 287 6533]]
+2025-04-24 15:47:33.768 INFO ensemble - get_predictions_paths: ['./predictions/individual_predictions\\ada_boost_val_predictions.pkl', './predictions/individual_predictions\\catboost_val_predictions.pkl', './predictions/individual_predictions\\gradient_boosting_val_predictions.pkl', './predictions/individual_predictions\\kn_val_predictions.pkl', './predictions/individual_predictions\\lr_val_predictions.pkl', './predictions/individual_predictions\\nn_val_predictions.pkl', './predictions/individual_predictions\\svc_val_predictions.pkl']
+2025-04-24 15:47:33.768 INFO ensemble - get_predictions_paths: ['./predictions/individual_predictions\\ada_boost_test_predictions.pkl', './predictions/individual_predictions\\catboost_test_predictions.pkl', './predictions/individual_predictions\\gradient_boosting_test_predictions.pkl', './predictions/individual_predictions\\kn_test_predictions.pkl', './predictions/individual_predictions\\lr_test_predictions.pkl', './predictions/individual_predictions\\nn_test_predictions.pkl', './predictions/individual_predictions\\svc_test_predictions.pkl']
+2025-04-24 15:47:33.768 INFO ensemble - get_predictions_paths: []
+2025-04-24 15:47:33.768 INFO ensemble - get_predictions_paths: []
+2025-04-24 15:47:34.778 INFO Dataset - __init__: Creating Dataset object from <class 'pandas.core.frame.DataFrame'>
+2025-04-24 15:47:34.796 INFO Dataset - drop_columns: Dropping columns ['Unnamed: 0', 'key', 'pat_age_yrs', 'sex'] from dataset
+2025-04-24 15:47:34.967 INFO Dataset - rename_target: Renaming target column wbit_error to 'target'
+2025-04-24 15:47:35.041 INFO Dataset - clean_missing: Cleaning missing data with threshold 0.15 and method delete
+2025-04-24 15:47:35.886 INFO Dataset - clean_missing: Columns droped: ['mpv_delta', 'immature_granulocyte_automated_count_delta', 'absolute_immature_granulocyte_automated_count_delta', 'atypical_lymphocytes_manual_count_delta', 'bands_manual_count_delta', 'blasts_manual_count_delta', 'promyelocytes_manual_count_delta', 'myelocytes_manual_count_delta', 'metamyelocytes_manual_count_delta', 'other_cell_type_manual_count_delta', 'absolute_blasts_manual_count_delta', 'absolute_promyelocytes_manual_count_delta', 'absolute_myelocytes_manual_count_delta', 'absolute_metamyelocytes_manual_count_delta', 'absolute_other_cell_type_manual_count_delta', 'mpv_pct_delta', 'nrbc_per_100_wbcs_by_automated_count_pct_delta', 'immature_granulocyte_automated_count_pct_delta', 'eosinophils_count_pct_delta', 'basophils_count_pct_delta', 'absolute_immature_granulocyte_automated_count_pct_delta', 'absolute_eosinophils_count_pct_delta', 'absolute_basophils_count_pct_delta', 'atypical_lymphocytes_manual_count_pct_delta', 'bands_manual_count_pct_delta', 'blasts_manual_count_pct_delta', 'promyelocytes_manual_count_pct_delta', 'myelocytes_manual_count_pct_delta', 'metamyelocytes_manual_count_pct_delta', 'other_cell_type_manual_count_pct_delta', 'absolute_blasts_manual_count_pct_delta', 'absolute_promyelocytes_manual_count_pct_delta', 'absolute_myelocytes_manual_count_pct_delta', 'absolute_metamyelocytes_manual_count_pct_delta', 'absolute_other_cell_type_manual_count_pct_delta']
+2025-04-24 15:47:35.886 INFO Dataset - standarize: Standarizing data with cols to ignore ['target']
+2025-04-24 15:47:36.009 INFO Dataset - split_x_y: Splitting data into x and y
+2025-04-24 15:47:36.087 INFO utils - save_prediction: saving model to ./predictions/individual_predictions/majority_vote_val_pred.pkl
+2025-04-24 15:47:36.089 INFO utils - save_prediction: saving model to ./predictions/individual_predictions/majority_vote_test_pred.pkl
+2025-04-24 15:47:36.116 INFO utils - get_metrics: majority vote validation accuracy: 0.9663
+2025-04-24 15:47:36.116 INFO utils - get_metrics: majority vote validation f1: 0.9656
+2025-04-24 15:47:36.116 INFO utils - get_metrics: majority vote validation recall: 0.9566
+2025-04-24 15:47:36.116 INFO utils - get_metrics: majority vote validation precision: 0.9748
+2025-04-24 15:47:36.121 INFO utils - get_metrics: majority vote validation confusion matrix 
+ [[38090   946]
+ [ 1658 36559]]
+2025-04-24 15:47:36.672 INFO utils - get_metrics: majority vote test accuracy: 0.9686
+2025-04-24 15:47:36.672 INFO utils - get_metrics: majority vote test f1: 0.9683
+2025-04-24 15:47:36.672 INFO utils - get_metrics: majority vote test recall: 0.9579
+2025-04-24 15:47:36.672 INFO utils - get_metrics: majority vote test precision: 0.9789
+2025-04-24 15:47:36.674 INFO utils - get_metrics: majority vote test confusion matrix 
+ [[6681  141]
+ [ 287 6533]]

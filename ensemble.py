@@ -68,7 +68,7 @@ def merge_predicitions_and_features(feat_df:pd.DataFrame,predictions_df:pd.DataF
 
 
 def get_mayority_predictions(df_val:pd.DataFrame, df_test:pd.DataFrame) -> None:
-    prediction_columns:list[str] = ['ada_boost','gradient_boosting','kn','lr','svc']
+    prediction_columns:list[str] = ['kn','catboost','nn']
     majority_vote_val = round(df_val[prediction_columns].sum(axis=1) / df_val[prediction_columns].shape[1]).to_numpy().astype(int)
     majority_vote_test = round(df_test[prediction_columns].sum(axis=1) / df_test[prediction_columns].shape[1]).to_numpy().astype(int)
     utils.save_prediction(majority_vote_val, "majority_vote_val_pred")
