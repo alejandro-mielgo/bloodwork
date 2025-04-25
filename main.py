@@ -142,7 +142,16 @@ if __name__ == "__main__":
 
     raw_data,columns = get_data(csv_path = "./data/diff.csv" )
     st.write("# Wrong blood in tube data")
-    hist_tab, scatter_tab, health_tab, model_tab = st.tabs(["Histograms", "Scatter plot", "Data health", "Models"])
+    about_tab, hist_tab, scatter_tab, health_tab, model_tab = st.tabs(["About","Histograms", "Scatter plot", "Data health", "Models"])
+
+    with about_tab:
+        st.write("### About this app")
+        st.write("This app is designed to help you explore the WBIT dataset.  \n",
+                 "You can visualize the data using histograms and scatter plots,  \n",
+                 "check the health of the data, and evaluate the performance of different models.  \n",
+                 "The dataset contains information about blood samples and whether they were correctly labeled or not.  \n")
+        st.write("### Data Source")
+        st.write("https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/XCYHPX \n")
 
 
     with hist_tab:

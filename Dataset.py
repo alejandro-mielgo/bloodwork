@@ -22,6 +22,18 @@ class Dataset:
         l2: str = f"Clean dataframe: {self.cleaned}\n"
         return l1 + l2
 
+    def auto(self,target_name)->Self:
+        """
+        This method is used to automatically clean the data. It will remove columns with more than 10% missing values, standarize columns and split the data into train and test sets.
+        """
+        self.rename_target(target_name=target_name)
+        self.one_hot_encode()
+        self.split_train_test()
+        self.clean_missing(missing_threshold=0.1)
+        self.standarize()
+        self.split_x_y()
+        return self
+
     def clean_missing(
         self, missing_threshold: float = 0.1, test_method: str = "delete"
     ) -> Self:
@@ -297,9 +309,7 @@ if __name__ == "__main__":
     ]
     dataset = Dataset(data=df)
 
-    dataset.rename_target("c1").one_hot_encode().split_train_test().clean_missing(
-        missing_threshold=0.01
-    ).create_cuadratic_features()
+    dataset.auto(target_name="c1")
 
     print(dataset.train)
     print(dataset.test)
