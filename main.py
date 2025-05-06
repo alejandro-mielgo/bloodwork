@@ -249,5 +249,5 @@ if __name__ == "__main__":
         st.write(test_summary)
 
     url:str = "https://www.linkedin.com/in/alejandro-m-273aaa59/"
-    st.caption('[Alejandro Mielgo ](%s)'% url)
-    st.caption('Máster Proyectos big data · UPM')
+    st.divider()
+    st.caption('[Alejandro Mielgo](%s) · Máster Proyectos big data · UPM · 2025'% url)
