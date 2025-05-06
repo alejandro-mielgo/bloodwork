@@ -247,3 +247,7 @@ if __name__ == "__main__":
         st.write(train_summary)
         st.write('### Results with test data')
         st.write(test_summary)
+
+    url:str = "https://www.linkedin.com/in/alejandro-m-273aaa59/"
+    st.caption('[Alejandro Mielgo ](%s)'% url)
+    st.caption('Máster Proyectos big data · UPM')
