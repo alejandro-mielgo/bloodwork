@@ -9,6 +9,7 @@ from sklearn.metrics import confusion_matrix
 
 import utils
 
+# streamlit run c:/Users/a_mie/Desktop/bloodwork/main.py
 
 @st.cache_data
 def get_data(csv_path:str) -> tuple[pd.DataFrame,list[str]]:
@@ -97,6 +98,22 @@ def load_predictions() -> tuple[pd.DataFrame,pd.DataFrame]:
     return val_predictions, test_predictions
 
 
+@st.cache_data
+def load_summary() -> tuple[pd.DataFrame,pd.DataFrame]:
+    val_summary:pd.DataFrame = pd.read_csv("./predictions/val_summary.csv")
+    test_summary:pd.DataFrame = pd.read_csv("./predictions/test_summary.csv")
+    val_summary = val_summary.drop(columns=['Unnamed: 0'])
+    test_summary = test_summary.drop(columns=['Unnamed: 0'])
+    metrics:list[str] = ['accuracy','f1','recall','precision','true_neg','false_pos','false_neg','true_pos']
+    val_summary['metric'] = metrics
+    test_summary['metric'] = metrics
+    val_summary.set_index('metric', inplace=True)
+    test_summary.set_index('metric', inplace=True)
+    val_summary = val_summary.transpose()
+    test_summary = test_summary.transpose()
+    
+    return val_summary, test_summary
+
 def get_model_performance(model_name:str,val_predictions:pd.DataFrame,test_predictions:pd.DataFrame) -> None:
 
     val_metrics = utils.get_metrics(y_true=val_predictions['target'], y_pred=val_predictions[model_name], graph=False)
@@ -142,7 +159,7 @@ if __name__ == "__main__":
 
     raw_data,columns = get_data(csv_path = "./data/diff.csv" )
     st.write("# Wrong blood in tube data")
-    about_tab, hist_tab, scatter_tab, health_tab, model_tab = st.tabs(["About","Histograms", "Scatter plot", "Data health", "Models"])
+    about_tab, hist_tab, scatter_tab, health_tab, model_tab, comparative = st.tabs(["About","Histograms", "Scatter plot", "Data health", "Models","Model Comparative"])
 
     with about_tab:
         st.write("### About this app")
@@ -203,12 +220,22 @@ if __name__ == "__main__":
                                 # "neural network ensemble":"nn_ensemble"
                                 }
 
-        val_predictions, test_predictions = load_predictions()
+        
+
 
         option:str = st.selectbox(label="Select model:", options=options.keys(), key="selectbox_model")
         model_name:str = options[option]
-        
+
+        val_predictions, test_predictions = load_predictions()
         st.write(f'### model performance for {option}')
         get_model_performance( model_name=model_name,
                                val_predictions=val_predictions,
                                test_predictions=test_predictions)
+        
+    
+    with comparative:
+        train_summary,test_summary = load_summary()
+        st.write('### Results with validation data')
+        st.write(train_summary)
+        st.write('### Results with test data')
+        st.write(test_summary)

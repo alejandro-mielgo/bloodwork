@@ -10,13 +10,17 @@ import utils
 TRAIN_TEST_SPLIT : float = 0.85
 SEED_NUMBER : int = 0
 
-def get_predictions_paths() -> tuple[list[str]]:
-    val_predictions_paths:list[str] = glob.glob("./predictions/individual_predictions/*_val_predictions.pkl")
-    test_predictions_paths:list[str] = glob.glob("./predictions/individual_predictions/*_test_predictions.pkl")
+def get_predictions_paths(get_ensemble:bool=False) -> tuple[list[str]]:
+    val_predictions_paths:list= glob.glob("./predictions/individual_predictions/*_val_predictions.pkl")
+    test_predictions_paths:list= glob.glob("./predictions/individual_predictions/*_test_predictions.pkl")
 
-    val_probabilities_paths:list[str] = glob.glob("./predictions/*_val_probabilities.pkl")
-    test_probabilities_paths:list[str] = glob.glob("./predictions/*_test_probabilities.pkl")
+    val_probabilities_paths:list = glob.glob("./predictions/*_val_probabilities.pkl")
+    test_probabilities_paths:list = glob.glob("./predictions/*_test_probabilities.pkl")
     
+    if get_ensemble:
+        val_predictions_paths.append("./predictions/individual_predictions\\majority_vote_val_pred.pkl")
+        test_predictions_paths.append("./predictions/individual_predictions\\majority_vote_test_pred.pkl")
+
     logging.info(val_predictions_paths)
     logging.info(test_predictions_paths)
     logging.info(val_probabilities_paths)

@@ -92,6 +92,10 @@ def get_metrics(
     
     cm:np.ndarray = confusion_matrix(y_true, y_pred)
     logging.info(f"{model_name} confusion matrix \n {str(cm)}")
+    metrics['true_neg'] = int(cm[0][0])
+    metrics['false_pos'] = int(cm[0][1])
+    metrics['false_neg'] = int(cm[1][0])
+    metrics['true_pos'] = int(cm[1][1])
 
     if graph:
 
