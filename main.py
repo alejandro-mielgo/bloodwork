@@ -8,6 +8,7 @@ from scipy.stats import mannwhitneyu
 from sklearn.metrics import confusion_matrix
 
 import utils
+import montecarlo
 
 # streamlit run c:/Users/a_mie/Desktop/bloodwork/main.py
 
@@ -167,7 +168,7 @@ if __name__ == "__main__":
 
     st.image('./images/banner.png')
     st.write("# Wrong blood in tube data")
-    about_tab, hist_tab, scatter_tab, health_tab, model_tab, comparative = st.tabs(["About","Histograms", "Scatter plot", "Data health", "Models","Model Comparative"])
+    about_tab, hist_tab, scatter_tab, health_tab, model_tab, comparative, monte = st.tabs(["About","Histograms", "Scatter plot", "Data health", "Models","Model Comparative","Montecarlo"])
 
     with about_tab:
         st.write("### About this app")
@@ -247,6 +248,27 @@ if __name__ == "__main__":
         st.write(train_summary)
         st.write('### Results with test data')
         st.write(test_summary)
+
+    with monte:
+        st.write('This montercarlo simulation, calculates the probability of a bad outcome due to a WBIT error ',
+                 'taking into account the blood types compatibility and occurence in the human population')
+        
+        n_samples:int = st.slider(label='number of samples',min_value=1000,value=10000,max_value=100000,step=1000)
+        error_rate:int = st.slider(label='individual labeling error chance',min_value=0.0,value=0.001,max_value=0.05,step=0.0001,format="%0.4f")
+
+        montecarlo_df = montecarlo.run_simulation(n_samples=n_samples,indiviual_error_rate=error_rate)
+        sim_stats = montecarlo.get_simulation_stats(df=montecarlo_df,n_samples=n_samples)
+        st.write(f"error labeling donor : {sim_stats['donor_wrong_label']}  \n",
+                 f"error labeling receptor : {sim_stats['receptor_wrong_label']}  \n",
+                 f"bad outcomes : {sim_stats['bad_outcomes']}  \n",
+                 f"bad outcomes rate : {sim_stats['bad_outcomes']/n_samples}  \n"
+                 )
+
+        montecarlo_summary = montecarlo.generate_summary(df=montecarlo_df)
+        st.pyplot(montecarlo.plot_outcomes(summary=montecarlo_summary))
+        st.write('The vulnerability would be chance of having complications given that there has been an error in the labeling of some sample')
+        st.pyplot(montecarlo.plot_vulnerability(summary=montecarlo_summary))
+
 
     url:str = "https://www.linkedin.com/in/alejandro-m-273aaa59/"
     st.divider()
