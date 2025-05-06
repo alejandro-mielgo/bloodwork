@@ -11,6 +11,11 @@ import utils
 
 # streamlit run c:/Users/a_mie/Desktop/bloodwork/main.py
 
+st.set_page_config(
+    page_title="WBIT errors",
+    page_icon="./images/favicon.png",
+)
+
 @st.cache_data
 def get_data(csv_path:str) -> tuple[pd.DataFrame,list[str]]:
     #Load raw data for histogram and scatter plots
@@ -159,10 +164,7 @@ def get_model_performance(model_name:str,val_predictions:pd.DataFrame,test_predi
 if __name__ == "__main__":
 
     raw_data,columns = get_data(csv_path = "./data/diff.csv" )
-    st.set_page_config(
-        page_title="WBIT errors",
-        page_icon="./images/favicon.png",
-    )
+
     st.image('./images/banner.png')
     st.write("# Wrong blood in tube data")
     about_tab, hist_tab, scatter_tab, health_tab, model_tab, comparative = st.tabs(["About","Histograms", "Scatter plot", "Data health", "Models","Model Comparative"])
