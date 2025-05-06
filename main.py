@@ -78,6 +78,7 @@ def compare_populations(df:pd.DataFrame, feature:str, significant_threshold:floa
     u_2:float = n_0*n_1 - u_1
 
     st.write(f"### Mann-Whitney U test for {feature}  \n",
+             f'#### Univariate test  \n',
              f"h_0: Both populations are the same  \n",
              f"h_1: Populations are different  \n")
 
@@ -158,6 +159,11 @@ def get_model_performance(model_name:str,val_predictions:pd.DataFrame,test_predi
 if __name__ == "__main__":
 
     raw_data,columns = get_data(csv_path = "./data/diff.csv" )
+    st.set_page_config(
+        page_title="WBIT errors",
+        page_icon="./images/favicon.png",
+    )
+    st.image('./images/banner.png')
     st.write("# Wrong blood in tube data")
     about_tab, hist_tab, scatter_tab, health_tab, model_tab, comparative = st.tabs(["About","Histograms", "Scatter plot", "Data health", "Models","Model Comparative"])
 
